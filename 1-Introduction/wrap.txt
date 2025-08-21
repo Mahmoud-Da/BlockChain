@@ -1,0 +1,100 @@
+
+*** 1. Welcome to the course! ***
+# Lecture Notes – Blockchain Course Introduction
+
+**Instructor:** Kirill Eremenko
+
+## Purpose of the First Tutorial
+
+* Overview of the course structure
+* Guidance on how to navigate the tutorials
+
+---
+
+## Course Modules
+
+### Module 1: Blockchain Intuition
+
+* Focus: Understanding the **fundamentals of blockchain** on an intuitive level
+* Goal: Make blockchain concepts feel natural and easy to grasp
+* Practical Component: **Create a general-purpose blockchain** (step-by-step coding with Adelan)
+
+### Module 2: Cryptocurrency
+
+* **Module 2A: Cryptocurrency Intuition**
+
+  * Fundamentals of how cryptocurrencies work
+
+* **Module 2B: Cryptocurrency Transactions Intuition**
+
+  * Deeper dive into how cryptocurrency transactions function
+
+* Practical Component: **Code your own cryptocurrency**
+
+  * Built upon the general-purpose blockchain from Module 1
+
+### Module 3: Smart Contracts
+
+* **Intuition:**
+
+  * What smart contracts are
+  * Why they are important for the future of the internet
+  * How they relate to blockchain
+
+* Practical Component:
+
+  * **Create a smart contract**
+  * Walkthrough of launching/imitating an ICO
+  * Learn how smart contracts are applied in real-world scenarios
+
+---
+
+## Learning Paths
+
+### 1. Full Monty (Comprehensive Path)
+
+* Complete **all modules** (intuition + practical)
+* Covers every aspect: theory + coding
+* Most thorough but time-intensive
+
+### 2. Expert Blockchain Knowledge Path
+
+* Focus only on **intuition tutorials** (Modules 1, 2, and 3 intuition)
+* No coding required
+* Suitable for:
+
+  * Consulting in blockchain
+  * Strategy/business applications
+  * Gaining deep conceptual understanding
+
+### 3. Blockchain Fundamentals Path
+
+* Complete **only Module 1 (Blockchain Intuition)**
+* Provides a strong foundation in blockchain basics
+* Enables meaningful conversations about blockchain
+* Covers key concepts like:
+
+  * Decentralization
+  * Hash cryptography
+  * Byzantine fault tolerance
+
+---
+
+## Flexibility in Learning
+
+* Tutorials can be taken in **any order**
+* You may:
+
+  * Start from Module 3 if you already have grounding
+  * Skip coding sections and return later if desired
+
+---
+
+## Key Takeaways
+
+* Course is structured for both **developers** and **non-developers**
+* Multiple learning paths allow tailoring based on goals and time
+* Even completing **only Module 1 Intuition** gives strong blockchain literacy
+* The course balances **intuition (concepts)** and **practical (coding)**
+
+---
