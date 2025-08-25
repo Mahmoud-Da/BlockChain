@@ -170,3 +170,123 @@ Explanation:
 * Link available in the course notes.
 
 ---
+
+*** 7. Understanding SHA256 - Hash ***
+---
+
+# Lecture Notes: Cryptography and SHA256 in Blockchain
+
+## Introduction
+
+* Topic: **Cryptography in Blockchain**
+* Focus: The role of the **SHA256 Hash algorithm**.
+* SHA256 = one of the **core building blocks** of blockchain technology.
+
+---
+
+## Fingerprint Analogy
+
+* Every person has a **unique fingerprint** (low probability of duplicates: \~1 in 60 million).
+* Fingerprints are identifiers, widely used in forensics to identify individuals.
+* Idea: apply the same concept to **digital documents**.
+* Digital fingerprint = **SHA256 Hash**.
+
+---
+
+## What is SHA256?
+
+* **SHA** = Secure Hash Algorithm.
+* **256** = number of bits (output size).
+* Always produces a **64-character hexadecimal hash**.
+
+  * Hexadecimal = digits (0–9) + letters (A–F).
+  * Each character = 4 bits → 64 × 4 = 256 bits.
+* Created by the **NSA**, but the algorithm is **public and open**.
+* Widely used in:
+
+  * Password storage
+  * Document verification
+  * Blockchain
+
+---
+
+## Properties of SHA256
+
+1. **One-way function**
+
+   * Cannot reverse-engineer the original data from the hash.
+   * Similar to fingerprints: cannot recreate a person from a fingerprint.
+
+2. **Deterministic**
+
+   * Same input → always same output.
+   * Example: entering identical data always returns the same hash.
+
+3. **Fast computation**
+
+   * Hash must be computed quickly for efficiency in blockchain processes.
+
+4. **Avalanche Effect**
+
+   * Small changes in input = **completely different hash**.
+   * Example: changing a single character drastically changes the output.
+   * Crucial for blockchain integrity.
+
+5. **Collision Resistance**
+
+   * A “collision” = two different inputs producing the same hash.
+   * In theory possible (pigeonhole principle), but extremely rare.
+   * Must withstand **artificially created collisions** (important for security).
+   * Prevents document forgery (e.g., property ownership fraud).
+
+---
+
+## Demonstration (Tools Provided)
+
+* Toolkit: [tools.superdatascience.com/blockchain/hash](https://tools.superdatascience.com/blockchain/hash)
+* Created by Anders Brownworth (Anders94).
+* Features:
+
+  * Input any data → see resulting SHA256 hash.
+  * Shows determinism and avalanche effect.
+  * Works on **any digital input** (text, images, videos, executables, etc.).
+
+---
+
+## Additional Notes on Collisions
+
+* **Pigeonhole Principle**: finite number of hashes vs. infinite possible inputs → collisions inevitable in theory.
+* Acceptable when rare, but **deliberately engineered collisions** are a risk.
+* A secure hash algorithm must **resist intentional collision attacks**.
+
+---
+
+## Summary of SHA256 Requirements
+
+For a hash algorithm to be useful in blockchain, it must be:
+
+1. One-way
+2. Deterministic
+3. Fast to compute
+4. Demonstrate avalanche effect
+5. Collision-resistant
+
+---
+
+## Recommended Reading
+
+* **“On the Secure Hash Algorithm Family”**
+
+  * Chapter 1 of *Cryptography in Context*
+  * Authors: Penard & Werkhoven
+  * Explains SHA256 in detail
+
+---
+
+## Conclusion
+
+* SHA256 is the **digital fingerprint system** powering blockchain.
+* Its properties ensure **security, integrity, and reliability**.
+* Mastering SHA256 is crucial for understanding blockchain concepts such as mining and consensus protocols.
+
+---
