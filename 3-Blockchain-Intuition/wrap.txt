@@ -290,3 +290,82 @@ For a hash algorithm to be useful in blockchain, it must be:
 * Mastering SHA256 is crucial for understanding blockchain concepts such as mining and consensus protocols.
 
 ---
+
+*** 8. Immutable Ledger ***
+# Lecture Notes: Immutable Ledger in Blockchain
+
+## Review of Previous Lesson
+
+* Previously discussed **hash cryptography**.
+* Learned how blocks in a blockchain are **cryptographically linked** together, forming the chain.
+
+## What is the Immutable Ledger?
+
+* **Immutable ledger** = data recorded in the blockchain cannot be changed.
+* Once information is added, altering it becomes extremely difficult.
+
+## Real-World Example: Property Ownership
+
+1. **Traditional System**
+
+   * Buying a house involves paying money in exchange for a **title deed**.
+   * Ownership must be **registered with a government authority** (e.g., city council).
+   * Registration is recorded in a **ledger** (either a physical book or digital file).
+   * Issues:
+
+     * Physical ledgers can be lost, stolen, or tampered with.
+     * Digital ledgers (e.g., spreadsheets) are easy to edit.
+     * Errors and corruption are common.
+     * Natural disasters can destroy records.
+2. **Problems**
+
+   * If a ledger entry is altered or deleted, ownership can be disputed.
+   * Example: Bank of America mistakenly foreclosed homes during the 2008 financial crisis due to unreliable records.
+   * Example: In places like Tahiti, natural disasters destroy property records, making ownership unclear.
+   * World Bank estimates **70% of the world’s population** lacks proper property titling systems.
+
+## Blockchain Solution
+
+* **Blockchain as a property ledger**:
+
+  * Each transaction (buying/selling) = new block in the chain.
+  * Tampering with one block breaks the cryptographic links with all subsequent blocks.
+  * To successfully alter one record, every block after it must also be changed—making tampering impractical.
+* Compared to traditional systems:
+
+  * More secure than paper or spreadsheets.
+  * Harder to alter records.
+  * Ensures data integrity over time.
+
+## Use Cases Beyond Property
+
+* **Property ledgers**: leading real-world example of blockchain adoption outside finance.
+* **Diamonds**: tracking origin, sales, and ownership history.
+* **Other physical assets**: any system currently using ledgers can be moved to blockchain.
+
+## Example: UK Property Transactions
+
+* \~100,000 residential property transactions per month.
+* Only includes transactions valued **above £40,000**.
+* Breakdown:
+
+  * \~3,000 per day.
+  * \~140 per hour.
+  * \~1 transaction every 30 seconds.
+* High transaction volume increases the likelihood of errors in traditional ledgers.
+* Blockchain can solve these issues by providing a secure, immutable record.
+
+## Key Takeaways
+
+* **Immutable ledger** means data recorded in blockchain is permanent and tamper-resistant.
+* Provides greater trust in systems that depend on ledgers (property, assets, records).
+* Governments are already considering blockchain for property title management.
+* Potential to revolutionize not just finance, but also asset tracking, governance, and institutional record-keeping.
+
+## Suggested Reading
+
+* *"Blockchain Economy: A Beginner's Guide to Institutional Cryptoeconomics"* (popular article on Medium, \~10,000 claps).
+
+  * Discusses how blockchain impacts government, society, and the economy.
+
+---
