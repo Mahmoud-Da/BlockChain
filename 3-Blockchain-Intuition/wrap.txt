@@ -67,3 +67,106 @@
 * Preparation for practical tutorials where you will build your first blockchain step by step.
 
 ---
+
+*** 6. What is a Blockchain ***
+# Blockchain Course – Lecture Notes (What is a Blockchain? High-Level Overview)
+
+## Origins of Blockchain
+
+* **Stuart Haber and W. Scott Stornetta (1991)**
+
+  * Published a paper: *"How to Time-Stamp a Digital Document"*.
+  * Contained most of the core ideas behind what is now called blockchain.
+* **Satoshi Nakamoto**
+
+  * Later formalized the concept and introduced the term "blockchain."
+
+## Definition
+
+* **Wikipedia definition:**
+  “A blockchain is a continuously growing list of records, called blocks, which are linked and secured using cryptography.”
+* This definition is general but provides a starting point.
+
+## Structure of a Block
+
+* **Components of a block:**
+
+  1. **Data** – Information stored (e.g., “Hello world”).
+  2. **Previous Hash** – Reference to the hash of the block before it.
+  3. **Own Hash** – Unique digital fingerprint of the block.
+
+* **Hash (digital fingerprint):**
+
+  * Derived from the block’s data and previous hash.
+  * Always 64 characters long.
+  * Provides a unique, tamper-detectable identity for the block.
+
+## The Genesis Block
+
+* The **first block** in a blockchain.
+* Called the **Genesis Block**.
+* Characteristics:
+
+  * Always remains block number one (cannot be replaced).
+  * Contains data but **no previous hash** (represented as all zeros).
+  * Has its own hash.
+
+## Linking Blocks Together
+
+* Each block references the **previous block’s hash**.
+* This creates a **cryptographic chain** of blocks.
+* Example:
+
+  * Block 2’s `previous hash` = Block 1’s `hash`.
+  * Block 3’s `previous hash` = Block 2’s `hash`.
+
+Blockchain Structure (High-Level View)
+-------------------code----------------------
+
+[ Block 1 (Genesis) ]        [ Block 2 ]                 [ Block 3 ]
+Data: Hello World            Data: Some Data             Data: More Data
+Prev Hash: 0000...           Prev Hash: hash1            Prev Hash: hash2
+Hash: hash1                  Hash: hash2                 Hash: hash3
+
+      |--------------------->|--------------------------->|
+             linked                  linked
+
+-------------------code----------------------
+Explanation:
+- Each block stores Data, Prev Hash, and Hash.
+- "Prev Hash" always equals the Hash of the previous block.
+- The Genesis Block has no previous hash (set to 0000...).
+- Changing any block changes its hash and breaks the chain.
+
+
+## Importance of Cryptographic Linking
+
+* If data in a block is tampered with:
+
+  * Its hash (fingerprint) changes.
+  * The next block’s `previous hash` no longer matches.
+  * This breaks the chain and signals tampering.
+* Therefore, blockchain ensures **integrity and immutability**.
+
+## Key Takeaway
+
+* A blockchain is essentially a **chain of blocks linked by hashes**.
+* Tampering with any block invalidates the chain.
+* This cryptographic linking provides **security and trust** in the system.
+
+## What’s Next
+
+* Future tutorials will cover:
+
+  * Hash cryptography (next lesson).
+  * Mining.
+  * Distributed peer-to-peer networks.
+  * Consensus protocols.
+  * Immutable ledgers.
+
+## Recommended Reading
+
+* *“How to Time-Stamp a Digital Document”* by **Haber and Stornetta (1991)**.
+* Link available in the course notes.
+
+---
