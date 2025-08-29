@@ -804,3 +804,95 @@ Explanation:
 * This foundation prepares learners to understand the practical and computational aspects of blockchain mining.
 
 ---
+
+*** 12. Byzantine Fault Tolerance ***
+---
+
+# Byzantine Fault Tolerance (BFT)
+
+## 1. Introduction
+
+* **Concept**: Byzantine fault tolerance (BFT) is the ability of a decentralized system to reach consensus despite faulty or malicious participants.
+* **Origin**: Illustrated through the **Byzantine Generals Problem**.
+* **Importance**: Essential in blockchains and other decentralized or safety-critical systems (e.g., airplanes, rockets, nuclear plants).
+
+---
+
+## 2. The Byzantine Generals Problem
+
+* **Scenario**:
+
+  * Several generals surround a castle.
+  * They must **agree (consensus)** on whether to **attack or retreat**.
+  * Success depends on a **majority agreement**.
+  * A traitor may attempt to disrupt consensus.
+
+* **Key Conditions**:
+
+  * Communication is limited to **oral messages**.
+  * Any general, including the commander, **could be a traitor**.
+  * Generals must use a **pre-agreed algorithm** to reach consensus.
+
+---
+
+## 3. Example with Four Generals
+
+### Case A: A Lieutenant is the Traitor
+
+1. Commander issues the order (e.g., “Attack”).
+2. Generals **relay** the command to others.
+3. Traitor lies, saying the commander ordered “Retreat.”
+4. Each general compares messages:
+
+   * Two say “Attack,” one says “Retreat.”
+   * Majority = Attack.
+5. **Result**: Consensus is achieved, army wins.
+
+### Case B: The Commander is the Traitor
+
+1. Commander sends conflicting orders (e.g., two “Attack,” one “Retreat”).
+2. Generals relay messages to each other.
+3. Each receives two similar messages vs. one conflicting message.
+4. They follow the **majority**.
+5. **Result**: Consensus is still reached.
+
+---
+
+## 4. Tolerance Limit
+
+* With **one traitor**, consensus is possible.
+* With **two traitors** among four generals: consensus is **impossible**.
+* General rule (from the 1982 paper):
+
+  * The system works if **≤ 1/3 of participants are traitors**.
+  * Example: With 10 generals, consensus possible if ≤ 3 are traitors.
+
+---
+
+## 5. Applications of BFT
+
+### Blockchain
+
+* Protects against malicious nodes or attackers.
+* Consensus protocols (to be discussed later) rely on BFT principles.
+
+### Other Systems
+
+* **Airplanes**: Multiple sensors provide input; system tolerates faulty readings.
+* **Nuclear power plants**: Safety requires tolerance to component failures.
+* **Rockets & ISS docking**: Must withstand radiation or signal jamming.
+
+---
+
+## 6. References
+
+* **Original Paper**: Lamport, Shostak, and Pease (1982), *The Byzantine Generals Problem*.
+* **Further Reading**: Georgios Konstantopoulos, *Understanding Blockchain Fundamentals, Part 1: Byzantine Fault Tolerance* (Medium article).
+
+---
+
+## 7. Key Takeaway
+
+Byzantine fault tolerance ensures that decentralized systems (including blockchains) can continue functioning correctly as long as fewer than one-third of participants act maliciously or fail.
+
+---
