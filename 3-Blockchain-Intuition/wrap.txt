@@ -534,10 +534,13 @@ Distributed peer-to-peer networks add an additional layer of security to blockch
 
 ### 4.3 Example
 
-* Nonce = 0 → hash  = A23RSa1wf1ds2w1
-* Nonce = 19 → hash = F2as22ca24v42az
-* Nonce = 20 → hash = 2Zc22L63cD0Efp5
+* Nonce = 0 → hash  = A23F1A1B1D2E3F1
+* Nonce = 19 → hash = F2A522CA24B42AF
+* Nonce = 20 → hash = 2AC22D63CD0EFF5
 * Nonce can range up to billions, giving miners a large space to explore for valid hashes.
+
+PS:
+hexadecimal numbers only [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F ]
 
 ## 5. Key Takeaways
 
@@ -556,5 +559,248 @@ Distributed peer-to-peer networks add an additional layer of security to blockch
   * Why miners compete
   * How computational power and electricity are used in mining
   * The full mining process in action
+
+---
+
+*** 11. How Mining Works: The Cryptographic Puzzle  ***
+
+---
+
+# Blockchain Mining – Part 2
+
+## 1. Recap
+
+* Previous tutorial covered:
+
+  * Block structure (block number, data, previous hash, nonce)
+  * Nonce as the only field that can be modified to vary the block hash
+* Current focus: How mining works in practice
+
+---
+
+## 2. Hashes as Numbers
+
+* **Hash values** are not just strings; they are **numbers**.
+* Hashes are expressed in **hexadecimal**: digits 0–9 and letters A–F.
+
+  * Hexadecimal allows a compact representation of large numbers.
+  * Each hex digit represents a value from 0 to 15.
+* Hexadecimal can be converted to **decimal** for a clearer numerical understanding.
+* Hashes of blocks are treated as numerical values that can be compared, ordered, and mapped.
+
+---
+
+## 3. The Pool of Hashes
+
+* Conceptualize all possible hash values as a **pool**, ordered from smallest to largest:
+
+  * Smallest hash → all digits `0`
+  * Largest hash → all digits `F`
+* Every block hash occupies a position in this ordered map.
+
+In **hexadecimal (base 16)**:
+
+* Each character represents a value from **0 to 15**.
+* Breakdown:
+
+| Hex Digit | Decimal Value |
+| --------- | ------------- |
+| 0         | 0             |
+| 1         | 1             |
+| 2         | 2             |
+| 3         | 3             |
+| 4         | 4             |
+| 5         | 5             |
+| 6         | 6             |
+| 7         | 7             |
+| 8         | 8             |
+| 9         | 9             |
+| A         | 10            |
+| B         | 11            |
+| C         | 12            |
+| D         | 13            |
+| E         | 14            |
+| F         | 15            |
+
+- So each **hexadecimal character encodes 4 bits** (since $2^4 = 16$).
+
+* Example:
+
+  * Hex `F` → decimal `15` → binary `1111`
+  * Hex `2` → decimal `2` → binary `0010`
+
+
+Sure! Let’s break down how a full **64-character SHA-256 hash** represents a huge decimal number.
+
+---
+
+### 1. SHA-256 Hash
+
+* SHA-256 produces a **256-bit hash**.
+* Each hex character encodes **4 bits**, so:
+
+-------------------code----------------------
+256 \text{ bits} \div 4 \text{ bits per hex character} = 64 \text{ hex characters}
+-------------------code----------------------
+
+Example (hexadecimal hash, 64 chars):
+
+-------------------code----------------------
+3F7A1B2C9E0D4F8A1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
+-------------------code----------------------
+
+---
+
+### 2. Converting Hex to Decimal
+
+* Each hex character has a decimal value (0–15).
+* To get the decimal value of the full hash, interpret it as a **base-16 number**:
+
+-------------------code----------------------
+\text{Decimal value} = \sum_{i=0}^{63} (\text{hex digit}_i \times 16^{63-i})
+-------------------code----------------------
+
+* This produces a **very large number**, typically hundreds of digits in decimal.
+
+---
+
+### 3. Visual Example (smaller hash)
+
+Take a 4-character hex hash for simplicity: `1A3F`
+
+1. Convert each hex digit to decimal:
+
+   * `1` → 1
+   * `A` → 10
+   * `3` → 3
+   * `F` → 15
+
+2. Calculate decimal value:
+
+-------------------code----------------------
+1 \times 16^3 + 10 \times 16^2 + 3 \times 16^1 + 15 \times 16^0
+-------------------code----------------------
+
+-------------------code----------------------
+= 1 \times 4096 + 10 \times 256 + 3 \times 16 + 15 \times 1
+-------------------code----------------------
+
+-------------------code----------------------
+= 4096 + 2560 + 48 + 15 = 6719
+-------------------code----------------------
+
+So `1A3F` in hex = `6719` in decimal.
+
+---
+
+### 4. Full SHA-256 Hash
+
+* If you apply the same principle to a **64-character hash**, the decimal number is **enormous**, roughly:
+
+-------------------code----------------------
+\text{up to } 10^{77} \text{ digits}
+-------------------code----------------------
+
+* That’s why miners treat hashes as **numbers** when comparing them to the target in mining.
+
+---
+
+---
+
+## 4. Mining Target
+
+* The blockchain sets a **target** for miners: only hashes **below the target** are valid.
+* Hashes above the target are **rejected**.
+* The target is arbitrary, meant only to create a **computational challenge** for miners.
+* **Leading zeros** provide a practical way to visualize and understand the target:
+
+  * More leading zeros → smaller hash → harder to find.
+  * Example: a target requiring **four leading zeros** in the hash.
+
+---
+
+## 5. Mining Process
+
+1. **Immutable fields**:
+
+   * Block number: fixed
+   * Transaction data: fixed
+   * Previous hash: fixed
+2. **Modifiable field**:
+
+   * Nonce: can be changed freely to vary the hash of the block
+3. **Procedure**:
+
+   * Miners iteratively try different nonce values.
+   * Each nonce produces a different hash due to the **avalanche effect**.
+   * Avalanche effect: a small change in nonce produces a completely different hash.
+   * Miners **cannot predict** the hash outcome, ensuring fairness.
+4. **Winning condition**:
+
+   * Find a nonce such that the resulting hash is below the target.
+   * This successful nonce is called the **golden nonce**.
+5. **Reward**:
+
+   * Miner who finds the golden nonce first can add the block to the blockchain and earn a reward.
+
+
+EX:
+Hash Pool (from smallest to largest)
+-------------------code----------------------
+---------------------------------------------------
+| 0000...0  | <- Smallest possible hash
+|           |
+|   ...     |
+| 00A3F2C1  | <- Hash from Nonce = 10
+|           |
+| TARGET -->| <- Target (hash must be below this to be valid)
+| 0F12AB34  | <- Hash from Nonce = 42
+|           |
+| 1A3F5B7C  | <- Hash from Nonce = 100
+|           |
+| FFFF...F  | <- Largest possible hash
+---------------------------------------------------
+-------------------code----------------------
+Target: 00FFFFFF  (hash must be below this to be valid)
+
+Mining Example:
+- Nonce = 10 → Hash = 00A3F2C1  => below target? YES → valid
+- Nonce = 42 → Hash = 0F12AB34  => below target? NO → invalid
+- Nonce = 100 → Hash = 1A3F5B7C => below target? NO → invalid
+
+Explanation:
+- Miners iteratively change the nonce until a hash below the target is found.
+- The nonce that produces a valid hash is called the "golden nonce."
+
+---
+
+## 6. Importance of Hashing Algorithm
+
+* Mining relies on the **SHA-256 hashing algorithm**:
+
+  * Produces unpredictable hashes
+  * Prevents reverse-engineering or shortcutting the process
+  * Previous algorithms like SHA-1, MD4, MD5 have been cracked
+* SHA-256 ensures that mining remains a **secure cryptographic puzzle**.
+
+---
+
+## 7. Key Points
+
+* Mining is essentially **guessing the correct nonce** to produce a hash below the target.
+* Computational power is required due to the difficulty of finding valid nonces.
+* Avalanche effect guarantees unpredictability and fairness.
+* The cryptographic puzzle ensures that blockchain integrity is maintained.
+
+---
+
+## 8. Next Steps
+
+* Module 2 will cover:
+
+  * How transactions are structured within blocks
+  * Practical blockchain coding exercises
+  * Additional fields involved in mining
+* This foundation prepares learners to understand the practical and computational aspects of blockchain mining.
 
 ---
