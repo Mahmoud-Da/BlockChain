@@ -1,0 +1,69 @@
+*** 5. Plan of Attack  ***
+# Blockchain Course – Lecture Notes (Introduction & Plan of Attack)
+
+## Purpose of the Section
+
+* To provide a **structured plan** for learning blockchain.
+* Blockchain itself is **not inherently complex**, but it contains many interrelated components of varying complexity.
+* Understanding requires placing components in the **right order** for faster mastery.
+
+## Learning Roadmap (Plan of Attack)
+
+1. **High-Level Overview of Blockchain**
+
+   * Establish basic fundamentals.
+   * Serves as the foundation for all later topics.
+
+2. **Cryptography & SHA-256 Hash Algorithm**
+
+   * Role of cryptography in blockchains.
+   * Explanation of SHA-256 (no deep mathematics required).
+   * Understanding how blocks are cryptographically linked.
+   * Additional reading available for deeper insights.
+
+3. **Immutable Ledger**
+
+   * Compare blockchain with traditional ledgers.
+   * Understand the **first layer of security** blockchain provides in record keeping.
+
+4. **Distributed Peer-to-Peer Networks**
+
+   * How distribution of the ledger enhances security.
+   * Introduces a **second layer of security** through decentralization.
+
+5. **Mining (Two-Part Tutorial)**
+
+   * **Part 1:** Mechanics of mining, nonce parameter.
+   * **Part 2:** The cryptographic puzzle.
+   * Learn why miners need large computational power and specialized rigs.
+
+6. **Byzantine Fault Tolerance (BFT)**
+
+   * The problem of the Byzantine Generals.
+   * Applications: blockchain, airplanes, nuclear facilities, International Space Station.
+   * Importance in distributed systems.
+
+7. **Consensus Protocol (Two-Part Tutorial)**
+
+   * **Part 1:** How consensus protects against attackers.
+   * **Part 2:** How consensus resolves competing chains and ensures blockchain evolution despite global distribution and network lag.
+
+8. **Blockchain Demo (Final Tutorial)**
+
+   * Visual demonstration combining all concepts.
+   * Summary of the entire section in one integrated example.
+
+## Structure & Expectations
+
+* Total: **10 tutorials** (not including this introductory lecture).
+* Each tutorial builds on the previous one.
+* Emphasis on **visual demonstrations** for clarity.
+* Requires patience, but designed to be engaging and fun.
+
+## Outcomes
+
+* Gain **solid understanding** of blockchain fundamentals.
+* Ability to **discuss blockchain confidently** with others (knowledge above \~90% of the population).
+* Preparation for practical tutorials where you will build your first blockchain step by step.
+
+---
