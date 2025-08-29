@@ -476,3 +476,85 @@ Two main concerns:
 Distributed peer-to-peer networks add an additional layer of security to blockchain systems, ensuring data integrity, automatic recovery, and trust in a trustless environment. They make malicious attacks practically impossible without controlling the majority of the network.
 
 ---
+
+*** 10. How Mining Works: The Nonce ***
+# Blockchain Mining – Part 1
+
+## 1. Context and Progress
+
+* Previous topics covered:
+
+  * Hash cryptography
+  * Immutable ledger
+  * Distributed peer-to-peer networks
+* Current focus: **Mining** (Part 1 of 2)
+
+## 2. The Blockchain Block Structure
+
+* **Fields in a block:**
+
+  1. **Block Number** – sequential identifier of the block.
+  2. **Data** – contains multiple transactions, not just one.
+
+     * Example transactions (using “hadcoins” cryptocurrency):
+
+       * Sent Hadelin 500 hadcoins
+       * Bought something for 100 hadcoins
+       * Hadelin sent Joe 70 hadcoins
+  3. **Previous Hash** – cryptographic link to the previous block; essential for blockchain integrity.
+  4. **Current Hash** – calculated using: hash(block number + data + previous hash)
+
+
+## 3. Why Mining is Needed
+
+* At first glance, generating a hash seems simple.
+* Question arises: Why are hundreds of thousands of nodes and mining rigs consuming massive resources globally?
+* The answer lies in a special field called **nonce**.
+
+## 4. The Nonce
+
+* **Definition:** “Number used only once.”
+* Purpose: Allows miners to vary the block hash without altering block number, previous hash, or transaction data (to maintain immutability).
+* Nonce gives **flexibility** in generating different hash values.
+
+### 4.1 Hash Control
+
+* Components affecting the hash now:
+
+  * Block number
+  * Data
+  * Previous hash
+  * Nonce
+* Changing the nonce alters the resulting hash while keeping other fields intact.
+
+### 4.2 Avalanche Effect
+
+* Small changes in input (like incrementing the nonce by 1) drastically change the hash output.
+* This ensures that even minimal modifications produce completely different hash values.
+
+### 4.3 Example
+
+* Nonce = 0 → hash  = A23RSa1wf1ds2w1
+* Nonce = 19 → hash = F2as22ca24v42az
+* Nonce = 20 → hash = 2Zc22L63cD0Efp5
+* Nonce can range up to billions, giving miners a large space to explore for valid hashes.
+
+## 5. Key Takeaways
+
+* **Mining** involves changing the nonce to vary the block hash.
+* Block integrity is maintained because:
+
+  * Block number is fixed
+  * Previous hash is fixed
+  * Transaction data is immutable
+* The nonce is the primary tool miners use to find a hash that satisfies certain conditions (covered in Part 2).
+
+## 6. Next Steps
+
+* Part 2 of the tutorial will explain:
+
+  * Why miners compete
+  * How computational power and electricity are used in mining
+  * The full mining process in action
+
+---
