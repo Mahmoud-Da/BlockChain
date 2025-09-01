@@ -1230,3 +1230,88 @@ Q3: all the workflow
 * The workflow itself **never changes** — only the miner’s reward structure does.
 
 ---
+
+
+*** 14. Consensus Protocol: Proof-of-Work (PoW) ***
+---
+
+# Blockchain Lecture Notes: Consensus Protocols and Conflict Resolution
+
+## 1. Conflict in the Blockchain
+
+* A conflict occurs when two miners mine a block at almost the same time.
+* This creates competing versions of the blockchain.
+* The issue is similar to the **Byzantine Generals Problem**, where nodes receive conflicting messages.
+
+### How Conflicts Occur
+
+1. A block is mined and propagated through the network.
+2. Different nodes may receive blocks at different times due to network latency.
+3. Some nodes may see Block A first, while others see Block B.
+4. Nodes attempt to add their preferred block, creating a temporary fork.
+
+---
+
+## 2. Consensus Protocol in Blockchain
+
+* **Purpose:** Resolve conflicts and determine which chain is the valid one.
+* Different from the Byzantine generals’ protocol:
+
+  * Byzantine generals: Majority agreement needed among 70%+ of honest nodes to reach consensus.
+  * Blockchain: The chain with **more than 50% of hashing power** eventually prevails.
+
+### Process
+
+1. Competing chains exist (e.g., purple vs. orange chain).
+2. Nodes wait for the next block to be mined.
+3. The chain that adds a new block first becomes the **longest chain**.
+4. Nodes adopt the longest chain, resolving the conflict.
+5. Key principle: **“The longest chain is king.”**
+
+### Role of Hashing Power
+
+* Hashing power: How many hashes a miner can compute per second.
+* Nodes with more combined hashing power are statistically more likely to mine the next block first.
+* Example:
+
+  * Orange chain: 4 nodes
+  * Purple chain: 2 nodes
+  * Assuming equal hashing power per node, orange chain has double the chance to find the next block.
+* Result: The chain with more hashing power grows faster, winning over competing chains.
+
+---
+
+## 3. Orphan Blocks
+
+* Blocks on the losing chain become **orphaned blocks**.
+* Transactions and rewards in orphaned blocks are invalid.
+* Only blocks in the winning chain are accepted.
+* Important practice: Wait for a few confirmations (additional blocks) before considering a transaction final.
+
+---
+
+## 4. Key Features of Blockchain Consensus
+
+* Consensus requires **just over 50% of hashing power**.
+* Probabilistic approach ensures that the network eventually agrees on a single chain.
+* More efficient than Byzantine generals’ problem, which requires 70%+ honest participants.
+* Ensures network reliability even with temporary forks.
+
+---
+
+## 5. Summary of Blockchain Concepts Covered
+
+* **Immutable ledger:** Records cannot be altered once confirmed.
+* **Distributed P2P network:** All nodes maintain a copy of the ledger.
+* **Hash cryptography:** Ensures security and integrity of blocks.
+* **Mining:** Process of finding a valid hash for a new block.
+* **Consensus protocol:** Resolves conflicts and determines the valid chain.
+
+---
+
+## 6. Recommended Reading
+
+* Satoshi Nakamoto's emails to Hal Finney, Charles Jackson, Ray Dillinger, James Donald, etc.
+* Articles on blockchain consensus protocols for high-level understanding of alternatives.
+
+---
