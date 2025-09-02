@@ -1315,3 +1315,101 @@ Q3: all the workflow
 * Articles on blockchain consensus protocols for high-level understanding of alternatives.
 
 ---
+
+
+*** 15. Blockchain Demo ***
+
+---
+
+# Blockchain Lecture Notes
+
+## 1. Introduction
+
+* The lecture provides a **visual demonstration of how blockchains work**.
+* Tutorial URL: `tools.superdatascience.com/blockchain/block`.
+* Tools and code provided by **Andrews Brownworth** (licensed for use in your own projects).
+
+---
+
+## 2. Single Block Overview
+
+* **Block components:**
+
+  * Block number
+  * Nonce
+  * Data
+  * Hash
+  * (Previous hash not included in a standalone block)
+* **Hashing:**
+
+  * SHA-256 used for hashing the block.
+  * Hash changes if any block data changes.
+* **Mining:**
+
+  * Clicking "mine" updates the **nonce** and recalculates the hash.
+  * Leading zeros in the hash indicate the block has met the **target difficulty**.
+  * Changing block data (e.g., transaction amount) requires **re-mining**.
+
+---
+
+## 3. Blockchain (Linked Blocks)
+
+* Blockchain consists of multiple blocks connected via **previous hash**.
+* Cryptographically linked:
+
+  * Each block’s `previous hash` references the hash of the prior block.
+  * Each block must have a valid hash to maintain integrity.
+* **Immutability:**
+
+  * Changing a block’s data breaks its hash.
+  * Subsequent block hashes must be recalculated to maintain validity.
+* **Implementation Note:**
+
+  * Some demos automatically recalculate future block hashes.
+  * Real blockchains do not automatically adjust; broken links require re-mining.
+
+---
+
+## 4. Distributed Blockchain (Peer-to-Peer)
+
+* Copies of the blockchain exist on multiple peers (e.g., Peer A, B, C).
+* **Security advantage:**
+
+  * To attack, one must re-mine the block on **all peers simultaneously**.
+  * Majority consensus ensures the network detects tampering.
+  * More peers = harder to compromise.
+
+---
+
+## 5. Transactions and Tokens
+
+* Blockchain can track **transactions** across peers.
+* Example: changing \$97.13 to \$98 triggers invalid hashes.
+* Mining is required to validate blocks after changes.
+* **Correct blockchain copies** are identifiable via consistent hashes.
+
+---
+
+## 6. Coinbase and Money Supply
+
+* **Coinbase** introduces new money into the system (e.g., Bitcoin mining rewards).
+* Transactions distribute money across the blockchain.
+* Principles are the same as regular transactions.
+
+---
+
+## 7. Key Takeaways
+
+* Blockchain ensures **immutability** and **security**.
+* Each block depends on the hash of the previous block.
+* Mining adjusts block hashes to meet difficulty targets.
+* Distributed networks prevent single-point attacks.
+* Coinbase is the entry point for new currency into the blockchain system.
+
+---
+
+**Resources:**
+
+* [Blockchain demo tools](https://tools.superdatascience.com/blockchain/block)
+
+---
