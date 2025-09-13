@@ -911,3 +911,136 @@ blockchain = Blockchain()
   * Add routes to mine blocks and display the chain.
 
 ---
+
+*** 25. Step 10 ***
+# Blockchain Tutorial Notes – Mining a New Block with Flask
+
+## Overview
+
+* Continuing from part 2: we now have a Flask-based web application.
+* Objective: Mine a new block by making a **GET request** via Flask.
+
+---
+
+## Flask Setup Recap
+
+1. Created a Flask app instance (`app = Flask(__name__)`).
+2. Created a blockchain object (`blockchain = Blockchain()`).
+3. Next step: Use Flask **route decorators** to specify which URL triggers which function.
+
+---
+
+## Route Decorator for Mining
+
+* Syntax:
+
+  -------------------code----------------------
+  @app.route('/mine_block', methods=['GET'])
+  -------------------code----------------------
+* Full URL for request:
+  `http://127.0.0.1:5000/mine_block`
+* Method: **GET** (since we are retrieving/mining, not creating new transactions).
+
+  * **GET** → fetch data.
+  * **POST** → create something (used later in module 2).
+
+---
+
+## Mining a Block (Function Logic)
+
+### 1. Define function
+
+-------------------code----------------------
+def mine_block():
+    ...
+-------------------code----------------------
+
+### 2. Steps in mining:
+
+1. **Get previous block**
+
+   * Use `blockchain.get_previous_block()`.
+
+2. **Extract previous proof**
+
+   * `previous_proof = previous_block['proof']`.
+
+3. **Solve proof of work**
+
+   * Call `blockchain.proof_of_work(previous_proof)`.
+   * Returns the new proof.
+
+4. **Get previous hash**
+
+   * Use blockchain’s `hash` method:
+     `previous_hash = blockchain.hash(previous_block)`.
+
+5. **Create new block**
+
+   * Call `blockchain.create_block(proof, previous_hash)`.
+   * Appends block to the chain.
+   * Returns the block.
+
+---
+
+## Building the Response
+
+* Create a dictionary `response` with:
+
+  * `"message"` → Congratulation text for the miner.
+  * `"index"` → `block['index']`
+  * `"timestamp"` → `block['timestamp']`
+  * `"proof"` → `block['proof']`
+  * `"previous_hash"` → `block['previous_hash']`
+
+---
+
+## Returning the Response
+
+* Use Flask’s `jsonify` to return JSON data.
+* Add HTTP **status code 200** (success).
+
+Example:
+
+-------------------code----------------------
+return jsonify(response), 200
+-------------------code----------------------
+
+---
+
+## Example Implementation
+
+-------------------code----------------------
+@app.route('/mine_block', methods=['GET'])
+def mine_block():
+    previous_block = blockchain.get_previous_block()
+    previous_proof = previous_block['proof']
+    proof = blockchain.proof_of_work(previous_proof)
+    previous_hash = blockchain.hash(previous_block)
+    block = blockchain.create_block(proof, previous_hash)
+    
+    response = {
+        'message': 'Congratulations, you just mined a block!',
+        'index': block['index'],
+        'timestamp': block['timestamp'],
+        'proof': block['proof'],
+        'previous_hash': block['previous_hash']
+    }
+    return jsonify(response), 200
+-------------------code----------------------
+
+---
+
+## Key Takeaways
+
+* Flask routes map URLs to functions.
+* Mining requires:
+
+  1. Previous block → previous proof.
+  2. Solve proof of work.
+  3. Hash previous block.
+  4. Create new block.
+* JSON response is sent back with block details and status code 200.
+* Next step: Implement **get\_chain function** (another GET request).
+
+---
