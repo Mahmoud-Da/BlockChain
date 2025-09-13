@@ -1156,3 +1156,122 @@ If you run the code in the next lecture and receive a 500 Internal Server Error 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 -------------------code----------------------
+
+
+*** 28. Step 12 ***
+# Blockchain Tutorial Notes – Demo of Module One
+
+## Objective
+
+* Run the Flask blockchain app.
+* Use **Postman** to test two GET requests:
+
+  1. **`/get_chain`** – Display the blockchain.
+  2. **`/mine_block`** – Mine a new block.
+
+---
+
+## Step 1: Running the App
+
+* Use Flask’s `run` method on the `app` object.
+* Requires two arguments:
+
+  * **host**: `"0.0.0.0"` → makes the server publicly available.
+  * **port**: `5000`.
+
+-------------------code----------------------
+app.run(host="0.0.0.0", port=5000)
+-------------------code----------------------
+
+* Execute the **whole code** in the correct working directory (e.g., project folder).
+* Expected output:
+
+  -------------------code----------------------
+  Running on http://0.0.0.0:5000
+  -------------------code----------------------
+
+---
+
+## Step 2: Using Postman
+
+* Open Postman application.
+* Select **GET request** type.
+* Enter the request URL:
+
+  -------------------code----------------------
+  http://127.0.0.1:5000/<endpoint>
+  -------------------code----------------------
+
+  * `<endpoint>` is either `get_chain` or `mine_block`.
+
+---
+
+## Step 3: Testing Requests
+
+### 3.1 GET Chain
+
+* Request:
+
+  -------------------code----------------------
+  http://127.0.0.1:5000/get_chain
+  -------------------code----------------------
+* Response: Displays the **Genesis block**.
+
+  * Proof: `1`
+  * Previous hash: `"0"`
+  * Includes timestamp and index `1`.
+  * Response also shows the **length of chain**.
+
+### 3.2 Mine Block
+
+* Request:
+
+  -------------------code----------------------
+  http://127.0.0.1:5000/mine_block
+  -------------------code----------------------
+* Response: A new block with fields:
+
+  * **Index**: next in sequence.
+  * **Proof**: solution to Proof of Work problem.
+  * **Previous hash**: hash of previous block.
+  * **Timestamp**.
+  * Success message: `"Congratulations, you just mined a block!"`.
+
+---
+
+## Step 4: Iterative Testing
+
+* Alternate between `mine_block` and `get_chain` to:
+
+  * Add blocks.
+  * Verify blockchain state.
+* Example: After mining multiple blocks, `get_chain` shows all blocks with indexes and confirms the chain length.
+* Increasing difficulty:
+
+  * Modify Proof of Work problem.
+  * Increase number of required leading zeros.
+
+---
+
+## Results
+
+* Successfully mined and verified up to **20 blocks**.
+* Blockchain is functioning correctly:
+
+  * Valid Genesis block.
+  * Properly linked subsequent blocks.
+
+---
+
+## Conclusion
+
+* **Module One complete**: Built and tested a working blockchain.
+* **Next step (Module Two):**
+
+  * Extend blockchain into a cryptocurrency called **Headcoin**.
+  * Add decentralization with multiple nodes.
+  * Introduce **POST requests** for transactions:
+
+    * JSON with `sender`, `receiver`, and `amount`.
+
+---
