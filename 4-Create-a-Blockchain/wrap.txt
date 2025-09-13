@@ -669,3 +669,143 @@ This function now allows us to:
 * Build the upcoming `is_chain_valid` function to check the entire blockchain.
 
 ---
+
+
+*** 23. Step 8 ***
+---
+
+# Lecture Notes: Blockchain Validation Function (`is_chain_valid`)
+
+## Purpose
+
+The function `is_chain_valid` ensures that the blockchain is correct and unaltered.
+It performs two main checks:
+
+1. **Hash Link Integrity**
+
+   * Each block’s `previous_hash` must equal the actual hash of the previous block.
+
+2. **Proof of Work Validity**
+
+   * Each block’s proof must satisfy the proof-of-work requirement (its hash operation must start with four leading zeros).
+
+---
+
+## Function Definition
+
+* Defined as a method in the `Blockchain` class.
+* Signature:
+
+  -------------------code----------------------
+  def is_chain_valid(self, chain):
+  -------------------code----------------------
+* Arguments:
+
+  * `self`: reference to the blockchain instance.
+  * `chain`: the blockchain (list of blocks) to validate.
+
+---
+
+## Steps
+
+### 1. Initialization
+
+* `previous_block` = the first block of the chain (`chain[0]`).
+* `block_index` = 1 (since the first block is already referenced as `previous_block`).
+
+### 2. Loop Through the Chain
+
+* Use a **while loop**:
+
+  -------------------code----------------------
+  while block_index < len(chain):
+  -------------------code----------------------
+* Iterate until all blocks are checked.
+
+---
+
+### 3. First Check: Previous Hash Validity
+
+* Get the **current block**:
+
+  -------------------code----------------------
+  block = chain[block_index]
+  -------------------code----------------------
+* Compare `block['previous_hash']` with `self.hash(previous_block)`.
+* If different → return `False` (chain invalid).
+
+---
+
+### 4. Second Check: Proof of Work Validity
+
+* Get `previous_proof = previous_block['proof']`.
+* Get `proof = block['proof']`.
+* Compute the hash operation:
+
+  -------------------code----------------------
+  hash_operation = hashlib.sha256(str(proof**2 - previous_proof**2).encode()).hexdigest()
+  -------------------code----------------------
+* If the first 4 characters of `hash_operation` are not `"0000"` → return `False`.
+
+---
+
+### 5. Update Variables
+
+* Update `previous_block = block`.
+* Increment `block_index += 1`.
+
+---
+
+### 6. Final Return
+
+* If all checks pass → return `True` (chain is valid).
+
+---
+
+## Example Code
+
+-------------------code----------------------
+import hashlib
+
+class Blockchain:
+
+    def is_chain_valid(self, chain):
+        previous_block = chain[0]
+        block_index = 1
+
+        while block_index < len(chain):
+            block = chain[block_index]
+
+            # Check 1: Previous hash
+            if block['previous_hash'] != self.hash(previous_block):
+                return False
+
+            # Check 2: Proof of work
+            previous_proof = previous_block['proof']
+            proof = block['proof']
+            hash_operation = hashlib.sha256(str(proof**2 - previous_proof**2).encode()).hexdigest()
+
+            if hash_operation[:4] != '0000':
+                return False
+
+            # Update for next iteration
+            previous_block = block
+            block_index += 1
+
+        return True
+-------------------code----------------------
+
+---
+
+## Key Takeaways
+
+* **Two checks are mandatory**: hash linkage and proof validation.
+* If any block fails validation, the function immediately returns `False`.
+* If the loop completes with no issues, the chain is valid (`True`).
+
+---
+
+This concludes **Part 1: Building the Blockchain**.
+Next step: **Part 2 – Mining the Blockchain** (handling requests to mine blocks and display the chain).
+
+---
