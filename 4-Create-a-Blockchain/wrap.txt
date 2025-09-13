@@ -1340,3 +1340,84 @@ http://127.0.0.1:5001/get_chain
 Implement a new "is_valid" request to check if the Blockchain is valid.
 Go into Postman and test this new request.
 
+
+*** 30. Homework Solution ***
+## Homework: Checking Blockchain Validity
+
+### Objective
+
+The task was to create a **GET request** that checks if the blockchain is valid using the `is_chain_valid` function implemented in Part 1.
+
+---
+
+### Steps to Implement the Request
+
+1. **Create a Route Decorator**
+
+   * Since we are **not creating or posting data**, the method is `GET`.
+   * Route URL: `/is_valid`
+
+   -------------------code----------------------
+   @app.route('/is_valid', methods=['GET'])
+   -------------------code----------------------
+
+2. **Define the Function**
+
+   * Function name: `is_valid()`
+   * No arguments needed; the blockchain object contains the chain.
+
+   -------------------code----------------------
+   def is_valid():
+       is_valid = blockchain.is_chain_valid(blockchain.chain)
+   -------------------code----------------------
+
+3. **Check the Result**
+
+   * Use an `if` condition to check the boolean result:
+
+     -------------------code----------------------
+     if is_valid:
+         response = {'message': 'All good, the blockchain is valid.'}
+     else:
+         response = {'message': 'Houston, we have a problem. The blockchain is not valid.'}
+     -------------------code----------------------
+
+4. **Return the Response**
+
+   * Return the response as JSON with HTTP status code `200`:
+
+     -------------------code----------------------
+     return jsonify(response), 200
+     -------------------code----------------------
+
+---
+
+### Testing the Request in Postman
+
+1. Start the Flask server (make sure it is running without errors).
+2. Open Postman and select `GET` request.
+3. Enter the URL:
+
+   -------------------code----------------------
+   http://127.0.0.1:5000/is_valid
+   -------------------code----------------------
+4. Mine a few blocks first using `/mine_block`.
+5. Check the blockchain:
+
+   * If valid → `All good, the blockchain is valid.`
+   * If invalid → `Houston, we have a problem. The blockchain is not valid.`
+
+---
+
+### Key Notes
+
+* The `is_chain_valid` function checks:
+
+  1. If each block’s `previous_hash` matches the hash of the previous block.
+  2. If the proof of work is correct for each block.
+* This function will also be crucial in **Module 2**, when implementing a decentralized blockchain:
+
+  * Each node in the network must validate its chain before reaching a consensus.
+* The homework practice reinforces the importance of verifying blockchain integrity.
+
+---
