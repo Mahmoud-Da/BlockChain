@@ -809,3 +809,105 @@ This concludes **Part 1: Building the Blockchain**.
 Next step: **Part 2 – Mining the Blockchain** (handling requests to mine blocks and display the chain).
 
 ---
+
+
+*** 24. Step 9 ***
+---
+
+# Lecture Notes: Part 2 – Mining the Blockchain (Flask Setup)
+
+## Overview
+
+* Transition from **Part 1 (Building the Blockchain)** to **Part 2 (Mining the Blockchain)**.
+* Goal: interact with the blockchain through a **Flask-based web application** using GET requests in Postman.
+
+---
+
+## Four Main Steps in Part 2
+
+1. **Create the Flask Web Application**
+
+   * Use Flask to build a web server.
+
+2. **Create the Blockchain**
+
+   * Instantiate the Blockchain class to produce a working blockchain object.
+
+3. **Mine a Block (GET Request)**
+
+   * Add a new block by solving the proof-of-work problem.
+
+4. **Get the Full Chain (GET Request)**
+
+   * Retrieve and display the entire blockchain.
+
+---
+
+## Today’s Focus
+
+* **Step 1:** Create the Flask application.
+* **Step 2:** Create the blockchain instance.
+* Both tasks are quick (just a few lines of code).
+
+---
+
+## Flask Quickstart
+
+* Flask allows creation of lightweight web applications.
+
+* To start:
+
+  -------------------code----------------------
+  from flask import Flask
+  app = Flask(__name__)
+  -------------------code----------------------
+
+* Why `__name__`?
+
+  * Required when using a single Python module.
+
+* Later, routes (`@app.route`) will define endpoints such as:
+
+  * `/mine_block`
+  * `/get_chain`
+
+---
+
+## Creating the Blockchain
+
+* Import and instantiate the Blockchain class:
+
+  -------------------code----------------------
+  blockchain = Blockchain()
+  -------------------code----------------------
+* This `blockchain` object represents the **real blockchain** you’ll interact with.
+
+---
+
+## Example Code
+
+-------------------code----------------------
+from flask import Flask
+from blockchain import Blockchain   # Assuming your class is in blockchain.py
+
+# Step 1: Create the web app
+app = Flask(__name__)
+
+# Step 2: Create the blockchain
+blockchain = Blockchain()
+-------------------code----------------------
+
+---
+
+## Key Takeaways
+
+* Flask is the bridge between your blockchain and user interaction (via Postman).
+* You now have:
+
+  * A **web app (`app`)** to handle requests.
+  * A **blockchain object (`blockchain`)** representing your actual blockchain.
+* Next steps:
+
+  * Add routes to mine blocks and display the chain.
+
+---
