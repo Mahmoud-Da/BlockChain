@@ -397,3 +397,69 @@ Each block is a dictionary with four essential keys:
 4. Return block details for display.
 
 ---
+
+
+*** 20. Step 5 ***
+Here’s the lecture organized into clean notes:
+
+---
+
+# Lecture Notes: `get_previous_block` Method
+
+## Purpose
+
+* The `get_previous_block` method is used to **retrieve the last block** in the current blockchain.
+* Provides an easy way to reference the most recent block when creating or validating new blocks.
+
+---
+
+## Function Definition
+
+* Method name: `get_previous_block` (can be named differently, but this is standard).
+* Arguments:
+
+  * **`self`**: needed to access `self.chain`, the list of all blocks in the blockchain.
+
+---
+
+## Implementation
+
+* Access the blockchain list: `self.chain`.
+* Retrieve the last element of the list using index `-1`.
+* Return this last block directly.
+
+---
+
+## Code Example
+
+-------------------code----------------------
+class Blockchain:
+
+    def __init__(self):
+        self.chain = []
+        # Genesis block is created in another method
+
+    def get_previous_block(self):
+        return self.chain[-1]
+-------------------code----------------------
+
+---
+
+## Importance
+
+* Provides the **previous hash** of the latest block, which is required when creating a new block.
+* Ensures each new block is properly linked to the last one in the chain.
+
+---
+
+## Next Step
+
+* In the next tutorial:
+
+  * Implement the **Proof of Work (PoW)** function.
+  * This defines the computational puzzle miners must solve.
+  * Once solved, it returns the **proof**, which together with the **previous hash** (from `get_previous_block`) is used to create a new block.
+
+---
+
+Would you like me to also prepare the **full Blockchain class so far** (with both `create_block` and `get_previous_block` methods included) so you can see the progression clearly?
