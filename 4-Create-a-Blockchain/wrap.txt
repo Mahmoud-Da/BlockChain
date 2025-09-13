@@ -570,3 +570,102 @@ class Blockchain:
 * **Returned proof**: directly used by `create_block` to generate a valid new block.
 
 ---
+
+
+*** 22. Step 7 ***
+---
+
+# Lecture Notes: Hash Function for Blockchain Validation
+
+## Purpose
+
+* We need a way to **check if the blockchain is valid**.
+
+* Two essential checks:
+
+  1. **Proof of Work Validity**: Each block must have a proof of work whose hash starts with four leading zeros.
+  2. **Chain Integrity**: Each block’s `previous_hash` must equal the actual hash of the previous block.
+
+* To perform the second check efficiently, we need a **hash function** that computes the SHA256 hash of any given block.
+
+---
+
+## Hash Function Design
+
+### Function Name
+
+* `hash` → a method inside the `Blockchain` class.
+
+### Arguments
+
+* `self` → reference to the blockchain instance.
+* `block` → the block to be hashed (a dictionary).
+
+### Process
+
+1. **Convert Dictionary to String**
+
+   * Blocks are dictionaries with keys:
+
+     * `index`
+     * `timestamp`
+     * `proof`
+     * `previous_hash`
+   * Convert dictionary to a JSON string using `json.dumps(block, sort_keys=True)`.
+   * Reason: ensures consistent ordering of keys and compatibility with JSON format.
+
+2. **Encode the String**
+
+   * Use `.encode()` to convert the string to bytes, since SHA256 requires bytes.
+
+3. **Hash the Encoded Block**
+
+   * Pass the encoded block to `hashlib.sha256()`.
+   * Convert result to hexadecimal with `.hexdigest()`.
+
+4. **Return the Hash**
+
+   * Final output is a string representing the cryptographic hash of the block.
+
+---
+
+## Code Example
+
+-------------------code----------------------
+import hashlib
+import json
+
+class Blockchain:
+
+    def hash(self, block):
+        # Step 1: Convert dictionary to JSON string
+        encoded_block = json.dumps(block, sort_keys=True).encode()
+        
+        # Step 2 & 3: Hash using SHA256
+        block_hash = hashlib.sha256(encoded_block).hexdigest()
+        
+        # Step 4: Return hash
+        return block_hash
+-------------------code----------------------
+
+---
+
+## Key Takeaways
+
+* **Why JSON instead of str()?**
+  JSON ensures that the format is consistent and matches how blocks will be stored later.
+
+* **Why `sort_keys=True`?**
+  Guarantees the same block always produces the same hash, regardless of dictionary ordering.
+
+* **Output Format**:
+  A **64-character hexadecimal string** that uniquely identifies the block’s content.
+
+---
+
+This function now allows us to:
+
+* Verify chain integrity.
+* Build the upcoming `is_chain_valid` function to check the entire blockchain.
+
+---
