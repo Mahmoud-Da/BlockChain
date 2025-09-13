@@ -1274,4 +1274,69 @@ app.run(host="0.0.0.0", port=5000)
 
     * JSON with `sender`, `receiver`, and `amount`.
 
+
+ERROR handling:
+port 5000 is already in use
+
+The error means **port 5000 is already in use**, so Flask cannot start your server on that port. Here are several ways to fix it:
+
 ---
+
+### **Option 1: Stop the program using port 5000**
+
+1. Open Terminal.
+2. Find the process using port 5000:
+
+-------------------code----------------------
+lsof -i :5000
+-------------------code----------------------
+
+3. You’ll see something like:
+
+-------------------code----------------------
+COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+Python3   1234 youruser  ... TCP *:5000 (LISTEN)
+-------------------code----------------------
+
+4. Kill the process:
+
+-------------------code----------------------
+kill -9 1234
+-------------------code----------------------
+
+Replace `1234` with the actual PID.
+
+---
+
+### **Option 2: Run Flask on a different port**
+
+* You can specify a different port in your `run` method:
+
+-------------------code----------------------python
+app.run(host="0.0.0.0", port=5001)
+-------------------code----------------------
+
+* Then in Postman, update the URL to use port `5001`:
+
+-------------------code----------------------
+http://127.0.0.1:5001/get_chain
+-------------------code----------------------
+
+---
+
+### **Option 3: macOS Specific (AirPlay Receiver issue)**
+
+* Some macOS services like **AirPlay Receiver** can occupy port 5000.
+* Disable it:
+
+  1. Go to **System Preferences → General → AirDrop & Handoff**
+  2. Turn off **AirPlay Receiver**.
+* Then try running Flask again on port 5000.
+
+---
+
+
+*** 29. Homework ***
+Implement a new "is_valid" request to check if the Blockchain is valid.
+Go into Postman and test this new request.
+
