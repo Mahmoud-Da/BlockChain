@@ -1142,3 +1142,17 @@ def get_chain():
 * With both requests implemented (`mine_block` and `get_chain`), we are now ready for the **demo** in the next tutorial.
 
 ---
+
+
+*** 27. Quick Note ***
+If you run the code in the next lecture and receive a 500 Internal Server Error please use the following changes:
+
+1. Upgrade flask
+2. Restart spyder
+3. Please add the modification to your code: 
+
+# Creating a Web App
+-------------------code----------------------
+app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+-------------------code----------------------
