@@ -302,3 +302,98 @@ pip install Flask==0.12.2
 * Next step (in future lecture): implement the `create_block` method to add blocks.
 
 ---
+
+
+*** 19. Step 4 **
+---
+
+# Lecture Notes: Create Block Function in Blockchain
+
+## Recap from Previous Tutorial
+
+* Initialized blockchain with two variables:
+
+  * `self.chain`: an empty list that will store mined blocks.
+  * Genesis block: created with `create_block` function using:
+
+    * `proof = 1`
+    * `previous_hash = "0"`
+
+---
+
+## Purpose of the Create Block Function
+
+* Used **right after mining a block**.
+* Creates and appends a new block to the blockchain.
+* Key difference from `mine_block` function:
+
+  * `mine_block`: finds the **proof of work** (solves the puzzle).
+  * `create_block`: takes that proof and previous hash to form and store the new block.
+
+---
+
+## Function Arguments
+
+* `self`: to access blockchain object variables.
+* `proof`: obtained after solving the proof of work.
+* `previous_hash`: the hash of the previous block, linking blocks together.
+
+---
+
+## Block Structure
+
+Each block is a dictionary with four essential keys:
+
+1. **Index**
+
+   * Position of the block in the chain.
+   * `index = len(self.chain) + 1`
+
+2. **Timestamp**
+
+   * Exact time when the block is mined.
+   * Obtained using:
+
+     -------------------code----------------------
+     str(datetime.datetime.now())
+     -------------------code----------------------
+
+3. **Proof**
+
+   * The proof of work found by solving the algorithm.
+   * Passed as an argument to the function.
+
+4. **Previous Hash**
+
+   * The hash of the previous block.
+   * Ensures continuity and immutability of the blockchain.
+
+---
+
+## Optional Additional Key
+
+* **Data**:
+
+  * Can store transactions or other information.
+  * Example: `"data": "some text or structured content"`
+  * This will be expanded in Module 2 (cryptocurrency transactions).
+
+---
+
+## Appending and Returning the Block
+
+* After defining the block:
+
+  * Append it to the chain with `self.chain.append(block)`
+  * Return the block so its information can be displayed (e.g., in Postman).
+
+---
+
+## Workflow Summary
+
+1. Mine block → solve proof of work.
+2. Call `create_block(proof, previous_hash)` → generate block.
+3. Append new block to blockchain.
+4. Return block details for display.
+
+---
