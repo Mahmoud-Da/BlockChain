@@ -1044,3 +1044,101 @@ def mine_block():
 * Next step: Implement **get\_chain function** (another GET request).
 
 ---
+
+*** 26. Step 11 ***
+# Blockchain Tutorial Notes – Get the Full Blockchain (GET Request)
+
+## Overview
+
+* Previous tutorial: Implemented **mine\_block** GET request.
+* Now: Implement **get\_chain** GET request to display the **entire blockchain** in Postman.
+
+---
+
+## Step 1: Define Route
+
+* Use the same pattern as `mine_block`, but with a different endpoint.
+* Route definition:
+
+-------------------code----------------------
+@app.route('/get_chain', methods=['GET'])
+-------------------code----------------------
+
+* **URL**: `http://127.0.0.1:5000/get_chain`
+* Method: **GET** (retrieves data only).
+
+---
+
+## Step 2: Define Function
+
+* Create function `get_chain`, no arguments.
+* Structure:
+
+-------------------code----------------------
+def get_chain():
+    ...
+-------------------code----------------------
+
+---
+
+## Step 3: Build Response
+
+* The response should contain two keys:
+
+  1. `"chain"` → the blockchain itself.
+
+     * Accessed via: `blockchain.chain`
+     * Contains all blocks and their keys.
+  2. `"length"` → the total number of blocks in the chain.
+
+     * Computed using: `len(blockchain.chain)`
+
+* Example:
+
+-------------------code----------------------
+response = {
+    'chain': blockchain.chain,
+    'length': len(blockchain.chain)
+}
+-------------------code----------------------
+
+---
+
+## Step 4: Return Response
+
+* Return the response in JSON format with HTTP status code **200** (success).
+
+-------------------code----------------------
+return jsonify(response), 200
+-------------------code----------------------
+
+---
+
+## Full Implementation
+
+-------------------code----------------------
+@app.route('/get_chain', methods=['GET'])
+def get_chain():
+    response = {
+        'chain': blockchain.chain,
+        'length': len(blockchain.chain)
+    }
+    return jsonify(response), 200
+-------------------code----------------------
+
+---
+
+## Key Points
+
+* **mine\_block** → mines a new block, returns block details.
+* **get\_chain** → retrieves the entire blockchain, returns chain + length.
+* Both use GET requests and Flask’s `jsonify`.
+* HTTP status code `200` confirms successful requests.
+
+---
+
+## Next Step
+
+* With both requests implemented (`mine_block` and `get_chain`), we are now ready for the **demo** in the next tutorial.
+
+---
