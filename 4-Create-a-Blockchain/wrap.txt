@@ -191,3 +191,114 @@ pip install Flask==0.12.2
 * With these tools ready, development of the blockchain (module one) can begin.
 
 ---
+
+*** 18. Step 3 ***
+---
+
+# Lecture Notes – Building the Blockchain (Part 1)
+
+## Overview
+
+* The blockchain will be built in **two parts**:
+
+  1. **Part 1** – Build the blockchain architecture (class and structure).
+  2. **Part 2** – Add two functions:
+
+     * Function to get the state of the blockchain (display in Postman).
+     * Function to mine a new block.
+
+* In this lecture: focus on **Part 1 – Building the blockchain architecture**.
+
+---
+
+## Libraries Imported
+
+1. **datetime** – To generate timestamps for each block (date and time of creation/mining).
+2. **hashlib** – To hash blocks using SHA-256 (ensures data integrity).
+3. **json** – To encode blocks before hashing (using `json.dumps`).
+4. **Flask** – Web framework to create the blockchain application.
+
+   * `Flask` class: creates the web application.
+   * `jsonify`: formats responses into JSON for Postman.
+
+---
+
+## Purpose of `jsonify`
+
+* Converts responses into JSON format for Postman.
+* Used in:
+
+  * Displaying the blockchain state.
+  * Returning details of a newly mined block (index, proof, previous hash, and message).
+
+---
+
+## Why Use a Class?
+
+* A **class** is the best way to build a scalable and organized system like a blockchain.
+* Benefits of classes:
+
+  * Encapsulate **properties**, **functions**, and **methods**.
+  * Allow creation of multiple objects (instances).
+  * Provide structure and modularity.
+* Example: a self-driving car class with properties (speed, sensors) and methods (move forward, turn, brake).
+* Similarly, a blockchain class will encapsulate all the core components.
+
+---
+
+## Defining the Blockchain Class
+
+* Start with:
+
+  -------------------code----------------------
+  class Blockchain:
+  -------------------code----------------------
+* Inside the class, include all blockchain components:
+
+  * **Genesis block** (first block of the chain).
+  * **Chain initialization** (list of blocks).
+  * **`create_block` method** (to add new blocks).
+  * Additional tools to ensure blockchain security and integrity.
+
+---
+
+## `__init__` Method
+
+* Always defined when working with classes.
+* Syntax:
+
+  -------------------code----------------------
+  def __init__(self):
+  -------------------code----------------------
+* Argument: `self` (refers to the object instance created from the class).
+* Responsibilities:
+
+  1. **Initialize the chain**:
+
+     -------------------code----------------------
+     self.chain = []
+     -------------------code----------------------
+
+     * Creates an empty list to store blocks.
+  2. **Create the Genesis block**:
+
+     -------------------code----------------------
+     self.create_block(proof=1, previous_hash='0')
+     -------------------code----------------------
+
+     * **Proof:** Arbitrary starting value (commonly `1`).
+     * **Previous hash:** Arbitrary since no block precedes the Genesis block (commonly `'0'`).
+     * Must be a string (because SHA-256 accepts encoded strings).
+
+---
+
+## Current Progress
+
+* The blockchain is initialized with:
+
+  * An empty list (`self.chain`).
+  * A Genesis block (created using the `create_block` method).
+
+* Next step (in future lecture): implement the `create_block` method to add blocks.
+
+---
