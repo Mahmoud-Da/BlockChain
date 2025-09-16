@@ -1,0 +1,105 @@
+*** 16. Step 1 ***
+# Practical Activities Course: Blockchain, Cryptocurrency, Smart Contracts
+
+## Instructors
+
+* Adla (second instructor for the course)
+
+## Course Overview
+
+This course contains **three main modules**:
+
+1. **Module 1: Blockchain**
+
+   * Create a general blockchain.
+   * Each block can store arbitrary data.
+
+2. **Module 2: Cryptocurrency**
+
+   * Start from the blockchain created in Module 1.
+   * Decentralize it across multiple computers/servers.
+   * Create a cryptocurrency called **AT Coin**.
+
+3. **Module 3: Smart Contracts**
+
+   * Create a smart contract for a simulated ICO of 1 million AT Coins.
+
+---
+
+## Required Tools
+
+* **Anaconda IDE** (recommended for Python 3.6 development)
+
+  * Includes Spyder IDE and Jupyter Notebook.
+  * Useful for practical tutorials.
+* **Python 3.6** (not Python 2.7, due to syntax compatibility)
+* **Packages**:
+
+  * `flask` (for creating web-based blockchain API)
+  * `requests` (for sending requests such as mining blocks or adding transactions)
+* **Postman**
+
+  * User-friendly HTTP client for interacting with the blockchain.
+  * Alternative: cURL (less user-friendly for beginners)
+
+---
+
+## Step 1: Installing Anaconda
+
+1. Go to the [Anaconda website](https://www.anaconda.com/) and download the installer.
+2. Select the installer for your operating system (Windows, Linux, Mac).
+3. Choose **Python 3.6** version.
+4. Run the installer:
+
+   * Click through `Continue → Continue → Agree → Install`.
+   * Wait for installation to complete.
+
+---
+
+## Step 2: Launching Anaconda
+
+* **Windows/Linux:** Find Anaconda Navigator in the program list.
+* **Mac:** Find Anaconda Navigator in Applications.
+* Launch it and wait for initialization.
+
+### Inside Anaconda
+
+* Work in the **root environment** (no need for a virtual environment for this course).
+* Recommended IDE for practical use: **Spyder**
+
+  * Jupyter Notebook is better for combining code with LaTeX/mathematical notation.
+* Launch Spyder through Anaconda Navigator.
+
+---
+
+## Step 3: Preparing Your Project
+
+1. Create a main folder, e.g., `blockchain_a-z`, with three subfolders:
+
+   * `Module 1` → Blockchain
+   * `Module 2` → Cryptocurrency
+   * `Module 3` → Smart Contracts
+2. Create a new Python file:
+
+   * `File → New File`
+   * Save as `blockchain.py` inside `Module 1` folder.
+3. Close default `10.py` file in Spyder (not needed).
+4. This `blockchain.py` will contain the implementation of the **general blockchain**.
+
+---
+
+## Step 4: Next Steps
+
+1. Install the necessary Python packages:
+
+   * `flask`
+   * `requests`
+2. Set up **Postman** to interact with your blockchain API.
+3. Begin implementing the general blockchain in `blockchain.py`:
+
+   * Create plain blocks
+   * Enable adding arbitrary data to blocks
+
+**Next Tutorial:** Installing packages and preparing Postman for blockchain interaction.
+
+---
