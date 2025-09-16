@@ -2,7 +2,7 @@ import datetime
 import hashlib
 import json
 
-from flask import Flask
+from flask import Flask, jsonify
 
 # Part 1 Building a Blockchain
 
@@ -89,9 +89,8 @@ app = Flask(__name__)
 #  Create the blockchain
 blockchain = Blockchain()
 
+
 # Mining a new Block
-
-
 @app.route('/mine_block', methods=['GET'])
 def mine_block():
     previous_block = blockchain.get_previous_block()
@@ -108,3 +107,17 @@ def mine_block():
         'previous_hash': block['previous_hash']
     }
     return jsonify(response), 200
+
+
+# get all the Blockchain
+@app.route('/get_chain', methods=['GET'])
+def get_chain():
+    response = {
+        'chain': blockchain.chain,
+        'length': len(blockchain.chain)
+    }
+    return jsonify(response), 200
+
+
+# Running the app
+app.run(host="0.0.0.0", port=5001)
