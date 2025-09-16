@@ -462,4 +462,111 @@ class Blockchain:
 
 ---
 
-Would you like me to also prepare the **full Blockchain class so far** (with both `create_block` and `get_previous_block` methods included) so you can see the progression clearly?
+*** 21. Step 6 ***
+---
+
+# Lecture Notes: Proof of Work Function
+
+## Concept of Proof of Work
+
+* **Definition**: A proof of work (PoW) is the number that miners must find to mine a new block.
+* **Core principle**:
+
+  * Hard to find → prevents miners from easily mining endless blocks (and devaluing cryptocurrency).
+  * Easy to verify → allows other miners to quickly check validity.
+* **Purpose**:
+
+  * Ensures scarcity and value of mined blocks.
+  * Provides the `proof` argument required by the `create_block` function.
+
+---
+
+## Function Design
+
+* Function name: `proof_of_work`
+* Arguments:
+
+  * `self` → access blockchain attributes.
+  * `previous_proof` → element from last block, used to define the new puzzle.
+
+---
+
+## Step-by-Step Process
+
+1. **Initialize Variables**
+
+   * `new_proof = 1` → starting point.
+   * `check_proof = False` → tracks whether the solution is found.
+
+2. **While Loop**
+
+   * Continue until `check_proof` becomes `True`.
+   * Increment `new_proof` at each iteration.
+   * Trial-and-error approach to finding correct proof.
+
+3. **Define the Problem**
+
+   * Use SHA256 cryptographic hash function.
+   * Create an operation involving `new_proof` and `previous_proof`:
+
+     -------------------code----------------------
+     new_proof^2 - previous_proof^2
+     -------------------code----------------------
+   * Convert to string, encode, then apply SHA256 → `hash_operation`.
+   * Convert result to hexadecimal with `.hexdigest()` → 64-character string.
+
+4. **Difficulty Requirement**
+
+   * Check if the first four characters of `hash_operation` are `"0000"`.
+   * This is called the **four leading zeroes rule**.
+   * More leading zeroes → more difficult.
+
+5. **Condition**
+
+   * If hash starts with `"0000"`:
+
+     * `check_proof = True` (solution found).
+   * Else:
+
+     * Increment `new_proof` and repeat.
+
+6. **Return**
+
+   * Once found, return `new_proof`.
+   * This proof will be used in the `create_block` function.
+
+---
+
+## Code Example
+
+-------------------code----------------------
+import hashlib
+
+class Blockchain:
+
+    def proof_of_work(self, previous_proof):
+        new_proof = 1
+        check_proof = False
+
+        while check_proof is False:
+            # Operation: non-symmetrical for uniqueness
+            operation = str(new_proof**2 - previous_proof**2).encode()
+            hash_operation = hashlib.sha256(operation).hexdigest()
+
+            if hash_operation[:4] == "0000":
+                check_proof = True
+            else:
+                new_proof += 1
+
+        return new_proof
+-------------------code----------------------
+
+---
+
+## Key Takeaways
+
+* **Non-symmetrical operation** (e.g., `new_proof^2 - previous_proof^2`) avoids repetition of proofs.
+* **Difficulty control**: the number of leading zeroes defines how hard the puzzle is.
+* **Returned proof**: directly used by `create_block` to generate a valid new block.
+
+---
