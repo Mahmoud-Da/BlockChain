@@ -214,3 +214,166 @@
   * Not overly technical; accessible introduction to the original vision.
 
 ---
+
+*** 35. Bitcoin's Monetary Policy ***
+
+# Blockchain Course – Bitcoin’s Monetary Policy
+
+---
+
+## what is Monetary Policy?
+
+Monetary policy is basically how a country manages its money supply and interest rates to keep the economy stable.
+
+Governments (through central banks, like the U.S. Federal Reserve or the Bank of Japan) use monetary policy to:
+
+* Control inflation (make sure prices don’t rise too fast).
+* Encourage economic growth (by making borrowing easier or harder).
+* Keep employment stable.
+
+They do this mainly by:
+
+1. **Changing interest rates** – lowering them to encourage borrowing and spending, or raising them to slow down inflation.
+2. **Controlling money supply** – adding more money into the economy or restricting it.
+
+In short: **Monetary policy is how central banks control money and credit to keep the economy healthy.**
+
+
+## Introduction
+
+* Just like central banks have **monetary policies**, Bitcoin has its own.
+* Bitcoin’s monetary policy consists of two key components:
+
+  1. **Halving**
+  2. **Block Frequency**
+
+---
+
+## 1. The Halving Principle
+
+### Definition
+
+* The **block reward** (Bitcoins released per mined block) is halved every **210,000 blocks** (\~4 years).
+* Fully pre-programmed in the **Bitcoin algorithm** (not decided by people).
+
+### Historical Halvings
+
+* 2009: 50 BTC per block.
+* 2012: 25 BTC per block.
+* 2016: 12.5 BTC per block.
+* 2020: 6.25 BTC per block.
+* 2024: 3.125 BTC per block.
+* Continues halving until approximately **2140**.
+
+### Supply Limit
+
+* Because of Bitcoin’s divisibility limits, the **final reward** will be mined in **2140**.
+* Total maximum supply: **21 million Bitcoins**.
+
+### Effect on Supply & Inflation
+
+* Block reward → decreases exponentially, approaching zero.
+* Supply curve → asymptotic, converging to 21 million BTC.
+* Inflation (new BTC released / existing BTC supply):
+
+  * Decreases over time.
+  * Leads to **deflationary nature** of Bitcoin (opposite of fiat currencies).
+
+### Miner Incentives & Fees
+
+* As block rewards decrease, **transaction fees** are expected to:
+
+  * Increase with Bitcoin adoption.
+  * Compensate miners for reduced rewards.
+* Sustainability depends on **network demand** and **market adoption**.
+
+---
+
+## 2. Block Frequency
+
+### Definition
+
+* The time interval between the creation of two consecutive blocks.
+
+### Examples by Cryptocurrency
+
+* **Bitcoin** → \~10 minutes.
+* **Ethereum** → \~15 seconds.
+* **Ripple** → \~3.5 seconds.
+* **Litecoin** → \~2.5 minutes.
+
+### Mechanism
+
+* Actual block times vary (statistical process).
+* Controlled to average \~10 minutes via **difficulty adjustment** (explained later in course).
+
+### What if there are no miners?
+
+* **No new blocks will be created.** Since miners are the ones solving cryptographic puzzles to add blocks, the blockchain would simply stop.
+* **No transactions get confirmed.** Users could still broadcast transactions, but they would remain pending in the mempool forever.
+* **The system freezes.** Without miners, Bitcoin’s network cannot move forward, because mining is essential for both transaction validation and block creation.
+
+### Why miners matter?
+
+* Miners keep the blockchain secure by validating transactions.
+* They add blocks, which also releases new bitcoins (block rewards + fees).
+* If miners disappear, the incentive to secure the network is gone, and the blockchain halts.
+
+---
+
+### Case 1: No Miners
+
+* **No new blocks are created** → the blockchain halts.
+* **Transactions remain unconfirmed** in the mempool.
+* **No security** → the network is unusable because no one is validating or adding blocks.
+
+---
+
+### Case 2: Very Few Miners
+
+* **Blocks become very slow.** If only a few miners are left, finding the cryptographic puzzle takes much longer than 10 minutes.
+* **Difficulty Adjustment:**
+
+  * Bitcoin automatically adjusts mining difficulty every **2016 blocks (\~2 weeks)**.
+  * If blocks are too slow, the difficulty lowers, making it easier for the small number of miners to find blocks.
+  * Over time, this brings the block frequency back closer to the 10-minute target.
+* **Security Risk:**
+
+  * With very few miners, the network is easier to attack (e.g., 51% attack).
+  * The system still works, but it’s less secure and more centralized.
+
+---
+
+In short:
+
+* **No miners = system stops.**
+* **Few miners = system slows but difficulty readjusts, eventually stabilizing, though with weaker security.**
+
+### Live Example (Blockchain.com)
+
+* Latest block times fluctuate (e.g., 3 min, 11 min, 17 min).
+* Averaged over time → \~10 minutes.
+* Useful resource: **blockchain.com / blockchain.info** for live data and statistics.
+
+---
+
+## Key Insights
+
+* **Halving** controls Bitcoin’s supply and ensures scarcity.
+* Total supply capped at **21 million BTC**.
+* Bitcoin’s monetary system is **algorithm-driven** (not controlled by central authority).
+* Bitcoin is **deflationary**, contrasting fiat currencies subject to inflation.
+* Miner rewards shift gradually from block rewards → transaction fees.
+* **Block frequency** ensures predictable block creation across time.
+
+---
+
+## Suggested Reading
+
+* **Satoshi Nakamoto (2008)** – *Bitcoin: A Peer-to-Peer Electronic Cash System* (bitcoin.org/bitcoin.pdf).
+* **Mark Jeftovic** – *This Time is Different Part 2: What Bitcoin Really Is*.
+
+  * Discusses Bitcoin vs. fiat monetary policy.
+  * Explores inflation, deflation, and central banking contrasts.
+
+---
