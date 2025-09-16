@@ -492,3 +492,87 @@ In short:
 * The system’s elegance lies in its simplicity and decentralization.
 
 ---
+
+*** 37. Virtual tour of a Bitcoin Mine ***
+# Industrial-Scale Bitcoin Mining
+
+## 1. Introduction
+
+* This tutorial does not focus on technicalities or philosophies of Blockchain.
+* Instead, it provides an overview of how **large-scale Bitcoin mining** operations work in practice.
+* Reference: Quartz article *“Photos Inside One of the Largest Bitcoin Mines”* (@quartzqz.com).
+
+---
+
+## 2. Scale of Bitcoin Mining Operations
+
+### Mining Facilities
+
+* Massive hangars filled with rows of mining rigs.
+* Each rig has an identifier and is networked with others.
+* Designed to maximize hash power to solve cryptographic puzzles.
+
+### Electricity Usage
+
+* Immense electricity consumption to power the machines.
+* Heat production is so high that:
+
+  * Each rig has its own cooling mechanism.
+  * Entire facilities are equipped with additional cooling systems.
+
+### Equipment
+
+* Mining rigs typically consist of **ASICs (Application-Specific Integrated Circuits)**, optimized for Bitcoin.
+* Earlier systems used GPUs, but ASICs dominate industrial Bitcoin mining.
+* Continuous maintenance is required (e.g., replacing or fixing units).
+
+---
+
+## 3. Human and Operational Aspects
+
+* Facilities employ staff for maintenance and supervision.
+* Workers sometimes even rest or nap inside the mining centers.
+* Mining as a profession parallels traditional resource extraction, such as coal mining:
+
+  * Both involve demanding work environments.
+  * Bitcoin mining represents a modern, technology-driven form of mining.
+
+---
+
+## 4. Economic and Industrial Perspective
+
+* Bitcoin mining has evolved into a **full-scale industrial sector**.
+* Facilities resemble large factories, with infrastructure dedicated to solving cryptographic puzzles.
+* Operations are not isolated—there are numerous large-scale mines worldwide.
+* Represents a new kind of industry in the 21st century, built around proof-of-work.
+
+---
+
+## 5. Reflections
+
+* The sole purpose of these massive operations is to solve Bitcoin’s cryptographic puzzle for proof-of-work validation.
+* Demonstrates the transformative impact of Blockchain technology, creating entirely new economic activities.
+* Mining centers showcase both technological progress and the scale of resources devoted to decentralized systems.
+* Example given: a large Bitcoin mine in China.
+
+---
+
+## 6. Further Exploration
+
+* Quartz article provides detailed photos and insights.
+* Additional videos on YouTube allow viewers to:
+
+  * Hear the constant noise of mining rigs and cooling systems.
+  * See the scale of industrial Bitcoin mining in action.
+
+---
+
+## 7. Key Takeaways
+
+* Industrial Bitcoin mines operate on a massive scale, both in size and energy consumption.
+* Operations rely on specialized ASIC hardware and large infrastructures.
+* Workers’ roles resemble traditional miners, though the “mineral” is digital.
+* Bitcoin mining has developed into a significant economic sector of its own.
+* Illustrates the real-world scale behind proof-of-work consensus.
+
+---
