@@ -3,13 +3,6 @@ import hashlib
 import json
 
 
-# index: len(self.chain) + 1 ensures sequential numbering.
-# timestamp: current time as a string (datetime.datetime.now()).
-# proof: passed as an argument from the proof-of-work solution.
-# previous_hash: passed as an argument, links to prior block.
-# self.chain.append(block): adds block to blockchain.
-# return block: lets us view the new block’s data (e.g., via Postman or console).
-
 class Blockchain:
 
     def __init__(self):
@@ -27,3 +20,6 @@ class Blockchain:
 
         self.chain.append(block)
         return block
+
+   def get_previous_block(self):
+        return self.chain[-1]
