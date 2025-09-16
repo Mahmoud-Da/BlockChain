@@ -97,3 +97,120 @@
 * After completing, learners will be **much more proficient** in blockchain and cryptocurrency concepts.
 
 ---
+
+
+*** 34. What is Bitcoin? ***
+
+# Blockchain Course – Module Two: Introduction to Bitcoin
+
+## Purpose of this Tutorial
+
+* Begin Module Two focused on **cryptocurrencies**.
+* Establish a **clear understanding** of:
+
+  * Blockchain
+  * Bitcoin
+  * Protocols
+  * Coins
+  * Tokens
+* Address confusion and misleading terminology.
+* Build a **solid foundation** for the rest of the module and course.
+
+---
+
+## The Three Layers of Crypto
+
+### 1. Technology Layer
+
+* **Blockchain** is the base technology.
+* Already discussed in Module One.
+
+### 2. Protocol Layer
+
+* Protocol = **set of rules** guiding communication across a network.
+* Examples: TCP/IP, HTTP, Internet Protocol.
+* **Bitcoin is a protocol**, not just a coin.
+
+  * Dictates consensus rules.
+  * Defines use of public/private keys and signatures.
+  * Determines update procedures.
+* Other crypto protocols: **Ethereum, Ripple, Litecoin, Monero, Zcash, Bitcoin Cash, Neo, Waves**.
+* Each protocol has **one native coin**:
+
+  * Bitcoin → BTC
+  * Ethereum → Ether
+  * Ripple → XRP
+  * Litecoin → LTC, etc.
+* Coins are **innate assets** used for:
+
+  * Mining rewards.
+  * Peer-to-peer transactions.
+
+### 3. Token Layer
+
+* Tokens are built **on top of protocols** via smart contracts.
+* ICOs (Initial Coin Offerings) = actually **token offerings**, not coin offerings.
+* Tokens depend on the underlying protocol:
+
+  * Ethereum → most tokens (hundreds).
+  * Neo → many tokens.
+  * Waves → a few tokens.
+  * Bitcoin & Ripple → no tokens (no smart contracts).
+
+---
+
+## Key Example: CoinMarketCap.com
+
+* Shows **hundreds of cryptocurrencies**.
+* Separates between **coins** and **tokens**.
+* Clarifies:
+
+  * Investing in a coin = investing in the protocol itself.
+  * Investing in a token = investing in the project/idea built on top.
+
+---
+
+## What is Bitcoin?
+
+### Origins
+
+* Invented in **2008** by **Satoshi Nakamoto** (identity unknown).
+* Described in the white paper: *Bitcoin: A Peer-to-Peer Electronic Cash System*.
+* Implemented in **2009**, continuously developed since.
+
+### Purpose
+
+* Take blockchain from **theory to practice**.
+* Enable **trustless peer-to-peer transactions** without intermediaries (e.g., banks).
+* Protocol enables **exchange of value** through coins.
+* Bitcoin → first and most established protocol in this space.
+
+### Ecosystem Participants
+
+1. **Nodes** – Devices that participate in the network (not mining).
+2. **Miners** – Validate and add transactions/blocks.
+3. **Large Miners** – Industrial-scale mining operations.
+4. **Mining Pools** – Groups of miners combining resources.
+
+---
+
+## Core Takeaways
+
+* **Bitcoin is a protocol** (rules of operation), not just a coin.
+* Protocols each have one native coin; coins enable secure value transfer.
+* Tokens are **built on protocols** via smart contracts (different layer).
+* The banking sector is bypassed: users transact directly via technology.
+* Bitcoin is chosen as the **primary case study** because it is:
+
+  * The most famous, longest-running, and widely adopted cryptocurrency.
+
+---
+
+## Suggested Reading
+
+* **Satoshi Nakamoto (2008)** – *Bitcoin: A Peer-to-Peer Electronic Cash System*
+
+  * Available at: [bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)
+  * Not overly technical; accessible introduction to the original vision.
+
+---
