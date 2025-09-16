@@ -307,6 +307,48 @@ In short: **Monetary policy is how central banks control money and credit to kee
 * Actual block times vary (statistical process).
 * Controlled to average \~10 minutes via **difficulty adjustment** (explained later in course).
 
+### What if there are no miners?
+
+* **No new blocks will be created.** Since miners are the ones solving cryptographic puzzles to add blocks, the blockchain would simply stop.
+* **No transactions get confirmed.** Users could still broadcast transactions, but they would remain pending in the mempool forever.
+* **The system freezes.** Without miners, Bitcoin’s network cannot move forward, because mining is essential for both transaction validation and block creation.
+
+### Why miners matter?
+
+* Miners keep the blockchain secure by validating transactions.
+* They add blocks, which also releases new bitcoins (block rewards + fees).
+* If miners disappear, the incentive to secure the network is gone, and the blockchain halts.
+
+---
+
+### Case 1: No Miners
+
+* **No new blocks are created** → the blockchain halts.
+* **Transactions remain unconfirmed** in the mempool.
+* **No security** → the network is unusable because no one is validating or adding blocks.
+
+---
+
+### Case 2: Very Few Miners
+
+* **Blocks become very slow.** If only a few miners are left, finding the cryptographic puzzle takes much longer than 10 minutes.
+* **Difficulty Adjustment:**
+
+  * Bitcoin automatically adjusts mining difficulty every **2016 blocks (\~2 weeks)**.
+  * If blocks are too slow, the difficulty lowers, making it easier for the small number of miners to find blocks.
+  * Over time, this brings the block frequency back closer to the 10-minute target.
+* **Security Risk:**
+
+  * With very few miners, the network is easier to attack (e.g., 51% attack).
+  * The system still works, but it’s less secure and more centralized.
+
+---
+
+In short:
+
+* **No miners = system stops.**
+* **Few miners = system slows but difficulty readjusts, eventually stabilizing, though with weaker security.**
+
 ### Live Example (Blockchain.com)
 
 * Latest block times fluctuate (e.g., 3 min, 11 min, 17 min).
