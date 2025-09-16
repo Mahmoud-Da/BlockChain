@@ -103,3 +103,91 @@ This course contains **three main modules**:
 **Next Tutorial:** Installing packages and preparing Postman for blockchain interaction.
 
 ---
+
+*** 17. Step 2 ***
+
+# Lecture Notes – Installing Tools for Blockchain Development
+
+## Introduction
+
+* Before creating the blockchain, two tools must be installed:
+
+  1. **Flask** – A web framework to build a web application containing the blockchain.
+  2. **Postman** – An HTTP client providing a user-friendly interface for interacting with the blockchain (instead of CURL).
+
+---
+
+## Installing Flask
+
+* **Command:**
+
+-------------------code----------------------
+pip install Flask==0.12.2
+-------------------code----------------------
+
+  PS: we use "pipenv install" instead
+
+* **For Mac/Linux:**
+  Open a terminal and run the command.
+
+* **For Windows:**
+
+  * Click the Windows button (bottom left).
+  * Search for *Anaconda* → *Anaconda Prompt*.
+  * Run the command inside the prompt.
+
+* **Notes:**
+
+  * If Flask is already installed, it will show up.
+  * If not, installation is quick.
+
+---
+
+## Installing Postman
+
+* **Steps:**
+
+  1. Open a browser and search for *Postman*.
+  2. Click the official link: *Postman API Development Environment*.
+  3. Download for your operating system (Mac, Windows, Linux).
+  4. The download begins automatically (small file size).
+  5. Locate the downloaded file (e.g., *Postman OSX* on Mac).
+  6. Double-click to unzip and run the installer.
+
+* **First Use:**
+
+  * Sign up with Google or create an account.
+  * Once signed in, the main interface shows available request types.
+
+---
+
+## Using Postman
+
+* **Request Types Used:**
+
+  * **GET Request:**
+
+    * Retrieve the state of the blockchain.
+    * Mine a block.
+  * **POST Request:**
+
+    * Add a new transaction (will be used in module two).
+    * Requires a JSON file with:
+
+      * Sender address
+      * Receiver address
+      * Amount of AT coins
+
+* **Note:**
+
+  * Module one uses only **GET requests** (mining blocks, checking blockchain state).
+  * Module two introduces **POST requests** for transactions (with AT coin).
+
+---
+
+## Conclusion
+
+* Flask and Postman are now installed.
+* With these tools ready, development of the blockchain (module one) can begin.
+
+---
