@@ -1,0 +1,99 @@
+*** 33. Plan of Attack ***
+# Blockchain Course – Module Two: Plan of Attack
+
+## Overview
+
+* Module Two is a **large and foundational section**.
+* Goal: Understand **Bitcoin** in depth while building broader knowledge of blockchain and cryptocurrency.
+* Total: **12 tutorials + 1 optional extra tutorial**.
+
+---
+
+## Tutorial Breakdown
+
+### 1. What is Bitcoin?
+
+* Bird’s-eye view of the crypto space.
+* Three layers:
+
+  * Technology layer
+  * Protocol layer
+  * Token layer
+* Understand protocols, why Bitcoin is a protocol.
+* Difference between **coins vs tokens**.
+
+### 2. Bitcoin’s Monetary Policy
+
+* Comparison with central banks.
+* Governed entirely by **software**.
+* Foundation for understanding how Bitcoin operates independently.
+
+### 3. Mining Difficulty
+
+* Builds on Module One concepts.
+* Links with Bitcoin’s monetary policy.
+* Explains how software enforces scarcity and policy.
+* **Challenging but critical tutorial.**
+
+### 4. Virtual Tour of Bitcoin Mines
+
+* Look inside industrial-level Bitcoin mining facilities.
+* See the **physical reality** behind mining.
+
+### 5. Mining Pools
+
+* How miners collaborate.
+* Reasons for forming pools.
+
+### 6. The Nonce Range
+
+* Extends understanding of the Nonce.
+* Covers challenges and technical details.
+* Importance: Often overlooked in blockchain discussions.
+
+### 7. How Miners Pick Transactions (Two-Part Tutorial)
+
+1. **Process of selecting transactions** for inclusion in blocks.
+2. **Live examples** of blockchain transactions and statistics.
+
+### 8. Hardware for Mining
+
+* Comparison of mining hardware:
+
+  * CPUs
+  * GPUs
+  * ASICs
+* Explanation of differences and roles in mining Bitcoin, Ethereum, and others.
+
+### 9. Mempools
+
+* Staging area for pending transactions.
+* How mempools propagate information across the network.
+
+### 10. Orphaned Blocks
+
+* What happens when chains compete.
+* Impact on transactions within orphaned blocks.
+* Real-world examples of orphaned blocks.
+
+### 11. The 51% Attack
+
+* Clear explanation of what it **is and is not**.
+* Why it is dangerous.
+* Removes misconceptions surrounding the concept.
+
+### 12. Extra: Bits to Target (Optional)
+
+* Mathematical/technical tutorial.
+* Useful for **developers**.
+* Not mandatory but good for deeper understanding.
+
+---
+
+## Key Takeaways
+
+* Module Two provides a **comprehensive foundation** in Bitcoin and blockchain mechanics.
+* Covers both **theoretical concepts** (monetary policy, 51% attack) and **practical details** (mining hardware, mempools, transaction selection).
+* After completing, learners will be **much more proficient** in blockchain and cryptocurrency concepts.
+
+---
