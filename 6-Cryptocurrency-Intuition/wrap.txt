@@ -780,3 +780,123 @@ In short:
 * **Next step:** How mining pools architecturally solve this constraint (covered in the following lecture).
 
 ---
+
+*** 40. How Miners Pick Transactions (Part 1) ***
+---
+
+# Lecture Notes: How Miners Pick Transactions
+
+## 1. Transaction Source
+
+* Transactions come from the **mempool** (memory pool).
+* Each node/miner has its own mempool containing **unconfirmed transactions**.
+* Transactions happen continuously, but blocks are only created about every **10 minutes**.
+* The mempool acts as a **staging area** until inclusion in a block.
+
+---
+
+## 2. Block Transaction Limit
+
+* In reality: block size limit is **1 MB**, fitting \~2,000 transactions.
+* Simplified example: assume a miner can include **5 transactions**.
+
+---
+
+## 3. Miner’s Selection Criteria
+
+* Each transaction specifies a **fee** (set by the sender, not compulsory).
+* Miners earn these fees **in addition to block rewards**.
+* Miners therefore prioritize **transactions with the highest fees**.
+* Example: miner selects top 5 highest-fee transactions for inclusion.
+
+---
+
+## 4. Connection to the Nonce Problem
+
+* Reminder: nonce range is **0 to 4 billion** (32-bit unsigned integer).
+* Timestamp updates every **1 second**, allowing nonce values to be reused.
+* For a **single miner**, this setup works because they cannot exhaust the full nonce range within one second.
+* For **large miners or mining pools**, nonce ranges can be exhausted almost instantly.
+
+**Issue:** What happens when miners or pools finish the nonce range before the timestamp updates?
+
+---
+
+## 5. Solution: Block Reconfiguration
+
+* When the nonce range is exhausted too quickly, miners **reconfigure the block**.
+* Reconfiguration involves **swapping out transactions**:
+
+  * Remove the transaction with the **lowest fee**.
+  * Replace it with the **next highest fee** from the mempool.
+  * This changes the block data, resulting in a **different hash output** for the same nonce values.
+* Process repeats until timestamp updates, at which point nonce range resets.
+
+---
+
+## 6. Mining Pools and Automation
+
+* All of this process happens **algorithmically**:
+
+  * Miners don’t manually select transactions.
+  * Mining pools provide the algorithms to handle:
+
+    * **Transaction selection**
+    * **Nonce allocation**
+    * **Avoiding duplicate work** among miners in the pool
+* Pools manage **thousands of miners** and coordinate work efficiently.
+
+---
+
+## 7. Effect of Transaction Fees
+
+* Transactions with **very low or zero fees** are likely to remain stuck in the mempool.
+* Pools often ignore transactions below a **threshold fee level**.
+* If not picked up, the transaction is typically returned to the sender (standard: \~72 hours).
+* Wallets usually suggest a **recommended fee** to ensure timely inclusion.
+
+---
+
+## 8. Key Takeaways
+
+1. **Transactions come from the mempool.**
+2. **Miners prioritize highest-fee transactions.**
+3. **Nonce range alone is insufficient** for large-scale miners.
+4. **Block reconfiguration** provides additional variability.
+5. **Pools automate the process**, removing complexity for individual miners.
+6. **Low fees risk exclusion**, leading to stuck or returned transactions.
+
+---
+
+flow diagram** (text-based) showing:
+* **Single Miner Process** vs **Mining Pool Process** for handling the nonce exhaustion problem
+-------------------code----------------------
+
+┌───────────────────────────┐        ┌───────────────────────────────┐
+│       Single Miner        │        │          Mining Pool          │
+└───────────────────────────┘        └───────────────────────────────┘
+
+1. Collect transactions                 1. Collect transactions
+   from mempool.                           from mempool (shared across pool).
+
+2. Sort by fee (highest first).          2. Pool algorithm sorts by fee
+                                            and sets fee threshold.
+
+3. Build block (limited size).           3. Build candidate block template.
+
+4. Start hashing with nonce range.       4. Divide nonce range among miners
+                                            to avoid duplication.
+
+5. If nonce range exhausted:             5. If a miner exhausts its nonce range:
+   - Wait for timestamp update              - Request new block template
+     (every 1s), or                          from pool.
+   - Reconfigure block: replace             - Pool reconfigures by swapping
+     lowest-fee transaction with               transactions (low → high fee).
+     next highest-fee one.
+
+6. Continue until valid hash found.      6. Pool miners keep working with
+                                            refreshed blocks + new nonce ranges.
+
+7. Broadcast block once solved.          7. Winning miner’s result is submitted
+                                            to pool → pool broadcasts block.
+-------------------code----------------------
