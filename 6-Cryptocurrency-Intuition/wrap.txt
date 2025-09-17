@@ -900,3 +900,86 @@ flow diagram** (text-based) showing:
 7. Broadcast block once solved.          7. Winning miner’s result is submitted
                                             to pool → pool broadcasts block.
 -------------------code----------------------
+
+*** 41. How Miners Pick Transactions (Part 2) ***
+
+# Lecture Notes: Blockchain Charts, Transactions, and Fees
+
+## 1. Transactions per Block
+
+* Average: \~2000 transactions per block (over the past year).
+* Recently dropped to \~1,300.
+* Variability depends on **size of individual transactions** (measured in KB/MB).
+* Larger transactions reduce the total number that can fit into a block.
+
+---
+
+## 2. Average Block Size
+
+* Maximum block size: **1 MB**.
+* Actual average: \~1.0–1.05 MB.
+* Miners typically **maximize usage** of block space to earn as many fees as possible.
+* Blocks are rarely left half empty.
+
+---
+
+## 3. Transaction Fees
+
+* Fees are **separate from block rewards** (newly minted Bitcoin).
+* Fees vary based on:
+
+  1. **Demand**:
+
+     * High demand → higher competition for inclusion → fees rise.
+     * Low demand → fewer urgent transactions → fees fall.
+  2. **Exchange Rate (USD vs. BTC)**:
+
+     * Fees shown in USD fluctuate with Bitcoin’s price.
+     * In BTC terms, the trend is more stable.
+
+**Example:**
+
+* December 2017: miners earned **\$22M in one day** from fees.
+* Recently: about **\$400k in one day**.
+
+---
+
+## 4. Transaction Rate and Mempool
+
+* Charts also show how many transactions are added to the **mempool per second**.
+* Pattern depends on **time of day** and global activity.
+* Example: noticeable drops around 4 PM (Australia time zone observation).
+
+---
+
+## 5. Transaction Accelerators
+
+* Offered by **mining pools**.
+* Purpose: help stuck transactions with low fees get confirmed.
+* Users submit their **transaction hash** and pay extra.
+* Pools then prioritize that transaction.
+* Example of probability:
+
+  * 75% chance confirmation within 1 hour.
+  * 98% chance within 4 hours.
+
+---
+
+## 6. Additional Reading
+
+* Article: **“How Bitcoin Mining Works”** (CoinDesk).
+* Covers nodes, puzzles, difficulty, and mining economics.
+* By this stage, students should understand all the concepts discussed.
+
+---
+
+## 7. Key Takeaways
+
+1. **Transactions per block** vary depending on transaction size.
+2. **Block size** remains near 1 MB, as miners maximize space for fees.
+3. **Fees** are driven by demand and exchange rate fluctuations.
+4. **Mempool** charts show the flow of unconfirmed transactions over time.
+5. **Transaction accelerators** exist as a paid option to speed up confirmations.
+6. Supplementary reading reinforces mining concepts and block configuration.
+
+---
