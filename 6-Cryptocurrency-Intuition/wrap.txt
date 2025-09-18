@@ -1265,3 +1265,118 @@ flow diagram** (text-based) showing:
 * To avoid risk, always wait for multiple confirmations (commonly six).
 
 ---
+
+
+*** 45. The 51% Attack ***
+
+---
+
+# Lecture Notes: 51% Attack in Blockchain
+
+## Introduction
+
+* The **51% attack** is a well-known hypothetical attack in blockchain.
+* It is feared and discussed because of its potential consequences.
+* Two main goals of this lecture:
+
+  1. Clarify what the 51% attack **is not**.
+  2. Explain what the 51% attack **is**.
+
+---
+
+## What the 51% Attack is NOT
+
+* It is **not** an attack designed to tamper with individual or select blocks.
+* Example from Module 1:
+
+  * In distributed peer-to-peer networks, tampering with a block would require hacking into multiple computers, not just one.
+  * An attacker would have to change hashes across many computers and rehash all following blocks.
+  * This is **impractical or impossible** due to blockchain’s distributed design.
+* Key distinction:
+
+  * 51% attack is about controlling **51% of hash rate**, not 51% of nodes.
+  * Nodes far outnumber miners, so hacking them directly is not feasible.
+
+---
+
+## What the 51% Attack IS
+
+1. **Setup**
+
+   * A malicious group of miners joins the network.
+   * They copy the blockchain, mempool, and other necessary data.
+   * They then cut off communication and start mining privately.
+
+2. **Process**
+
+   * Honest miners continue mining blocks on the public chain.
+   * Malicious miners, having more hash rate (>51%), generate blocks faster on their private chain.
+   * Over time, the malicious chain grows longer than the honest chain.
+
+3. **Execution**
+
+   * The attackers reconnect to the network and broadcast their longer chain.
+   * Rule: *“Longest chain wins.”*
+   * The network accepts the attackers’ chain, invalidating the honest chain.
+   * All transactions in invalidated blocks return to the mempool.
+
+---
+
+## Consequences of the Attack
+
+1. **Double Spend Problem**
+
+   * Attackers could spend cryptocurrency (e.g., buy goods, exchange coins) on the public chain.
+   * Once the honest chain is invalidated, those transactions disappear.
+   * Attackers keep both the goods/coins they acquired **and** their original cryptocurrency.
+
+2. **Transaction Manipulation**
+
+   * Attackers can prevent specific transactions from being confirmed.
+   * By mining empty blocks or excluding certain transactions, they ensure canceled transactions never reappear in the chain.
+   * After a set time (e.g., 72 hours in Bitcoin), stuck transactions return to the sender.
+
+3. **Duration and Impact**
+
+   * Unlike orphan blocks (temporary and accidental), a 51% attack is intentional and can last much longer.
+   * Users typically consider transactions safe after 6 confirmations, but during such an attack, even confirmed transactions can be reversed.
+
+---
+
+## Practicality of the Attack
+
+* On Bitcoin:
+
+  * Extremely difficult due to massive hash rate.
+* On smaller blockchains:
+
+  * More feasible, though not always financially lucrative.
+
+---
+
+## Legality and Ethical Questions
+
+* Attackers do not hack computers or break cryptographic rules.
+* They exploit consensus rules by controlling majority hash rate.
+* Legality is uncertain today but may be regulated in the future.
+
+---
+
+## Suggested Reading
+
+* Article: **“Choosing ASICs for Sia”** by David Warwick (CEO of Sia).
+* Sia: a blockchain for decentralized file hosting.
+* Article discusses introducing ASICs to Sia as protection against 51% attacks.
+* Important: Read the **comments** for counterarguments, since the article is one-sided.
+
+---
+
+## Summary
+
+* The **51% attack** exploits blockchain consensus by controlling majority hash rate.
+* Not about tampering with individual blocks or hacking nodes.
+* Main risk: **double spending** and **transaction censorship**.
+* Hard to execute on large chains (like Bitcoin) but possible on smaller ones.
+* Raises both economic and legal concerns.
+
+---
