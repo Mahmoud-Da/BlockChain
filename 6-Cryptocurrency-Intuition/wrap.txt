@@ -1169,3 +1169,99 @@ flow diagram** (text-based) showing:
 * Network stats (size, growth, unconfirmed count) help visualize blockchain activity.
 
 ---
+
+*** 44. Orphaned Blocks ***
+---
+
+# Lecture Notes: Orphaned Blocks in Blockchain
+
+## 1. Introduction
+
+* Topic: **Orphaned Blocks** in blockchain networks.
+* Example source: Blockchain.com (stats → orphaned blocks).
+* Method: Show and tell with live blockchain data.
+
+---
+
+## 2. Understanding the Chart
+
+* Diagram shows the blockchain **vertically**.
+* Dots ("...") indicate skipped blocks without orphaned events.
+* Consecutive numbering (e.g., 497,870 → 497,871) shows normal chain continuation.
+* When an orphan occurs, it is explicitly displayed.
+
+---
+
+## 3. What is an Orphan Block?
+
+* Orphan block = a valid block found by a miner, but **not accepted** into the longest chain.
+* Happens when **two miners (or pools) find a block at nearly the same time**.
+* Both blocks initially propagate to nearby nodes, creating two competing chains.
+* Eventually, the chain that **grows longer** is accepted by the network.
+* The block from the losing chain becomes an **orphan**.
+
+---
+
+## 4. Example Case
+
+* Block 503,948 mined successfully by BTC.com.
+* Next block (503,949) was found almost simultaneously:
+
+  * GBMiners: 23:28:07
+  * Slush Pool: 23:28:33 (26 seconds later)
+* Both claimed the same block height but with **different transactions**.
+* Two competing chains formed:
+
+  * Nodes closer to GBMiners followed their chain.
+  * Nodes closer to Slush Pool followed theirs.
+* Result:
+
+  * The chain with greater accumulated work (longest chain) prevailed.
+  * Slush Pool’s block was **orphaned**.
+
+---
+
+## 5. What Happens to Transactions in Orphaned Blocks?
+
+* Transactions in the orphan block are:
+
+  * **Returned to the Mempool** of the nodes that accepted them.
+  * If also included in the winning block, they are immediately confirmed.
+  * Otherwise, they remain unconfirmed in the Mempool until included later.
+
+---
+
+## 6. Implications
+
+* **Double Spend Risk**:
+
+  * If a transaction appears in an orphaned block, it can be reversed.
+  * Example: Selling a bicycle after one confirmation could result in losing both the money and the bicycle if that block becomes orphaned.
+* **Rule of Thumb**: Wait for **6 confirmations** before considering a transaction final.
+* Cryptocurrency exchanges follow this rule:
+
+  * They require multiple confirmations (often 5–6) before releasing funds.
+  * Protects against double spending and orphan block reversals.
+
+---
+
+## 7. Causes of Orphan Blocks
+
+* Network latency: time for blocks to propagate across global miners.
+* Example:
+
+  * GBMiners and Slush Pool mined blocks within seconds of each other.
+  * Geographic distance may delay block propagation.
+* Result: Competing blocks at the same height.
+
+---
+
+## 8. Key Takeaways
+
+* Orphan blocks are **normal** in blockchain networks.
+* They occur when two valid blocks are mined at the same time.
+* The **longest chain rule** resolves conflicts: only the longest chain survives.
+* Transactions in orphaned blocks may be re-entered into the Mempool.
+* To avoid risk, always wait for multiple confirmations (commonly six).
+
+---
