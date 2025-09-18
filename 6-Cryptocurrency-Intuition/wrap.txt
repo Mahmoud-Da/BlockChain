@@ -1380,3 +1380,100 @@ flow diagram** (text-based) showing:
 * Raises both economic and legal concerns.
 
 ---
+
+*** 46. Extra: Bits to Target conversion ***
+# Lecture Notes: How the Current Target is Stored in Blockchain
+
+## Introduction
+
+* This is a **bonus tutorial** that extends the mining difficulty lecture.
+* Purpose: explain **how the target is stored in blocks** and how to derive it.
+* Not compulsory: includes some tedious calculations but useful for deeper understanding.
+
+---
+
+## Background
+
+* **Difficulty and Target Relationship**
+
+  * Difficulty = Max Target ÷ Current Target.
+  * Target defines how hard it is to mine a block.
+* Targets appear with many leading zeros and truncated numbers.
+* Question: *Where is the current target stored in a block?*
+
+---
+
+## Where the Target is Stored
+
+* Blocks do not store a field called "target".
+* Instead, blocks contain a field called **bits**.
+* **Bits** is a **code** representing the target in compact form.
+
+---
+
+## Steps to Derive the Target from Bits
+
+### 1. Convert Bits to Hexadecimal
+
+* Example value: `392009692` (decimal).
+* Convert to hex → produces a hex number (e.g., `0x17 5D97DC`).
+* The **first two digits** (`17` in hex) represent the **length** of the target.
+
+### 2. Decode the First Two Digits
+
+* `17` (hex) = 23 (decimal).
+* This indicates the **length of the target number** in **bytes**.
+
+### 3. Determine Final Length
+
+* 23 bytes = 23 × 2 = **46 hex digits**.
+* Why?
+
+  * 1 byte = 8 bits.
+  * 1 hex digit = 4 bits.
+  * Therefore, 1 byte = 2 hex digits.
+  * 23 bytes = 46 hex digits.
+
+### 4. Insert the Significant Component
+
+* The remaining part of the hex (`5D97DC` in the example) is the **most significant component**.
+* Place it in the number and pad with leading zeros.
+
+### 5. Add Leading Zeros
+
+* Targets are expected to be **64 hex digits long** (256 bits).
+* If only 46 digits are filled, pad with 18 leading zeros (64 − 46).
+
+---
+
+## Why This Encoding is Used
+
+* Storing the full 256-bit target directly would require significant space.
+* Using **bits** as a code saves space:
+
+  * First two digits encode length (in bytes).
+  * Remaining digits encode the most significant portion.
+  * The rest is reconstructed with zeros.
+
+---
+
+## Key Takeaways
+
+* **Target is stored in every block** via the **bits field**, not as a direct number.
+* **Bits** encodes:
+
+  1. Length of the target (first two hex digits).
+  2. Most significant digits of the target.
+* Final target is reconstructed by padding with leading zeros.
+* This compact storage improves efficiency while preserving accuracy.
+
+---
+
+## Conclusion
+
+* Understanding the **bits field** is essential for blockchain development.
+* It provides the precise way to reconstruct the mining target from stored data.
+* Although technical, this knowledge can be valuable for developers working with blockchain applications.
+
+---
+
