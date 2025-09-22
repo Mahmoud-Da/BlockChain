@@ -70,3 +70,110 @@
 * Next step: Begin with transactions and UTXOs.
 
 ---
+
+*** 48. Transactions and UTXO's ***
+# Blockchain Course – Transactions and UTXOs
+
+### Introduction
+
+* Topic: **Transactions and UTXOs (Unspent Transaction Outputs)** in blockchain.
+* Key difference: Blockchain transactions behave differently than **banking transactions**.
+* In blockchain, transactions continue to exist as UTXOs until they are used in a new transaction.
+
+---
+
+### What is a UTXO?
+
+* **UTXO = Unspent Transaction Output.**
+* Every time you receive Bitcoin (or similar cryptocurrency), you receive it as a UTXO.
+* A UTXO remains valid until it is spent in a new transaction.
+* Unlike banks, blockchain has **no accounts** and **no balances**.
+
+  * Everything is represented as **transactions recorded on the blockchain**.
+
+---
+
+### Example 1: Receiving Transactions
+
+* Received:
+
+  * Mark → 0.1 BTC
+  * Hadelin → 0.3 BTC
+  * Helen → 0.6 BTC
+  * Susan → 0.7 BTC
+* These are all **UTXOs** associated with the recipient.
+
+---
+
+### Example 2: Buying a Bicycle (0.5 BTC)
+
+* Need: 0.5 BTC.
+* Choose the 0.6 BTC UTXO from Helen.
+* Rule: **Inputs must be fully used**.
+
+  * Cannot partially spend a UTXO.
+  * Must use the entire 0.6 BTC.
+* Output structure:
+
+  * 0.5 BTC → Bike shop
+  * 0.1 BTC → Back to self (change)
+* Result:
+
+  * Helen’s 0.6 BTC UTXO is consumed.
+  * Two new UTXOs are created:
+
+    * Bike shop: 0.5 BTC
+    * Self: 0.1 BTC
+
+---
+
+### Example 3: Buying a Second Bicycle (1.1 BTC)
+
+* Cost: 1.1 BTC.
+* Available UTXOs:
+
+  * Hadelin → 0.3 BTC
+  * Susan → 0.7 BTC
+  * Self → 0.1 BTC
+* Combine these three UTXOs to reach 1.1 BTC.
+* Output:
+
+  * 1.1 BTC → Bike shop
+* Result:
+
+  * All three UTXOs consumed.
+  * New UTXO created for bike shop: 1.1 BTC.
+  * No change returned to self.
+
+---
+
+### Important Observations
+
+* **Transactions feed into each other.**
+
+  * One transaction consumes previous UTXOs and creates new ones.
+  * The blockchain is a continuous chain of transaction outputs and inputs.
+* **Balance = sum of UTXOs.**
+
+  * While we think in terms of account balances, in blockchain your "balance" is really the sum of all UTXOs associated with you.
+
+---
+
+### Practice Recommendation
+
+* To better understand:
+
+  1. Imagine receiving different amounts as transactions.
+  2. Try constructing transactions for purchases.
+  3. Calculate inputs, outputs, and any change sent back to yourself.
+* Repetition helps clarify the logic of UTXOs.
+
+---
+
+### Closing
+
+* UTXOs are central to how blockchain transactions operate.
+* The system may feel confusing at first, but with practice the logic becomes clear.
+* Next tutorials will provide more examples and reinforce the concept.
+
+---
