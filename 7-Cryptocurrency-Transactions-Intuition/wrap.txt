@@ -1,0 +1,72 @@
+*** 47. Plan of Attack ***
+# Blockchain Course – Transactions Module
+
+### Introduction
+
+* This module shifts focus from **mining** to **transactions**.
+* Blockchain transactions differ significantly from traditional **banking systems**.
+* Goal: Understand how transactions, wallets, and privacy work in blockchain.
+
+---
+
+### Key Topics in This Module
+
+1. **Transactions and UTXOs**
+
+   * UTXO = *Unspent Transaction Output*.
+   * Core difference between blockchain transactions and banking.
+   * First tutorial may feel challenging—concepts are very different.
+   * Knowledge is reinforced in the first three tutorials.
+
+2. **Transaction Fees**
+
+   * Where fees come from and how they are applied in blockchain systems.
+
+3. **Wallets**
+
+   * How cryptocurrency wallets work.
+   * Practical setup and operation.
+
+4. **Keys and Signatures**
+
+   * Public and private keys.
+   * Digital signatures and privacy in blockchain transactions.
+   * Includes demo with a tool to visualize key generation and usage.
+
+5. **SegWit (Segregated Witness)**
+
+   * What it is and why it was introduced.
+   * Benefits for Bitcoin and other networks.
+
+6. **Public Key vs. Bitcoin Address**
+
+   * Commonly confused concepts clarified.
+
+7. **Hierarchical Deterministic (HD) Wallets**
+
+   * How HD wallets function.
+   * Their role in securely managing multiple addresses.
+
+---
+
+### Notes on Scope
+
+* Primary focus will be on **Bitcoin** as a working cryptocurrency.
+* Concepts largely apply to other cryptocurrencies (e.g., Litecoin).
+* Once the Bitcoin foundation is clear, adapting to other cryptos is easier.
+
+---
+
+### Guidance
+
+* The first tutorial may feel unfamiliar, but the **second and third tutorials reinforce key concepts**.
+* By the end of the first three tutorials, learners should understand blockchain transactions well.
+
+---
+
+### Closing
+
+* This module lays the foundation for deeper exploration into blockchain.
+* Next step: Begin with transactions and UTXOs.
+
+---
