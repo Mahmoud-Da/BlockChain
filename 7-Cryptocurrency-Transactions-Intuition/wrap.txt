@@ -177,3 +177,104 @@
 * Next tutorials will provide more examples and reinforce the concept.
 
 ---
+
+
+*** 49. Where do transaction fees come from? ***
+# Blockchain Course – Transaction Fees and UTXOs
+
+### Introduction
+
+* Review of previous topic: **transactions and UTXOs**.
+* Today’s focus: **where transaction fees come from**.
+* Builds on prior knowledge while practicing transaction construction.
+
+---
+
+### Scenario Setup
+
+* Current UTXOs available:
+
+  * Mark → 1.0 BTC
+  * Sarah → 0.1 BTC
+  * Hadelin → 0.4 BTC
+  * Ebay → 0.3 BTC
+  * Hadelin → 0.3 BTC
+
+* Purchases planned:
+
+  * Bicycle: 0.9 BTC
+  * Apple: 0.02 BTC
+  * **Total needed: 0.92 BTC**
+
+---
+
+### Constructing the Transaction
+
+* **Inputs selected:**
+
+  * 0.4 BTC (Hadelin)
+  * 0.3 BTC (Ebay)
+  * 0.3 BTC (Hadelin)
+  * Total inputs = 1.0 BTC
+
+* **Outputs:**
+
+  * 0.9 BTC → Bike shop
+  * 0.02 BTC → Fruit shop
+  * 0.06 BTC → Self (change)
+
+* **Issue:**
+
+  * Total input = 1.0 BTC
+  * Total output = 0.98 BTC
+  * **Difference = 0.02 BTC (fee)**
+
+---
+
+### How Fees Work
+
+* Any **unaccounted difference** between inputs and outputs becomes the **transaction fee**.
+* **No explicit field** for fees in Bitcoin transactions.
+* Formula:
+
+-------------------code----------------------
+Fee = Total Input – Total Output
+-------------------code----------------------
+* Purpose: incentivize miners to include the transaction in a block.
+* Higher fees → faster inclusion, especially when the mempool is crowded.
+
+---
+
+### Real-World Example (Blockchain.com)
+
+1. **Coinbase Transaction**
+
+   * First transaction in every block.
+   * Pays the miner the block reward (e.g., 12.5 BTC at the time).
+   * Also includes **all aggregated fees** from other transactions in that block.
+
+2. **Exploring Transactions**
+
+   * UTXOs feed into new transactions.
+   * Blockchain explorers (like blockchain.com) show how inputs link to outputs.
+   * **Tree charts** visualize the chain of UTXOs feeding into larger and larger transactions.
+
+3. **Example Observed**
+
+   * Small UTXOs (0.2 BTC, 0.3 BTC, etc.) combine into larger ones.
+   * Eventually resulted in a **270 BTC transaction (\~\$2.7M at \$10k/BTC)**.
+   * Demonstrates how transactions compound into larger flows.
+
+---
+
+### Key Takeaways
+
+* Blockchain has **no accounts or balances**; only UTXOs.
+* **Transaction fees** are simply the leftover difference from inputs and outputs.
+* Miners earn both:
+
+  * Block rewards.
+  * Aggregated transaction fees.
+* Tools like blockchain explorers help visualize and trace how UTXOs move and accumulate.
+
+---
