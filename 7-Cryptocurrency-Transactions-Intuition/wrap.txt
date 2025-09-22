@@ -480,3 +480,103 @@ Fee = Total Input – Total Output
 * This system ensures security and prevents fraudulent transactions.
 
 ---
+
+
+
+*** 52. Signatures & Keys Demo ***
+# Blockchain Lecture Notes
+
+## Demo: Private Keys, Public Keys, and Signatures
+
+### 1. Demo Resource
+
+* Demo available at:
+  **tools.superdatascience.com/blockchain/public-private-keys/keys**
+* Created by Anders Brownworth (openly available for learning).
+* Hosted by SuperDataScience, with GitHub access for those who want to run it themselves.
+
+---
+
+### 2. Private and Public Keys
+
+* **Private key**
+
+  * Randomly generated large number.
+  * Must remain secret.
+  * Example: entering a custom value also produces a valid key.
+  * Warning: short or simple private keys (e.g., "12") are insecure because they can be guessed.
+
+* **Public key**
+
+  * Deterministically derived from the private key.
+  * Fixed length, shown as a hexadecimal string.
+  * Safe to share publicly.
+  * Used by others to verify transactions or send funds.
+
+---
+
+### 3. Digital Signatures
+
+* **Process**
+
+  1. User creates a message/transaction.
+  2. Message is signed with the private key → produces a **signature**.
+  3. Signature and public key travel with the message.
+  4. Anyone can verify using:
+
+     * Message
+     * Signature
+     * Public key
+
+* **Verification**
+
+  * If valid → confirms the message was signed by the private key corresponding to the public key.
+  * If tampered or forged → verification fails.
+
+* **Key Points**
+
+  * Signature proves authenticity.
+  * Private key is never shared.
+  * Public key allows verification without revealing the private key.
+
+---
+
+### 4. Demo Example: Message Signing
+
+* Example transaction:
+  *“Hadelin sends Kirill 0.2 BTC”*
+* After signing:
+
+  * Message + signature + public key are broadcast.
+* Network verification:
+
+  * Only works if the signature was produced by the private key linked to the public key.
+  * If the message or signature is changed, verification fails.
+
+---
+
+### 5. Demo Example: Transaction Signing
+
+* Transaction fields:
+
+  * Amount, sender address, recipient address.
+* Process is identical:
+
+  * Private key signs transaction.
+  * Signature + public key + message form the verification set.
+* Verification requires all three components.
+* Important note:
+
+  * The demo had a minor bug (tampering with certain fields still verified).
+  * Normally, any modification should cause verification to fail.
+
+---
+
+### 6. Key Takeaways
+
+* **Private key**: secret, used for signing.
+* **Public key**: public, used for verification.
+* **Signature**: cryptographic proof that a message or transaction was authorized by the private key holder.
+* **Verification**: ensures authenticity, prevents forgery, and protects against tampering.
+
+---
