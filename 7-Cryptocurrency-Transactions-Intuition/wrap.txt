@@ -710,3 +710,90 @@ Fee = Total Input – Total Output
 * Improves Bitcoin network throughput and scalability.
 
 ---
+
+
+*** 54. Public Key vs Bitcoin Address ***
+# Blockchain Lecture Notes
+
+## Topic: Public Key vs Bitcoin Address
+
+### 1. Introduction
+
+* Common confusion: public key and Bitcoin address are often used interchangeably.
+* Understanding the distinction is important for security and transaction management.
+
+---
+
+### 2. Recap: Keys and Signatures
+
+* **Private key** → used to create messages and generate signatures.
+* **Public key** → derived from the private key.
+* **Message + signature + public key** → input to the verification function → returns yes/no if the transaction is valid.
+
+---
+
+### 3. What is a Bitcoin Address?
+
+* **Definition**: Derived from the public key using the SHA-256 hash function.
+* Characteristics:
+
+  * Deterministic: same public key → always same address.
+  * Extremely low risk of collisions: highly unlikely two different public keys produce the same address.
+* Purpose: used to receive Bitcoin from others.
+* Security:
+
+  * Private key → must be kept secret.
+  * Public key → can be shared but limited exposure is safer.
+  * Address → public, can be freely shared to receive funds.
+
+---
+
+### 4. Why Use a Bitcoin Address Instead of the Public Key?
+
+* Avoid frequent exposure of the public key.
+* When sending Bitcoin, the public key must be revealed for verification.
+* When receiving Bitcoin, using an address provides an **additional layer of protection**:
+
+  * Protects against potential future vulnerabilities in the elliptic function linking private → public key.
+  * Even if someone reverse engineers the public key, they cannot easily access your private key because only the hashed address is shared.
+
+---
+
+### 5. Technical Details
+
+* Private → public key conversion uses an **elliptic curve function** (elliptic function, not a hash function).
+* Address = SHA-256(public key) → adds extra security layer.
+* Purpose: mitigates risk if elliptic function is compromised in the future.
+
+---
+
+### 6. Transaction Flow Example
+
+1. Alice wants to send Bitcoin to Bob.
+2. Bob provides his **Bitcoin address**.
+3. Alice creates a transaction:
+
+   * Includes Bob’s address as the recipient.
+   * Includes her signature and public key.
+4. Transaction is sent to the blockchain.
+5. Verification:
+
+   * Nodes validate the transaction using the message, signature, and public key.
+   * Ensures Alice’s transaction is valid without exposing Bob’s public key unnecessarily.
+
+---
+
+### 7. Key Takeaways
+
+* **Private key**: secret, used for signing.
+* **Public key**: derived from private key, used for verification.
+* **Bitcoin address**: hash of public key, used for receiving funds and protecting public key exposure.
+* Addresses help enhance security by minimizing public key exposure while allowing transactions to occur.
+
+---
+
+### 8. Further Reading
+
+* Reddit discussion by **hksupport** on “Difference between public key and public address” provides detailed explanations.
+
+---
