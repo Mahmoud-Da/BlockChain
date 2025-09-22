@@ -580,3 +580,133 @@ Fee = Total Input – Total Output
 * **Verification**: ensures authenticity, prevents forgery, and protects against tampering.
 
 ---
+
+
+*** 53. What is Segregated Witness (SegWit) ***
+---
+
+# Blockchain Lecture Notes
+
+## Topic: Segregated Witness (SegWit)
+
+### 1. Introduction
+
+* SegWit = Segregated Witness
+* Purpose: Improve Bitcoin network efficiency and prepare for discussions on technical topics.
+* Focus: Overview, not deep technical details.
+
+---
+
+### 2. Block Structure Recap
+
+* Example: Block 500,112
+* Components:
+
+  * Block Number
+  * Timestamp
+  * Nonce
+  * Previous Hash
+  * Hash
+  * Other fields → collectively called the **block header** (metadata, not transactions).
+* Transactions = main body of the block.
+
+---
+
+### 3. Block Size Limitation
+
+* Bitcoin block size = 1 MB (original design).
+* Reasons for 1 MB limit:
+
+  1. Small block → fewer transactions → network delays.
+  2. Large block → slower propagation → more orphaned blocks, potential security risks.
+* Problem observed: As Bitcoin adoption increased (2017), transaction backlogs and slow processing occurred.
+
+---
+
+### 4. Solutions to Block Size Problem
+
+* Two approaches considered:
+
+  1. **Hard Fork** → increase block size (resulted in Bitcoin Cash).
+  2. **Soft Fork** → Segregated Witness (SegWit).
+* **Soft Fork**:
+
+  * Upgrade compatible with existing nodes.
+  * Gradually adopted by network participants.
+
+---
+
+### 5. SegWit Concept
+
+* Focus: Reduce transaction size without changing block size.
+* Key idea: Separate signature data (witness data) from transaction data.
+* Transaction includes:
+
+  * Sender address
+  * Recipient address
+  * Amount
+  * Signature
+  * Public key
+* Problem: Signature + public key = \~60% of transaction size → reduces block capacity.
+
+---
+
+### 6. How SegWit Works
+
+* **ScriptSig** (signature and related data) is removed from the main transaction message.
+* Sent separately as **witness data** through its own channel.
+* Benefits:
+
+  * Frees up block space
+  * More transactions fit per block
+  * Speeds up network propagation
+* Adoption date: August 24, 2017
+* Backward compatible → non-upgraded nodes still operate normally.
+
+---
+
+### 7. Misconception About Block Size
+
+* Some claim SegWit “increased block size to 2 MB.”
+* Clarification:
+
+  * Actual block size = 1 MB (unchanged)
+  * Because witness data is separated, the effective transaction capacity feels like \~2–4 MB.
+  * More transactions can be included without increasing the official block size.
+
+---
+
+### 8. Naming
+
+* “Segregated Witness” = segregated (separated) signature (witness) data.
+
+---
+
+### 9. Broader Implications
+
+* SegWit improves **network throughput** and **speed**.
+* Bitcoin throughput: \~10 transactions/sec
+* Comparison: Visa/MasterCard → tens of thousands of transactions/sec
+* SegWit = one step toward reducing latency and increasing transaction capacity.
+* Litecoin and other cryptocurrencies also use SegWit.
+
+---
+
+### 10. Further Reading
+
+* Recommended: Jimmy Song
+
+  * Article: *Understanding SegWit Block Size*
+  * Medium article provides deeper technical insight
+  * Note: Technical, may require some effort to understand fully
+
+---
+
+### 11. Key Takeaways
+
+* SegWit separates signature data from transaction data to reduce effective transaction size.
+* Soft fork → backward compatible and gradual adoption.
+* Increases block efficiency without changing the official 1 MB limit.
+* Improves Bitcoin network throughput and scalability.
+
+---
