@@ -1,0 +1,72 @@
+*** 56. Step 1 ***
+# Hadcoin (Module 2) 
+# 1 — Goal & high-level overview
+
+* Create a cryptocurrency called **Hadcoin** by extending the Module 1 blockchain implementation.
+* Implementation broken into **three parts**:
+
+  1. Build the blockchain structure adjusted for a currency.
+  2. Mining: accept transactions and mine blocks (including miner reward).
+  3. Decentralize: create a network of nodes and implement consensus.
+
+---
+
+# 2 — File / workflow (how you set up the project)
+
+1. In your editor: `File → New File`.
+2. Save it in `Module 2: Create a Cryptocurrency` folder with the filename `Hadcoin.py`.
+3. Copy the entire Module 1 blockchain code into `Hadcoin.py` (that becomes the starting point for development).
+4. Save the file again and proceed to modify it into a cryptocurrency.
+
+---
+
+# 3 — Dependencies & installation
+
+* Required: `Flask`, (Postman optional for testing), and `requests` (note spelling: `requests`).
+* The lecture specified a `requests` version: **2.18.4**.
+
+Example install command:
+
+-------------------code----------------------
+pip install requests==2.18.4 flask
+-------------------code----------------------
+
+Terminal hints from lecture:
+
+* macOS: Press `⌘ + Space`, type `Terminal`, press Enter.
+* Windows: Use **Anaconda Prompt** (open Start → Anaconda → Anaconda Prompt).
+* Linux: open your usual terminal.
+
+---
+
+# 4 — Imports (exact code + purpose)
+
+Correct, minimal import block to start `Hadcoin.py`:
+
+-------------------code----------------------
+from datetime import datetime
+import hashlib
+import json
+from flask import Flask, jsonify, request
+import requests
+from uuid import uuid4
+from urllib.parse import urlparse
+-------------------code----------------------
+
+Purpose of each:
+
+* `datetime` — timestamp mined blocks.
+* `hashlib` — cryptographic hashing (SHA-256) for block hashes.
+* `json` — format transactions and blocks.
+* `Flask, jsonify, request` — create web API endpoints and handle JSON requests/responses.
+* `requests` — HTTP client used to talk to other nodes (consensus checks, chain fetching).
+* `uuid4` — generate a unique node identifier/address (e.g., miner reward address).
+* `urlparse` — parse node URLs when registering nodes in the network.
+
+Quick node id example:
+
+-------------------code----------------------
+node_identifier = str(uuid4()).replace('-', '')
+-------------------code----------------------
+
+---
