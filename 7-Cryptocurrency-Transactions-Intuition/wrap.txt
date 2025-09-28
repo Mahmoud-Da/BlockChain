@@ -381,3 +381,102 @@ Fee = Total Input – Total Output
   * Developers building cryptocurrency systems
 
 ---
+
+*** 51. Signatures: Private & Public Keys ***
+# Blockchain Lecture Notes
+
+## Topic: Signatures, Private and Public Keys
+
+### 1. Background Context
+
+* Previously covered:
+
+  * Transactions
+  * UTXOs (Unspent Transaction Outputs)
+  * Fees
+  * Wallet balances
+* Problem: Blockchain transactions are public and visible.
+
+  * Anyone can see “who sent money to whom.”
+  * Without safeguards, anyone could attempt to create a fraudulent transaction using someone else’s UTXOs.
+
+### 2. The Privacy Problem
+
+* Example:
+
+  * Attacker could calculate Adlon’s UTXOs and create a transaction like
+    “Adlon sends Sarah money.”
+  * This transaction might be accepted into the mempool if valid UTXOs are referenced.
+  * Risk: Adlon could lose money.
+* Question: How does blockchain prevent this?
+* Answer: Through **signatures**, **private keys**, and **public keys**.
+
+### 3. Private and Public Keys
+
+* **Private key**:
+
+  * Unique identifier.
+  * Must be kept secret.
+  * Equivalent to a password for a bank account.
+* **Public key**:
+
+  * Derived from the private key.
+  * Can be shared publicly.
+  * Equivalent to a bank account number.
+* Rule:
+
+  * Private key = needed to send money.
+  * Public key = needed for others to send you money.
+
+### 4. Messages and Transactions
+
+* In blockchain, a “message” = transaction.
+* Example: “Sarah sends Carol 0.7 BTC.”
+* To secure it, the message is **signed with the private key** → generates a **digital signature**.
+
+### 5. Digital Signature Process
+
+* **Step 1**: User creates a transaction.
+* **Step 2**: Transaction is combined with private key → produces a **unique signature**.
+* **Step 3**: Transaction, signature, and public key are broadcast.
+* **Step 4**: Network verification:
+
+  * Anyone with the transaction, signature, and public key can run a verification function.
+  * Function outputs **Yes/No**:
+
+    * Yes → Signature valid, transaction authorized.
+    * No → Signature invalid.
+
+### 6. Security Properties
+
+* From private key → deterministically generate public key.
+* From public key → **cannot reverse engineer** private key.
+* Verification uses elliptic curve cryptography (not SHA-256).
+* Ensures:
+
+  * Only the private key holder can sign transactions.
+  * Everyone can verify with the public key.
+
+### 7. Blockchain Implementation
+
+* Each transaction includes:
+
+  * Message (transaction details)
+  * Signature (proof of authorization)
+  * Public key (for verification)
+* Miners and nodes verify transactions before including them in blocks.
+* Example:
+
+  * Sarah wants to send Adlon 0.1 BTC.
+  * Sarah signs the transaction with her private key.
+  * Signature + public key are attached.
+  * Nodes confirm that only Sarah could have produced that signature.
+
+### 8. Key Takeaways
+
+* Private key = secret, never shared.
+* Public key = shared openly, safe to publish.
+* Signature = proof that a transaction is authorized by the private key holder.
+* This system ensures security and prevents fraudulent transactions.
+
+---
