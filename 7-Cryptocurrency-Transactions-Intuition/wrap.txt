@@ -278,3 +278,106 @@ Fee = Total Input – Total Output
 * Tools like blockchain explorers help visualize and trace how UTXOs move and accumulate.
 
 ---
+
+*** 50. How wallets work ***
+# Blockchain Course – How Wallets Work
+
+### Recap
+
+* Previous tutorials covered:
+
+  * Transactions and UTXOs (Unspent Transaction Outputs)
+  * Transaction fees
+* Today’s focus: **wallets** and how they present balances.
+
+---
+
+### Key Idea
+
+* In blockchain, there is **no actual “balance”** stored.
+* The blockchain only contains **lists of transactions** in blocks.
+* Example blocks:
+
+  * Block 501 → Original transactions
+  * Block 502 → Bike purchase and another transaction
+  * Block 503 → Additional transactions
+  * Block 504 → Another bike purchase
+
+---
+
+### How a Wallet Works
+
+* A wallet does **not** store coins or balances.
+* Instead, it:
+
+  1. Scans the blockchain.
+  2. Identifies **all transactions with outputs directed to you**.
+  3. Determines which of those outputs are **still unspent (UTXOs)**.
+  4. Adds them up and shows the sum as your **wallet balance**.
+
+---
+
+### Example Walkthrough
+
+1. **Day 1 – First Bike Purchase**
+
+   * 0.6 BTC from Helen → Split into:
+
+     * 0.5 BTC to bike shop
+     * 0.1 BTC back to self
+   * Result: Output spent (marked as used).
+
+2. **Day 2 – Second Bike Purchase**
+
+   * Inputs: UTXOs from Hadelin, Susan, and self.
+   * All spent on bike purchase.
+   * Outputs marked as used.
+
+3. **Day 3 – Third Bike + Apple Purchase**
+
+   * Inputs:
+
+     * 0.04 BTC from Hadelin
+     * 0.03 BTC from eBay
+     * 0.3 BTC from Hadelin
+   * Outputs: Bike shop, fruit shop, change, fee.
+   * Inputs marked as used.
+
+---
+
+### Wallet Balance Calculation
+
+* Wallet looks at **all outputs ever sent to you**.
+* Then filters to see which are **still unspent**.
+* Example:
+
+  * Out of all received outputs, only 3 remain unspent.
+  * Add them: 0.26 BTC.
+* Displayed as your “balance” on screen.
+
+---
+
+### Important Notes
+
+* In reality, there are:
+
+  * **No coins**
+  * **No numbers stored as balances**
+  * Only **UTXOs in the blockchain**
+* Banking vs Blockchain:
+
+  * **Bank** → Balance exists as a number in the bank’s ledger.
+  * **Blockchain** → Balance is just the total of your UTXOs.
+
+---
+
+### Significance
+
+* Wallets provide a **user-friendly illusion of balance**.
+* Crucial for understanding how blockchain is **different from banking**.
+* Especially important for:
+
+  * Investors in cryptocurrencies
+  * Developers building cryptocurrency systems
+
+---
