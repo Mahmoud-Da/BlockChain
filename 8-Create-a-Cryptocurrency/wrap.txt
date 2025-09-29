@@ -184,3 +184,152 @@ def add_transaction(self, sender, receiver, amount):
 * The **next tutorials** will implement the **consensus mechanism**.
 
 ---
+
+
+*** 58. Step 3 ***
+## Lecture Notes: Adding Consensus to the Blockchain
+
+### Recap from Previous Tutorial
+
+* Goal: transform a general blockchain into a cryptocurrency.
+* Two required pillars:
+
+  1. **Transactions** → already implemented:
+
+  * `add_transaction` method added.
+  * Transactions integrated into `create_block` method.
+  * Transactions are stored in a separate list until included in a block.
+
+  2. **Consensus** → covered in this and next tutorial.
+
+---
+
+### What is Consensus?
+
+* **Definition:** An algorithm ensuring that all nodes in the network contain the same chain at any time.
+* **Importance:**
+
+  * When a block is mined on one node, all other nodes in the decentralized network must update their chains accordingly.
+  * Fundamental principle of blockchain technology.
+
+---
+
+Good question. Let’s simplify this step by step:
+
+---
+
+### What Are **Nodes**?
+
+* In a blockchain, a **node** is just a computer (or device) that runs the blockchain software.
+* Every node stores a **copy of the blockchain** and communicates with other nodes.
+* When a new block is created (mined), the nodes share information so that all of them have the same version of the chain.
+
+**Example:**
+Imagine you and three friends each have a notebook.
+
+* Every time someone writes a new transaction, all of you must update your notebooks.
+* Each of you is a **node** in the network.
+* Together, you keep the records consistent.
+
+---
+
+### Why Use a **Set** for Nodes?
+
+When we store the list of node addresses inside our blockchain class, we have two options:
+
+* **List:** `["127.0.0.1:5000", "127.0.0.1:5001"]`
+* **Set:** `{"127.0.0.1:5000", "127.0.0.1:5001"}`
+
+#### Benefits of a Set:
+
+1. **No Duplicates**
+
+   * A set automatically prevents storing the same node address twice.
+   * Example: If you try to add `"127.0.0.1:5000"` two times, the set will still only keep it once.
+   * With a list, you would have to manually check for duplicates.
+
+2. **Faster Lookups**
+
+   * Checking if a node already exists in a set is much faster than checking in a list.
+   * This matters when the network grows and there are thousands of nodes.
+
+3. **Order Doesn’t Matter**
+
+   * Nodes are distributed worldwide and don’t need to be in any specific order.
+   * A set reflects this idea better than a list, since sets are unordered collections.
+
+---
+
+**In short:**
+
+* A **node** = a participant computer in the blockchain network that stores and shares the chain.
+* A **set** = the best way to keep track of nodes because it avoids duplicates, is faster to check, and doesn’t assume any order.
+
+---
+
+### Step 1: Adding Nodes
+
+Before implementing consensus, nodes must be handled within the blockchain.
+
+#### Implementation in `__init__`:
+
+* Introduce a variable for nodes:
+
+  * `self.nodes = set()`
+  * **Why a set instead of a list?**
+
+    * No inherent order among nodes (distributed globally).
+    * More efficient for computational purposes.
+
+#### Creating the `add_node` Method:
+
+* **Purpose:** Add a new node to the network.
+* **Arguments:**
+
+  * `self` (to access class variables).
+  * `address` (URL of the node, e.g., `http://127.0.0.1:5000`).
+
+**Process:**
+
+1. **Parse the address** using `urlparse` (from `urllib.parse`).
+
+   * Example result of parsing:
+
+     * `scheme`: `http`
+     * `netloc`: `127.0.0.1:5000`
+   * The `netloc` (URL + port) uniquely identifies a node.
+2. **Add the node to the set**:
+
+   * `self.nodes.add(parsed_url.netloc)`
+
+**Example:**
+
+-------------------code----------------------
+from urllib.parse import urlparse
+
+def add_node(self, address):
+    parsed_url = urlparse(address)
+    self.nodes.add(parsed_url.netloc)
+-------------------code----------------------
+
+---
+
+### Step 2: Preparing for Consensus
+
+* The next step will be to implement the **consensus algorithm** via a method called `replace_chain`.
+* **Function of `replace_chain`:**
+
+  * Iterate over all nodes in the network.
+  * Retrieve each node’s chain.
+  * Identify the **longest valid chain**.
+  * Replace the current chain if a longer one is found.
+
+---
+
+### Summary
+
+* Transactions (pillar 1) have already been added.
+* Nodes introduced via a `set` and `add_node` method.
+* Consensus (pillar 2) will be built through `replace_chain` in the next tutorial.
+
+---
