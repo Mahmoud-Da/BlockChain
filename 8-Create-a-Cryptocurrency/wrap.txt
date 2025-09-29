@@ -989,3 +989,92 @@ In short: *Decentralizing our blockchain means letting multiple computers (nodes
 * The demo will show transactions being made and blocks being mined between the three nodes.
 
 ---
+
+*** 65. Step 10 ***
+
+# Lecture Notes – Demo: Decentralized Blockchain with Postman
+
+## Setup
+
+* Three blockchain nodes created and running:
+
+  * Node 5001 (Instructor’s node)
+  * Node 5002 (Kirill’s node)
+  * Node 5003 (Student’s node)
+* Two JSON files prepared:
+
+  * Nodes file (for connecting nodes)
+  * Transaction file (for transactions)
+* Three separate consoles simulate three computers.
+
+## Step 1: Verify Genesis Block
+
+* Each node initialized with a Genesis block.
+* Confirmed by sending `GET /get_chain` request in Postman for each node.
+* Issue: timestamps differ across nodes (to be fixed by consensus).
+
+## Step 2: Connect Nodes
+
+* Used `POST /connect_node` request in Postman.
+* Body: JSON file containing addresses of other nodes.
+* Process repeated for each node:
+
+  * Node 5001 connected to 5002 & 5003.
+  * Node 5002 connected to 5001 & 5003.
+  * Node 5003 connected to 5001 & 5002.
+* Result: Fully connected network (each node linked to the others).
+
+## Step 3: Mining and Consensus
+
+* Instructor mined a block on Node 5001.
+* Chain length discrepancy observed:
+
+  * Node 5001: 2 blocks.
+  * Nodes 5002 & 5003: 1 block each.
+* Solution: Apply `GET /replace_chain`.
+
+  * Both Node 5002 and Node 5003 replaced shorter chains with the longest one (Node 5001’s chain).
+* Result: All nodes synchronized.
+
+## Step 4: Transactions
+
+* Added a transaction with `POST /add_transaction`:
+
+  * From Adla → Kirill (10,000 AdCoins).
+  * Transaction stored in memory, waiting for mining.
+* Mined a new block on Node 5001.
+
+  * New block contained:
+
+    * Mining reward transaction (1 AdCoin).
+    * Transaction from Adla → Kirill (10,000 AdCoins).
+* Consensus applied:
+
+  * Other nodes updated their chains to include the new block.
+
+## Step 5: Second Transaction
+
+* New transaction added:
+
+  * From Adla → Student (100,000 AdCoins).
+* Mined on Node 5001 into block 4.
+* Applied consensus again:
+
+  * Nodes 5002 & 5003 updated to match Node 5001.
+* Final state:
+
+  * All nodes have 4 blocks.
+  * Transactions included:
+
+    * Adla → Kirill (10,000 AdCoins).
+    * Adla → Student (100,000 AdCoins).
+
+## Key Takeaways
+
+* **Decentralization:** Multiple nodes maintain the same blockchain copy.
+* **Consensus:** Ensures all nodes adopt the longest valid chain.
+* **Transactions:** Stored temporarily until a block is mined.
+* **Mining reward:** Automatically adds 1 AdCoin to the miner.
+* **Postman:** Used to simulate requests (GET and POST) across multiple nodes.
+
+---
