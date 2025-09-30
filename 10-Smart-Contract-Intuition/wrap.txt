@@ -524,3 +524,107 @@ Dispense Snack or Return Money
 * **Blockchain:** Every participant has a copy of the notebook. Entries are permanent, and everyone sees the same thing.
 
 ---
+
+*** 71. Decentralized Applications (Dapps) ***
+
+---
+
+# Blockchain Course – Decentralized Applications (DApps)
+
+## 1. What is a DApp?
+
+* **Definition:** A **decentralized application (DApp)** is an application that interacts with a blockchain.
+* **Purpose:** Allows users to interact with the blockchain through an interface (front end).
+* **Components:**
+
+  1. **Front end:** The user interface where people interact.
+  2. **Back end:** The **smart contract**, which acts like the **API** connecting the application to the blockchain.
+
+---
+
+## 2. How DApps Work
+
+* A smart contract serves as the **logic and data layer** on the blockchain.
+* The front end communicates with the smart contract to:
+
+  * Put data onto the blockchain.
+  * Retrieve data from the blockchain.
+* Users interact with the DApp just like any other app, but all actions go through the blockchain.
+
+---
+
+## 3. Analogy
+
+* **Traditional App:**
+
+  * Front end communicates with a central server via an API.
+  * The server controls the data and logic.
+* **DApp:**
+
+  * Front end communicates with a smart contract on the blockchain.
+  * Logic and data are **decentralized** across all nodes.
+
+---
+
+## 4. Example: Steemit
+
+* **Steemit:** A decentralized social media platform similar to Twitter.
+* **How it works:**
+
+  * Posts and interactions are stored on the blockchain.
+  * Users interact with the interface, but the data is managed by smart contracts.
+* **Significance:**
+
+  * Shows how blockchain can disrupt centralized platforms like Twitter.
+  * All data is **transparent, immutable, and decentralized**.
+
+---
+
+## 5. Key Takeaways
+
+1. DApps combine a **front end interface** with **smart contract back end**.
+2. They allow users to interact with a blockchain without relying on centralized servers.
+3. Examples like Steemit show the **potential of DApps to disrupt traditional applications**.
+
+---
+
+
+simple way to understand DApps (Decentralized Applications):
+---
+
+## **Definition**
+
+A **DApp** is an **application that runs on a blockchain** instead of a centralized server.
+
+* It is **decentralized** – no single company or server controls it.
+* It uses **smart contracts** to enforce rules automatically.
+* Everyone on the blockchain network can interact with it, and the results are recorded immutably.
+
+---
+
+## **Simple Analogy**
+
+| Traditional App                                     | DApp                                           |
+| --------------------------------------------------- | ---------------------------------------------- |
+| Runs on a **central server** (e.g., Facebook, Uber) | Runs on **all nodes** in a blockchain network  |
+| Controlled by a company                             | Controlled by the rules in **smart contracts** |
+| Users must trust the company                        | Users can trust the **code**                   |
+| Data can be changed by the company                  | Data and rules are **immutable**               |
+
+---
+
+## **Examples of DApps**
+
+1. **Crypto wallets** (MetaMask, Trust Wallet) – store and manage cryptocurrency.
+2. **DeFi apps** (Uniswap, Aave) – trade or lend crypto without a bank.
+3. **NFT marketplaces** (OpenSea, Rarible) – buy/sell digital collectibles.
+
+---
+
+### **Key Points**
+
+1. Uses **blockchain for decentralization and security**.
+2. Uses **smart contracts to automate rules**.
+3. Users have **control and transparency** instead of relying on a central authority.
+
+---
