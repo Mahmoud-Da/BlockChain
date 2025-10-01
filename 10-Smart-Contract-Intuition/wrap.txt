@@ -628,3 +628,110 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 3. Users have **control and transparency** instead of relying on a central authority.
 
 ---
+
+*** 72. Ethereum Virtual Machine & Gas ***
+# Blockchain Lecture Notes: Security in Ethereum
+
+**Topics:** Ethereum Virtual Machine (EVM) and Gas
+
+---
+
+## 1. Overview
+
+* As blockchain systems grow in complexity, security threats increase.
+* Two main security threats in Ethereum:
+
+  1. Viruses and access to private files.
+  2. Infinite loops or heavy computations.
+
+---
+
+## 2. Threat 1: Viruses and Privacy
+
+* **Problem:**
+
+  * Smart contracts run on every node in the network.
+  * Potential risk of malicious code (viruses) spreading across all computers.
+  * Risk of accessing private files or hardware (e.g., webcam).
+
+* **Solution: Ethereum Virtual Machine (EVM):**
+
+  * A virtual machine running on each participant’s computer.
+  * Encapsulates smart contract execution.
+  * Isolated from the rest of the computer:
+
+    * Malicious code cannot spread beyond the VM.
+    * Smart contracts cannot access private files.
+  * Guarantees privacy and security.
+
+---
+
+## 3. Threat 2: Infinite Loops and Heavy Computations
+
+* **Problem:**
+
+  * In Bitcoin, loops are excluded to avoid infinite or heavy computations.
+  * Ethereum allows loops, which introduces potential abuse.
+
+* **Solution: Gas Mechanism:**
+
+  * Every computation requires Gas.
+  * Gas is paid in Ether (conversion rate adjusted by community consensus).
+  * Example Gas costs:
+
+    * Addition: 3 Gas.
+    * Multiplication: 5 Gas.
+    * Account creation: 32,000 Gas.
+  * Prevents abuse:
+
+    * Infinite loops or heavy code quickly exhaust Gas.
+    * Code execution stops once Gas runs out.
+  * Encourages efficient coding:
+
+    * Developers minimize computation costs.
+    * Inefficient code becomes financially expensive.
+
+---
+
+## 4. Why Gas Instead of Ether Directly?
+
+* Ether price fluctuates heavily.
+* If computations were priced directly in Ether, costs would be unpredictable.
+* Gas standardizes computation cost.
+* Conversion rate between Gas and Ether stabilizes costs.
+
+---
+
+## 5. Ether vs. Bitcoin
+
+* **Bitcoin:**
+
+  * Primary goal: cryptocurrency for borderless, permissionless transactions.
+* **Ethereum (Ether):**
+
+  * More than a currency.
+  * Acts as “fuel” for the Ethereum network.
+  * Enables secure execution of smart contracts and decentralized applications.
+  * Essential for Turing completeness (ability to run general-purpose code).
+  * Facilitates Web 3.0 vision: decentralized applications without central servers.
+
+---
+
+## 6. Additional Notes
+
+* Websites like *ethgasstation.info* help estimate Gas fees.
+* Example costs (at time of study):
+
+  * 1 million integer additions/subtractions ≈ $26.55.
+  * $1 ≈ 37,000 integer subtractions.
+* Gas makes blockchain execution predictable and secure.
+
+---
+
+## 7. Key Takeaways
+
+* **Security Problem 1 (Viruses & Privacy):** Solved by Ethereum Virtual Machine.
+* **Security Problem 2 (Infinite Loops/Heavy Computations):** Solved by Gas system.
+* **Ether’s Role:** Not just a cryptocurrency; it is the essential fuel enabling decentralized computation.
+
+---
