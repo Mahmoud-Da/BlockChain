@@ -1062,3 +1062,122 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 * Forks preserve blockchain history up to the split, hence asset duplication across chains.
 
 ---
+
+
+*** 76. Soft and Hard Forks (Part 2) - Advanced Tutorial ***
+---
+
+# Blockchain Lecture Notes – Soft and Hard Forks
+
+## Recap of Real-Life Examples
+
+* **Ethereum (July 20, 2016)**
+
+  * Hard fork due to DAO attack.
+  * Ethereum reverted transactions.
+  * Miners split into:
+
+    * **Ethereum** (accepted the fork).
+    * **Ethereum Classic** (rejected the fork).
+
+* **Bitcoin (2017)**
+
+  * **July 20, 2017:** Soft fork with SegWit adoption.
+  * **August 1, 2017:** Hard fork → **Bitcoin Cash** (increased block size to 8 MB).
+  * **October 24, 2017:** Hard fork → **Bitcoin Gold** (rejected ASIC mining, returned to GPU mining).
+  * Bitcoin continued on its original chain in each case.
+
+---
+
+## Definitions and Rule of Thumb
+
+* **Hard Fork**: Loosens rules, *not backwards compatible*.
+* **Soft Fork**: Tightens rules, *backwards compatible*.
+
+*(Counterintuitive: hard = loosen, soft = tighten.)*
+
+---
+
+## Hard Fork Example: Increasing Block Size
+
+* **Bitcoin → Bitcoin Cash**
+
+  * Bitcoin block size: **1 MB**.
+  * Bitcoin Cash block size: **8 MB**.
+
+### Process
+
+1. Before update: all miners on same chain.
+2. After update:
+
+   * Old rules miners: max 1 MB blocks.
+   * New rules miners: max 8 MB blocks.
+3. If block < 1 MB: accepted by both.
+4. If block = 8 MB: accepted only by Bitcoin Cash miners.
+
+   * Old miners reject it → chain split occurs.
+
+### Key Point
+
+* Hard forks cause a **permanent split** because new blocks are not accepted by old rules.
+* Not backwards compatible.
+
+---
+
+## Soft Fork Example: Decreasing Block Size
+
+* Hypothetical case (no real-life example).
+* Bitcoin max block size: reduced from **1 MB → 0.5 MB**.
+
+### Process
+
+1. Majority of miners agree beforehand (threshold varies by network).
+2. If block size < 0.5 MB:
+
+   * Accepted by both old and new miners.
+3. If block size = 0.9 MB:
+
+   * Accepted by old miners.
+   * Rejected by upgraded miners.
+   * Causes temporary split.
+4. Because majority uses new rules:
+
+   * Their chain grows faster and becomes the **longest valid chain**.
+   * Old miners’ blocks become orphaned and are rejected.
+5. Incentive for old miners to upgrade:
+
+   * Otherwise, wasted effort and lost rewards.
+
+### Key Point
+
+* Soft forks are **backwards compatible**.
+* Old miners eventually must upgrade to avoid losses.
+* Network converges to a single chain.
+
+---
+
+## Comparison: Hard Fork vs Soft Fork
+
+| Feature       | Hard Fork                    | Soft Fork                        |
+| ------------- | ---------------------------- | -------------------------------- |
+| Rules         | Loosened                     | Tightened                        |
+| Compatibility | Not backwards compatible     | Backwards compatible             |
+| Chain Outcome | Permanent split possible     | Single chain eventually enforced |
+| Example       | Bitcoin → Bitcoin Cash, Gold | SegWit adoption in Bitcoin       |
+
+---
+
+## Analogy (Khaleel Kazi)
+
+* **Hard Fork**: Restaurant serving vegetarian food adds meat → customers split.
+* **Soft Fork**: Restaurant serving vegetarian food switches to vegan-only → old vegetarians can still eat, but stricter rules apply.
+
+---
+
+## Key Takeaways
+
+* **Hard fork** = permanent divergence, not compatible with old rules.
+* **Soft fork** = temporary friction, eventually converges, compatible with old rules.
+* Real-world adoption often depends on **majority miner consensus**.
+
+---
