@@ -847,3 +847,108 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 * DAOs highlight blockchain’s potential to sustain decentralized, self-running systems beyond human management.
 
 ---
+
+
+*** 74. The DAO Attack ***
+---
+
+# The DAO Attack (2016)
+
+## 1. Background
+
+* **DAO (Decentralized Autonomous Organization)**
+
+  * One of the first DAOs, created in **2016** by Vitalik Buterin and collaborators.
+  * Built on **Ethereum** as its core protocol.
+  * Purpose: a **venture capital fund** to support decentralized applications (DApps) on Ethereum.
+  * Stateless – not tied to any country, raising legal and jurisdictional questions.
+
+* **Funding**
+
+  * Crowdfunded via token sale.
+  * By May 2016: raised **$150 million**, the largest crowdfunding campaign at the time.
+  * Demonstrated strong belief in decentralization and blockchain applications.
+
+---
+
+## 2. The Vulnerability
+
+* DAO governed entirely by **smart contracts**, not humans.
+* **Code flaw**: error in the smart contract logic.
+* **June 2016 Attack**
+
+  * Hacker exploited the flaw to drain funds.
+  * About **$50 million** moved into the attacker’s account.
+  * Exploitation was technically a **valid transaction** under DAO’s code (“code is law”).
+  * Contracts are immutable on the blockchain, so the bug could not simply be patched.
+
+---
+
+## 3. Fail-Safe Mechanism
+
+* DAO code included a **withdrawal delay** (~30 days).
+* This prevented the attacker from instantly cashing out.
+* Gave the Ethereum community time to debate and respond.
+
+---
+
+## 4. The Dilemma
+
+* **Two opposing views emerged:**
+
+  1. **“Code is law”**
+
+     * Do not intervene.
+     * Smart contracts are meant to be immutable.
+     * Changing rules undermines blockchain integrity.
+  2. **Intervention (Hard Fork)**
+
+     * $50 million was too large to ignore.
+     * Decision to hard fork Ethereum to reverse the hack and return funds to investors.
+
+---
+
+## 5. The Hard Fork
+
+* Initiated by **Vitalik Buterin**.
+* Result: **Ethereum split into two chains**
+
+  * **Ethereum (ETH)** → Hack reversed, funds restored to DAO investors.
+  * **Ethereum Classic (ETC)** → Hack preserved, attacker kept funds.
+* Consequence: creation of **two parallel worlds** on the blockchain.
+* Eventually, attacker’s ETC holdings valued at around **$67 million** (due to later price appreciation).
+
+---
+
+## 6. Key Takeaways
+
+* **Root cause**: flaw in DAO’s contract code, not Ethereum itself.
+* Showed:
+
+  * Immense potential for decentralized organizations.
+  * Serious risks of coding vulnerabilities in immutable smart contracts.
+  * Importance of community governance decisions.
+* Historical impact:
+
+  * Defined early debates about immutability vs. governance.
+  * Cemented the idea of forks as a method of conflict resolution.
+
+---
+
+## 7. Recommended Reading
+
+* **Bloomberg – “The Ether Thief”**
+
+  * Detailed account of the DAO attack.
+  * Reads like a narrative with technical and social context.
+  * Covers aftermath and reflections a year later.
+
+---
+
+## 8. Broader Significance
+
+* The DAO attack remains one of the most important case studies in blockchain history.
+* It revealed both the **promise and fragility** of decentralized systems.
+* Lessons learned: security in smart contracts is critical, and community governance plays a major role in crisis resolution.
+
+---
