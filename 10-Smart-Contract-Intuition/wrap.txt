@@ -952,3 +952,113 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 * Lessons learned: security in smart contracts is critical, and community governance plays a major role in crisis resolution.
 
 ---
+
+*** 75. Soft and Hard Forks (Part 1) ***
+# Soft Forks and Hard Forks
+
+## 1. Context
+
+* Forks arise when **blockchain software rules change**.
+* Two types:
+
+  * **Soft fork** – backward-compatible rule change.
+  * **Hard fork** – non-backward-compatible change.
+* A fork may or may not lead to an actual chain split.
+* Previous example: **DAO Attack (2016)** led to Ethereum’s hard fork.
+
+---
+
+## 2. Ethereum Example (2016)
+
+* **Date/Block**: July 2016, block **1,919,999**.
+* **Purpose**: Reverse the DAO hack transactions and return stolen funds.
+* **Outcome**:
+
+  * Majority adopted new rules (Ethereum, ETH).
+  * Minority rejected the rollback, keeping old rules (Ethereum Classic, ETC).
+* **Result**: Ethereum split into **two chains**:
+
+  * **Ethereum (ETH)** → reverted funds.
+  * **Ethereum Classic (ETC)** → preserved hack outcome.
+
+---
+
+## 3. Bitcoin Examples (2017)
+
+### a) Segregated Witness (SegWit) – Soft Fork
+
+* **Date/Block**: July 20, 2017, block **476,768**.
+* **Change**:
+
+  * Separated signatures (“witness data”) from transaction block.
+  * Effective transaction capacity: **2–4 MB**, though block size limit remained 1 MB.
+* **Goal**: Improve scalability without raising block size limit.
+* **Result**: Successful soft fork.
+* **Dissent**: Some argued block size should be directly increased instead of using SegWit.
+
+---
+
+### b) Bitcoin Cash – Hard Fork
+
+* **Date/Block**: August 1, 2017, block **478,558**.
+* **Cause**: Disagreement over SegWit.
+* **Change**:
+
+  * Bitcoin Cash (BCH) created with **8 MB block size**.
+* **Result**: Chain split into:
+
+  * **Bitcoin (BTC)** with SegWit.
+  * **Bitcoin Cash (BCH)** with larger blocks.
+
+---
+
+### c) Bitcoin Gold – Hard Fork
+
+* **Date/Block**: October 24, 2017, block **491,407**.
+* **Cause**: Opposition to **ASIC dominance** in mining.
+* **Change**: Bitcoin Gold (BTG) modified mining algorithm to be **ASIC-resistant**, enabling GPU mining again.
+* **Result**: New cryptocurrency split from Bitcoin.
+
+---
+
+## 4. Important Concepts
+
+* **Forking refers to software** (not the chain itself).
+
+  * Hard fork: new software rules that are incompatible with old ones.
+  * Soft fork: new rules compatible with old nodes.
+* **Chain splits occur only if** some participants refuse to adopt the new software.
+
+---
+
+## 5. Ownership After Forks
+
+* If a fork results in a split:
+
+  * Holders at the fork point keep balances on **both chains**.
+  * Example:
+
+    * If you owned **1 BTC** before August 1, 2017 → after the fork you had:
+
+      * 1 BTC
+      * 1 BCH
+    * After October 24, 2017, you would also own:
+
+      * 1 BTG.
+* Same principle applied to **Ethereum and Ethereum Classic**.
+
+---
+
+## 6. Key Takeaways
+
+* **Soft fork** = backward compatible, usually no chain split.
+* **Hard fork** = non-backward compatible, may cause a split if consensus is not reached.
+* Forks are a natural part of blockchain governance since there is no central authority.
+* Examples:
+
+  * **Ethereum (ETH) vs Ethereum Classic (ETC)** – DAO hack response.
+  * **Bitcoin Cash (BCH)** – block size debate.
+  * **Bitcoin Gold (BTG)** – ASIC resistance.
+* Forks preserve blockchain history up to the split, hence asset duplication across chains.
+
+---
