@@ -1495,3 +1495,106 @@ Two possible uses:
 5. Study successful whitepapers (like Sia and Power Ledger) to learn best practices for blockchain startups.
 
 ---
+
+*** 80. Blockchain and Web 3.0 ***
+# Lecture Notes: Blockchain and Web 3.0
+
+## 1. Introduction
+
+* To understand Web 3.0, it is important to first understand Web 2.0.
+* The web has evolved significantly from static Web 1.0 pages to the interactive and personalized Web 2.0.
+
+---
+
+## 2. Web 1.0 vs Web 2.0
+
+### Web 1.0 (1990s)
+
+* Basic text, images, and links.
+* Limited interactivity.
+* Examples: early Apple and Amazon websites.
+
+### Web 2.0 (since ~2004)
+
+* Highly interactive, dynamic content.
+* Features:
+
+  * Videos embedded directly into pages.
+  * Personalized ads powered by machine learning.
+  * Social media integration.
+  * Ajax and JavaScript enabled asynchronous updates without refreshing pages.
+* Defined by:
+
+  * Richer user experience.
+  * Interactive, personalized content.
+  * Centralized backend servers powering the systems.
+
+---
+
+## 3. Backend in Web 2.0
+
+* Despite frontend improvements, backend remains **centralized**.
+* Users interact with centralized servers (e.g., Facebook, Amazon, Apple).
+* Control rests with corporations:
+
+  * Data storage and ownership.
+  * Privacy management.
+  * Advertising and monetization.
+
+---
+
+## 4. Transition to Web 3.0
+
+* Web 3.0 aims to move from centralized to **decentralized architectures**.
+* Blockchain will play a major role in this transition.
+
+### Features of Web 3.0
+
+* **Decentralized backend**: No single central server.
+* **Blockchain as infrastructure**:
+
+  * Each participant has a copy of the blockchain.
+  * Smart contracts govern application behavior (e.g., social media actions like posts, friendships, sharing).
+* **Data ownership**:
+
+  * Users control data through private keys.
+  * Data can be stored locally or in fragmented, anonymized ways.
+  * Only the owner can reassemble and share their data.
+
+---
+
+## 5. Examples of Blockchain in Web 3.0
+
+* **Steemit**: Blockchain-based social media (similar to Twitter).
+* Other potential areas of transformation:
+
+  * Browsers.
+  * Storage.
+  * Video calls.
+  * Social networking platforms.
+
+---
+
+## 6. Implications of Web 3.0
+
+* Greater transparency and user control.
+* Democratized internet—applications exist without central ownership.
+* Collective participation and governance through blockchain.
+* Vision: a global decentralized "supercomputer" powered by users’ devices (as Ethereum is attempting).
+
+---
+
+## 7. Outlook
+
+* Web 3.0 remains speculative and evolving.
+* Potential for significant change in how the internet functions.
+* Important for developers and users to stay updated and think about ways to contribute or participate early.
+
+---
+
+**Key takeaway**: 
+Web 1.0 was static, Web 2.0 brought interactivity and centralization,
+and Web 3.0 envisions decentralization, user-owned data, and blockchain-powered applications.
+
+---
+
