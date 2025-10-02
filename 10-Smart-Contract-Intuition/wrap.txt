@@ -1181,3 +1181,90 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 * Real-world adoption often depends on **majority miner consensus**.
 
 ---
+
+*** 77. Initial Coin Offerings (ICOs) ***
+---
+
+# Lecture Notes: Initial Coin Offerings (ICOs)
+
+## 1. Introduction
+
+* ICO = **Initial Coin Offering**
+* Method for raising funds using blockchain.
+* Can occur on:
+
+  * **Token Layer**: Most common, e.g., Ethereum, Neo.
+  * **Protocol Layer**: New blockchain protocols issuing their own coins.
+
+---
+
+## 2. Comparison: IPO vs ICO
+
+### IPO (Initial Public Offering)
+
+* Traditional way companies raise capital by selling shares to the public.
+* Example: Apple founders (Jobs, Wozniak, Wayne).
+* Process:
+
+  1. Founders invest work + initial capital → receive shares.
+  2. Company produces products/services → generates profit.
+  3. To grow, they launch an IPO:
+
+     * Public invests cash → receives shares.
+     * Investors gain **ownership rights, control, and share of profit**.
+* Characteristics:
+
+  * Legally complex, costly, heavily regulated, audited.
+  * Only available to companies ready to scale.
+
+### ICO (Initial Coin Offering)
+
+* Modern blockchain-based fundraising.
+* Process:
+
+  1. Founders create a company, invest work + initial capital.
+  2. Company produces products/services.
+  3. To scale, company introduces **tokens** (e.g., “Apple Token”).
+
+     * Tokens can be used to buy products/services.
+     * Products may cost more in regular currency, encouraging token use.
+  4. Public invests money (often Bitcoin or Ether) → receives tokens.
+* Characteristics:
+
+  * Investors receive **no ownership, no control, no share of profit**.
+  * Tokens function as access/fuel within the company’s ecosystem.
+  * Founders retain full control and profits.
+  * Easy to set up, not heavily regulated (yet).
+  * Can be launched by anyone, unlike IPOs.
+
+---
+
+## 3. Key Differences
+
+| Aspect             | IPO                                        | ICO                                 |
+| ------------------ | ------------------------------------------ | ----------------------------------- |
+| What investors get | Shares (ownership, profit rights, control) | Tokens (utility only, no ownership) |
+| Regulation         | Strict, costly, legally complex            | Minimal regulation, easy to launch  |
+| Eligibility        | Mature companies scaling up                | Anyone with an idea                 |
+| Funding medium     | Cash                                       | Usually Bitcoin or Ether            |
+
+---
+
+## 4. Important Notes
+
+* ICOs = fundraising tool, not equity distribution.
+* ICOs create **economies around tokens**.
+* Investors hope tokens increase in value for resale or use.
+* Founders benefit by keeping control and profit while raising funds.
+* Resource: *“WTF is an ICO” by Alex Wilhelm (TechCrunch).*
+
+---
+
+## 5. Conclusion
+
+* IPOs and ICOs both raise capital but operate on very different principles.
+* IPO: Ownership + profit sharing for investors.
+* ICO: Tokens for use or speculation, founders keep ownership/profits.
+* ICOs are less regulated, making them easier but also riskier.
+
+---
