@@ -1268,3 +1268,107 @@ A **DApp** is an **application that runs on a blockchain** instead of a centrali
 * ICOs are less regulated, making them easier but also riskier.
 
 ---
+
+*** 78. ICO Case Study ***
+---
+
+# Lecture Notes: ICO Case Study
+
+## 1. Introduction
+
+* Focus: Practical case study of an ICO.
+* Purpose: Understand how ICOs work in practice.
+* Example adapted from a Medium blog post (linked at the end of the lecture).
+
+---
+
+## 2. Case Study: Mary’s Theme Park ICO
+
+### Concept
+
+* Mary wants to build an **innovative theme park**.
+* Businesses will create rides and attractions inside the park.
+* To fund the project (land, permits, setup), Mary organizes an **ICO**.
+
+### Token Design
+
+* Creates **1,000,000 S tokens** total.
+* Split:
+
+  * **500,000 S tokens** → Offered in ICO.
+  * **500,000 S tokens** → Retained by Mary (for upgrades, future projects, or personal reserves).
+* ICO price: **$2 per token**.
+* If all ICO tokens sell → Mary raises **$1,000,000**.
+
+---
+
+## 3. Use of Tokens
+
+### For Investors / Public
+
+Two possible uses:
+
+1. **Utility Use**:
+
+   * Hold tokens until park opens.
+   * Spend tokens for rides and services inside the park (like pre-purchasing).
+   * Tokens serve as the **fuel of the enclosed economy**.
+
+2. **Speculation**:
+
+   * Buy tokens expecting them to increase in value.
+   * Later sell them at higher prices (e.g., $6 per token if demand grows).
+   * Driven by **limited supply (1 million max) + growing demand**.
+
+### For Businesses in the Park
+
+* Receive tokens as payment for rides/services.
+* Can:
+
+  * **Use tokens internally** (pay staff, reinvest, etc.).
+  * **Sell tokens back to the public** (exchange tokens for cash at market price).
+* Mary might set up an **exchange mechanism** to facilitate this.
+
+---
+
+## 4. Key Mechanisms
+
+* **Supply limitation**: Only 1,000,000 tokens ever exist.
+* **Price dynamics**: As demand grows, price rises (basic supply-demand principle).
+* **Speculation vs utility**: Many investors treat tokens as speculative assets, not just utility currency.
+
+---
+
+## 5. Important Clarifications
+
+* **No Mining for ICO tokens**:
+
+  * ICO tokens are **issued directly**, not mined.
+  * Mining only applies to **protocol/coin layer** (e.g., Bitcoin, Ethereum).
+  * ICO tokens (token layer) are created and distributed without mining.
+
+* **Risks**:
+
+  * Speculative bubbles may form if tokens are bought purely for resale.
+  * Important to evaluate the **underlying purpose** of tokens.
+
+---
+
+## 6. Key Takeaways
+
+1. ICOs are a **crowdfunding mechanism** using blockchain.
+2. Tokens are intended to be **used inside a specific economy** (not just traded).
+3. Speculative behavior is common and can lead to bubbles.
+4. Always examine the **real utility and purpose** of tokens.
+
+---
+
+## 7. References & Further Reading
+
+* **Praveen Krishnan**: *What the Heck is an ICO* (Hackernoon/Medium).
+* **Andrew Finn**: *How Crypto Tokens Will Enable the Disruption of Businesses Like Uber and Airbnb* (finnscave.com).
+
+  * Explores blockchain applications in ride-sharing.
+* Both resources are recommended for deeper understanding.
+
+---
