@@ -638,3 +638,283 @@ address payable payAddr = payable(addr);
 | Has `.balance` property                                  | ●         | ●                 |
 
 ---
+
+*** 86. Step 6  ***
+
+## Lecture Notes: Creating the `buyAdCoins` Function in Solidity
+
+### 1. Introduction
+
+* This tutorial focuses on implementing the **`buyAdCoins`** function.
+* Purpose: to enable investors to buy AdCoins through MyEtherWallet by updating the necessary data stored in the smart contract.
+* The function will **not return any value**, but will **update three key variables** when an investor buys AdCoins.
+
+---
+
+### 2. Variables to Update
+
+When an investor purchases AdCoins, three contract variables must be updated:
+
+1. **Equity in AdCoins** of the investor.
+2. **Equity in USD** of the investor.
+3. **Total AdCoins bought** (the cumulative total of all investors).
+
+Each of these variables reflects the investor’s holdings and the system’s overall state.
+
+---
+
+### 3. Function Definition
+
+#### Step 1: Start with the Function Keyword
+
+* Begin defining a new function using the `function` keyword.
+* Name the function `buyAdCoins`.
+
+#### Step 2: Function Arguments
+
+The function requires **two arguments**:
+
+| Argument      | Type      | Description                                                    |
+| ------------- | --------- | -------------------------------------------------------------- |
+| `investor`    | `address` | The Ethereum address of the investor buying AdCoins.           |
+| `usdInvested` | `uint`    | The amount of U.S. dollars the investor spends to buy AdCoins. |
+
+> Note:
+>
+> * `address` and `uint` are the types.
+> * `investor` and `usdInvested` are the variable names.
+> * `uint` (unsigned integer) is sufficient since values are non-negative.
+
+#### Step 3: Visibility and Modifier
+
+* The input variables are **external**, meaning the function can be called from outside the contract.
+* Apply the modifier `canBuyAdCoins(usdInvested)` before defining the function body.
+
+  * The modifier checks whether the investor can purchase the given amount of AdCoins (ensuring the total does not exceed the maximum supply).
+
+Example syntax before implementation:
+
+-------------------code----------------------
+function buyAdCoins(address investor, uint usdInvested)
+    external
+    canBuyAdCoins(usdInvested)
+{
+    // implementation here
+}
+-------------------code----------------------
+
+---
+
+### 4. Implementing the Function Logic
+
+The function’s purpose is to update the three variables mentioned earlier.
+
+#### Step 1: Calculate the Number of AdCoins Bought
+
+* Define a new variable `adCoinsBought`.
+* It represents the number of AdCoins that can be purchased with the given amount of USD.
+* Calculation formula:
+
+  -------------------code----------------------
+  adCoinsBought = usdInvested * usd_to_hadcoins;
+  -------------------code----------------------
+* Declare the variable as an unsigned integer:
+
+  -------------------code----------------------
+  uint adCoinsBought = usdInvested * usd_to_hadcoins;
+  -------------------code----------------------
+
+#### Step 2: Update the Investor’s Equity in AdCoins
+
+* Add the newly purchased AdCoins to the investor’s current AdCoin balance:
+
+  -------------------code----------------------
+  equityAtcoins[investor] += adCoinsBought;
+  -------------------code----------------------
+
+#### Step 3: Update the Investor’s Equity in USD
+
+* To keep both mappings consistent, convert the AdCoins back to USD by dividing by the conversion rate:
+
+  -------------------code----------------------
+  equityUSD[investor] = equityAtcoins[investor] / usd_to_hadcoins;
+  -------------------code----------------------
+
+#### Step 4: Update the Total Number of AdCoins Bought
+
+* Increment the total count of AdCoins purchased by all investors:
+
+  -------------------code----------------------
+  total_hadcoins_bought += adCoinsBought;
+  -------------------code----------------------
+
+---
+
+### 5. Full Function Implementation
+
+Here’s the complete function with comments for clarity:
+
+-------------------code----------------------
+function buyAdCoins(address investor, uint usdInvested)
+    external
+    canBuyAdCoins(usdInvested)
+{
+    // Calculate number of AdCoins bought for the invested USD
+    uint adCoinsBought = usdInvested * usd_to_hadcoins;
+
+    // Update equity in AdCoins for the investor
+    equityAtcoins[investor] += adCoinsBought;
+
+    // Update equity in USD for the investor
+    equityUSD[investor] = equityAtcoins[investor] / usd_to_hadcoins;
+
+    // Update total AdCoins bought by all investors
+    total_hadcoins_bought += adCoinsBought;
+}
+-------------------code----------------------
+
+---
+
+### 6. Key Takeaways
+
+| Concept             | Description                                                                   |
+| ------------------- | ----------------------------------------------------------------------------- |
+| **Modifier**        | Ensures that the purchase does not exceed the total supply (`canBuyAdCoins`). |
+| **Mappings**        | Used to store each investor’s holdings (`equityAtcoins` and `equityUSD`).     |
+| **No Return Value** | This function updates data instead of returning information.                  |
+| **State Changes**   | It modifies the blockchain state by updating balances and totals.             |
+
+---
+
+### 7. Summary
+
+* The `buyAdCoins` function is essential for handling token purchases in the ICO.
+* It validates purchase limits using the modifier, calculates the number of tokens an investor receives, updates their balances, and adjusts the global total.
+* Together with the previously created “getter” functions (`equityInAltCoins` and `equityInUSD`), this function completes the interaction logic for investors in MyEtherWallet.
+
+---
+
+## modifier vs function
+---
+
+## **1. What is a Function**
+
+A **function** is a block of code that performs a specific task.
+You explicitly call functions to execute them.
+
+### **Purpose**
+
+* Execute logic (e.g., calculations, token transfers, or updates).
+* Return values.
+* Interact with other contracts or blockchain state.
+
+### **Example**
+
+-------------------code----------------------
+function getBalance(address investor) public view returns (uint) {
+    return equityUSD[investor];
+}
+-------------------code----------------------
+
+**Explanation:**
+
+* You call it directly (e.g., `getBalance(0x123...)`).
+* It performs a task and returns a result.
+* Functions can read or modify the blockchain state depending on their type (`view`, `pure`, or normal functions).
+
+---
+
+## **2. What is a Modifier**
+
+A **modifier** is **not** called directly.
+It is used to **alter the behavior** of functions — mainly to add conditions, checks, or reusable logic before (and optionally after) the main function body executes.
+
+### **Purpose**
+
+* Restrict access (for example, only owner can call).
+* Validate inputs or states (for example, check if enough tokens are available).
+* Reuse the same condition in multiple functions without rewriting it.
+
+### **Syntax**
+
+-------------------code----------------------
+modifier onlyOwner() {
+    require(msg.sender == owner);
+    _; // This is where the rest of the function runs
+}
+-------------------code----------------------
+
+### **How It’s Used**
+
+-------------------code----------------------
+function withdrawFunds() public onlyOwner {
+    // Function executes only if msg.sender == owner
+}
+-------------------code----------------------
+
+**Explanation:**
+
+* The modifier runs its code first.
+* When Solidity reaches `_`, it executes the main function body.
+* If the modifier’s condition fails, the function stops.
+
+---
+
+## **3. Key Differences**
+
+| Feature                   | **Function**                            | **Modifier**                                                        |
+| ------------------------- | --------------------------------------- | ------------------------------------------------------------------- |
+| **Purpose**               | Executes main logic.                    | Adds pre-/post-conditions or access control to functions.           |
+| **Called Directly?**      | Yes                                     | No — only attached to functions.                                    |
+| **Can Return Values?**    | Yes                                     | No (it modifies behavior, not return data).                         |
+| **Uses `_` placeholder?** | No                                      | Yes — `_` indicates where the function body executes.               |
+| **Typical Use Cases**     | Calculations, transfers, state updates. | Access control (`onlyOwner`), validation (`canBuyAdCoins`), limits. |
+
+---
+
+## **4. Example Comparison**
+
+### Using a Modifier
+
+-------------------code----------------------
+modifier canBuyAdCoins(uint usdInvested) {
+    require(usdInvested * usd_to_hadcoins + total_hadcoins_bought <= max_hadcoins);
+    _;
+}
+
+function buyCoins(address investor, uint usdInvested) public canBuyAdCoins(usdInvested) {
+    uint hadcoinsBought = usdInvested * usd_to_hadcoins;
+    equityAtcoins[investor] += hadcoinsBought;
+    total_hadcoins_bought += hadcoinsBought;
+}
+-------------------code----------------------
+
+### Without a Modifier (Using a Function Instead)
+
+-------------------code----------------------
+function buyCoins(address investor, uint usdInvested) public {
+    require(usdInvested * usd_to_hadcoins + total_hadcoins_bought <= max_hadcoins);
+    uint hadcoinsBought = usdInvested * usd_to_hadcoins;
+    equityAtcoins[investor] += hadcoinsBought;
+    total_hadcoins_bought += hadcoinsBought;
+}
+-------------------code----------------------
+
+**Both achieve the same goal**, but:
+
+* Using a **modifier** makes the code **cleaner and reusable**.
+* If multiple functions need the same check, the modifier prevents repetition.
+
+---
+
+## **5. Summary**
+
+| Aspect       | Function                    | Modifier                                      |
+| ------------ | --------------------------- | --------------------------------------------- |
+| Main Role    | Execute logic               | Enforce conditions before/after function runs |
+| Invocation   | Called directly             | Attached to a function                        |
+| Reusability  | Limited                     | High — can be reused by many functions        |
+| Contains `_` | No                          | Yes (marks function execution point)          |
+| Example Use  | `buyCoins()`, `sellCoins()` | `onlyOwner`, `canBuyAdCoins`                  |
+
+---
