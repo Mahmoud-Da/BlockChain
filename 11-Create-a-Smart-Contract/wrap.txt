@@ -427,3 +427,214 @@ modifier canBuyAdCoins(uint usdInvested) {
 ---
 
 This modifier is now ready to be linked to the **buy function** in the ICO contract.
+
+
+*** 85. Step 5 ***
+## Lecture Notes: Creating Functions in Solidity
+
+### 1. Introduction
+
+* The tutorial focuses on creating the **first functions in Solidity**.
+* The goal is to create two functions that will:
+
+  * Retrieve the **equity in alt coins** of an investor.
+  * Retrieve the **equity in USD** of an investor.
+
+---
+
+### 2. Function Basics in Solidity
+
+* To define a function in Solidity, use the keyword `function`.
+* Each function must have:
+
+  1. A **name**.
+  2. **Input parameters** (arguments).
+  3. A **return type** that specifies the output.
+  4. Optionally, a **visibility modifier** (such as `external`, `public`, etc.).
+
+---
+
+### 3. Creating the `equityInAltCoins` Function
+
+#### Step 1: Function Declaration
+
+-------------------code----------------------
+function equityInAltCoins(address investor) external constant returns (uint) {
+    return equityAltCoins[investor];
+}
+-------------------code----------------------
+
+#### Explanation
+
+* `function` – keyword to declare a function.
+* `equityInAltCoins` – name of the function.
+* `(address investor)` – input parameter:
+
+  * `address` is the data type.
+  * `investor` is the variable name.
+* `external constant` – indicates that:
+
+  * The function is accessible from outside the contract.
+  * The function does not modify the blockchain state.
+* `returns (uint)` – specifies that the function returns an unsigned integer.
+
+#### Purpose
+
+* Takes the investor’s address as input.
+* Uses the previously defined **mapping** (`equityAltCoins`) to return the equity value associated with that address.
+* The mapping links investor addresses to their alt coin equity values.
+
+---
+
+### 4. Why Create This Function Instead of Using the Mapping Directly
+
+* The function serves as an **interface tool** for external interaction (e.g., through MyEtherWallet).
+* It allows users to call this function directly from a wallet or frontend interface.
+* Even though it retrieves data that could be accessed directly, it’s necessary for user-friendly interaction with contracts.
+
+---
+
+### 5. Creating the `equityInUSD` Function
+
+#### Step 1: Duplicate and Modify
+
+* Copy the previous function and adjust names accordingly.
+
+-------------------code----------------------
+function equityInUSD(address investor) external constant returns (uint) {
+    return equityUSD[investor];
+}
+-------------------code----------------------
+
+#### Explanation
+
+* Same logic as before.
+* Uses a different mapping: `equityUSD`.
+* Returns the investor’s **equity in USD**.
+
+---
+
+### 6. Key Solidity Concepts Introduced
+
+| Concept      | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| **address**  | A 20-byte identifier representing an account (user or contract).                                 |
+| **external** | Function visibility modifier; callable only from outside the contract.                           |
+| **constant** | Indicates that the function does not alter the blockchain state.                                 |
+| **uint**     | Unsigned integer type, used for non-negative numeric values.                                     |
+| **mapping**  | A key-value data structure in Solidity (e.g., `mapping(address => uint)` for investor balances). |
+
+---
+
+### 7. Example Mappings
+
+-------------------code----------------------
+mapping(address => uint) equityAltCoins;
+mapping(address => uint) equityUSD;
+-------------------code----------------------
+
+These mappings store equity data for each investor, accessed through the functions above.
+
+---
+
+### 8. Summary
+
+* Two functions were implemented:
+
+  1. `equityInAltCoins(address investor)` → returns equity in alt coins.
+  2. `equityInUSD(address investor)` → returns equity in USD.
+* Both functions:
+
+  * Accept the investor’s address as input.
+  * Use mappings to return the stored equity values.
+  * Are marked as `external constant` because they only read data.
+* These functions are necessary for integration with external wallets and interfaces.
+
+---
+
+### 9. Next Steps
+
+* In the next tutorial, the focus will shift to implementing a **buyAltCoins** function.
+* That function will handle the logic for purchasing alt coins within the smart contract.
+
+---
+
+
+In **Solidity**, the `address` type is a **special data type** that holds a **20-byte (160-bit)** value — the same size as an **Ethereum account address**.
+It can represent both:
+
+* **Externally Owned Accounts (EOAs)** — regular user wallets controlled by private keys
+* **Contract Accounts** — addresses of deployed smart contracts
+
+---
+
+### Basic Forms of `address`
+
+Solidity provides **two address types**:
+
+| Type              | Description                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------- |
+| `address`         | Basic type; can only store the address value and check balance.                                             |
+| `address payable` | Extended type; can receive and send Ether via `.transfer()`, `.send()`, or `.call{value: ...}()` functions. |
+
+---
+
+### Example
+
+-------------------code----------------------
+pragma solidity ^0.8.0;
+
+contract AddressExample {
+    address owner;             // normal address
+    address payable recipient; // can receive Ether
+
+    constructor(address payable _recipient) {
+        owner = msg.sender;      // set owner to deployer
+        recipient = _recipient;  // assign recipient
+    }
+
+    function sendEther() public payable {
+        require(msg.value > 0, "Must send some Ether");
+        recipient.transfer(msg.value); // transfer Ether
+    }
+
+    function getOwnerBalance() public view returns (uint) {
+        return owner.balance; // check balance of any address
+    }
+}
+-------------------code----------------------
+
+---
+
+### Common Address Members and Methods
+
+| Member / Method          | Description                                               | Example                                             |
+| ------------------------ | --------------------------------------------------------- | --------------------------------------------------- |
+| `.balance`               | Returns the amount of Wei held by the address.            | `uint bal = addr.balance;`                          |
+| `.transfer(uint amount)` | Sends Ether (reverts on failure).                         | `addr.transfer(1 ether);`                           |
+| `.send(uint amount)`     | Sends Ether (returns bool, does not revert).              | `bool sent = addr.send(1 ether);`                   |
+| `.call{value: x}("")`    | Low-level call to send Ether and optionally execute code. | `(bool success, ) = addr.call{value: 1 ether}("");` |
+
+---
+
+### Type Conversions
+
+You can **cast** between the two types when needed:
+
+-------------------code----------------------
+address addr = 0x123...;
+address payable payAddr = payable(addr);
+-------------------code----------------------
+
+---
+
+### Summary
+
+| Feature                                                  | `address` | `address payable` |
+| -------------------------------------------------------- | --------- | ----------------- |
+| Holds 20-byte Ethereum address                           | ●         | ●                 |
+| Can receive Ether                                        | X         | ●                 |
+| Can send Ether using `.transfer()`, `.send()`, `.call()` | X         | ●                 |
+| Has `.balance` property                                  | ●         | ●                 |
+
+---
