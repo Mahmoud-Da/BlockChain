@@ -1034,3 +1034,155 @@ function sellAdCoins(address investor, uint adCoinsSold) external {
 * The contract is now ready for testing and demonstration in MyEtherWallet.
 
 ---
+
+
+*** 88. Step 8 ***
+# Module 3: Create a Smart Contract – Demo
+
+## 1. Introduction
+
+* In this demo, we act as an investor buying Hadcoins.
+* Tools used:
+
+  * **MyEtherWallet (MEW)**: for wallet management and contract interaction.
+  * **Ganache**: local blockchain for testing transactions.
+  * **Solidity Remix**: to compile and get contract bytecode/ABI.
+
+---
+
+## 2. Setting Up Ganache
+
+1. Open **Ganache**.
+2. Note key information:
+
+   * Local host: `127.0.0.1`
+   * Port: `7545`
+3. Each row represents an account with 100 ETH (virtual).
+4. Initial state: current block = 0, Genesis block visible.
+5. Transaction details and logs can be inspected in Ganache.
+
+---
+
+## 3. Setting Up MyEtherWallet
+
+1. Open MEW via local HTML file (`index.html`) from Module 3 folder.
+2. Create a **new Ethereum wallet**:
+
+   * Add a **custom network node**:
+
+     * Node Name: `Hadcoin ICO` (or any preferred name)
+     * URL: `127.0.0.1`
+     * Port: `7545`
+     * Blockchain: Ethereum
+3. Save and use this network node.
+
+---
+
+## 4. Deploying the Smart Contract
+
+1. Go to **Contracts → Deploy Contract** in MEW.
+2. Input the **bytecode** obtained from Remix:
+
+   * Copy from Remix → Details → Bytecode → "Copy value to clipboard"
+   * Paste into MEW (exclude quotes if needed).
+3. Set **Gas limit** (auto-populated).
+4. Unlock wallet using **private key** from Ganache:
+
+   * Choose an address → Show Keys → Copy private key → Paste into MEW.
+5. Sign transaction and deploy the contract.
+6. Check deployment in Ganache:
+
+   * TX count increments
+   * New block created
+   * Gas spent is minimal (~2 cents for the demo)
+
+---
+
+## 5. Interacting with the Smart Contract
+
+1. Obtain **Contract Address** from Ganache → paste into MEW.
+2. Obtain **ABI / JSON Interface** from Remix → paste into MEW.
+3. Access the contract in MEW:
+
+   * Actions available:
+
+     * Buy Hadcoins
+     * Sell Hadcoins
+     * Check equity in USD
+     * Check equity in Hadcoins
+   * Variables to read:
+
+     * `max_hadcoins`
+     * `total_hadcoins_bought`
+
+---
+
+## 6. Buying Hadcoins
+
+1. Check maximum Hadcoins available (`max_hadcoins`) → 1,000,000.
+2. Use **buy_hadcoins** function:
+
+   * Arguments:
+
+     * Investor address (from Ganache)
+     * USD invested (e.g., $10 → 10,000 Hadcoins at 1,000 rate)
+3. Generate transaction → broadcast.
+4. Verify transaction in Ganache:
+
+   * Block created
+   * Transaction details (sender, contract, data)
+5. Check **equity after purchase**:
+
+   * Equity in USD → $10
+   * Equity in Hadcoins → 10,000
+6. Buy additional Hadcoins (e.g., $100) → equity updates:
+
+   * Hadcoins → 110,000
+   * USD → $110
+
+---
+
+## 7. Selling Hadcoins
+
+1. Use **sell_hadcoins** function:
+
+   * Arguments:
+
+     * Investor address
+     * Amount of Hadcoins to sell (e.g., 50,000)
+2. Generate transaction → broadcast.
+3. Verify transaction in Ganache → new block created.
+4. Check updated **equity**:
+
+   * Hadcoins → 60,000
+   * USD → $60
+
+---
+
+## 8. Key Takeaways
+
+* Smart contract successfully deployed and integrated with local blockchain.
+* MEW + Ganache allows testing:
+
+  * Transactions
+  * Buying & selling Hadcoins
+  * Tracking equity
+  * Monitoring blocks and gas usage
+* Ethereum blockchain allows low-cost, secure, and verifiable transactions.
+
+---
+
+## 9. Conclusion
+
+* Demo confirms smart contract functionality.
+* Actions tested:
+
+  * Buy Hadcoins
+  * Sell Hadcoins
+  * Check equity in USD and Hadcoins
+* Next steps:
+
+  * Explore additional contract functions.
+  * Combine blockchain with other technologies like AI in future courses.
+
+---
