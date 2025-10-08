@@ -117,3 +117,144 @@
 * With continued innovation, Ripple is expected to maintain a strong role in **cryptocurrency markets** and **financial technology** sectors.
 
 ---
+
+*** 91. Neo ***
+## Lecture Notes: The Neo Platform and Cryptocurrency
+
+### 1. Introduction
+
+* **Topic:** Overview of the **Neo platform** and **Neo cryptocurrency**.
+* **Release Date:** 2014
+* **Rebranding:** Initially launched as **AntShares**, later **rebranded to Neo in 2017**.
+* **Nickname:** Often referred to as the **"Chinese Ethereum"**.
+* **Key Advantage:** Developer-friendly — supports **multiple mainstream programming languages**, making it easier to build decentralized applications (dApps).
+
+---
+
+### 2. Background and Development
+
+* **Parent Company:** **OnChain**, which created Neo (originally AntShares).
+* **Rebranding:** AntShares → Neo in 2017 to reflect a broader blockchain vision.
+* **OnChain Distribution Event (March 2018):**
+
+  * Distributed **one Ontology (ONT) token** for every **five Neo tokens** held in a wallet.
+  * ONT tokens allow voting on **system upgrades** and **governance decisions** within the Neo ecosystem.
+
+---
+
+### 3. Platform Overview
+
+* **Base Asset:** The **Neo token (NEO)** serves as the main cryptocurrency of the platform.
+* **Development Environment:**
+
+  * Neo supports various programming languages including **JavaScript**, **C++**, and others.
+  * This flexibility is achieved using **NeoVM**, a customized version of Docker designed for Neo.
+  * Allows developers to write smart contracts in familiar languages, reducing the learning curve.
+
+---
+
+### 4. Technical and Open Source Features
+
+* **Open Source:**
+
+  * Neo is fully open source and hosted on **GitHub** under the **MIT License**.
+  * Repository: [github.com/neo-project/neo](https://github.com/neo-project/neo)
+* **Community-Based Project:**
+
+  * Operates as a **non-profit, community-driven blockchain**.
+  * The primary goal is to support and build a **smart economy** through blockchain innovation.
+
+---
+
+### 5. Smart Contracts
+
+* Neo emphasizes the **development and execution of smart contracts**.
+* Developers benefit from:
+
+  * Compatibility with common programming languages.
+  * Simplified integration for those familiar with a single language (e.g., Python).
+  * Accessible tools for creating decentralized applications (dApps).
+
+---
+
+### 6. Token Distribution
+
+* **Genesis Creation:**
+
+  * Total supply: **100 million Neo tokens**.
+  * **50 million Neo** were sold to early investors.
+  * **50 million Neo** were locked in a **smart contract**.
+* **Unlock Schedule:**
+
+  * **15 million Neo tokens** are unlocked each year to fund **long-term development**.
+* **Additional Token:** **GAS** — used to pay for transaction fees and operations on the network.
+
+---
+
+### 7. GAS Token Details
+
+* **Purpose:** Used for network fees and smart contract execution.
+* **Generation Rate:** Initially **8 GAS per block**.
+* **Reduction:** Generation decreases by **1 GAS for every 2 million blocks**.
+* **Circulation Cap:**
+
+  * Expected to reach **100 million GAS** by around **2039**, at which point production stops.
+* **Divisibility:** GAS is divisible, while Neo tokens are not.
+
+---
+
+### 8. Consensus Mechanism
+
+* **System Used:** **Delegated Byzantine Fault Tolerant (dBFT)** consensus algorithm.
+* **Comparison:** Similar to the **Stellar** consensus model.
+* **Key Benefit:** Provides high transaction speed and network reliability.
+
+---
+
+### 9. Decentralization
+
+* **Milestone:** On **July 4, 2018**, Neo officially **entered the era of decentralization**.
+* **Significance:** Marked a major step toward a more distributed governance and validation model.
+
+---
+
+### 10. Transparency and Communication
+
+* **Transparency:** A core principle of the Neo project, aligning with blockchain’s open nature.
+* **Documentation and Updates:**
+
+  * Official **GitHub** provides technical information and development updates.
+  * Neo maintains an active **blog** and publishes **press releases** to share project progress, partnerships, and performance updates.
+
+---
+
+### 11. Vision and Objectives
+
+* Neo aims to **connect digital and physical assets** through the use of **digital identities** and **smart contracts**.
+* **Key Goals:**
+
+  1. Digitize real-world assets.
+  2. Promote **decentralization** and **transparency**.
+  3. Build a scalable network for decentralized applications.
+* Ultimately, Neo strives to support a **“smart economy”** where assets, identities, and contracts are managed digitally on the blockchain.
+
+---
+
+### 12. Summary
+
+* **Neo Overview:**
+
+  * Launched in 2014 as AntShares → rebranded to Neo in 2017.
+  * Referred to as the **Chinese Ethereum** for its role in smart contract and dApp development.
+  * Open-source, transparent, and community-driven.
+* **Technical Strengths:**
+
+  * Supports multiple languages via NeoVM.
+  * Dual-token system (Neo and GAS).
+  * Employs dBFT consensus for efficiency and stability.
+* **Future Outlook:**
+
+  * With its move toward decentralization and developer accessibility, Neo is positioned to play an important role in **blockchain-based smart economies**.
+  * Observing adoption by companies and partnerships will be key to assessing its long-term growth.
+
+---
