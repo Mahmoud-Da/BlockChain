@@ -799,3 +799,99 @@ In short: *Decentralizing our blockchain means letting multiple computers (nodes
 * Purpose: Ensure every node has the latest, valid blockchain by applying the **consensus algorithm** (replace shorter chains with the longest valid one).
 
 ---
+
+*** 63. Step 8 ***
+# Lecture Notes – Replacing the Chain by the Longest Chain
+
+## 1. Purpose of This Step
+
+* Ensure that each node has the **most up-to-date blockchain**.
+* If a node’s chain is shorter or outdated, it will be replaced with the **longest valid chain** from the network.
+* This guarantees consistency across all nodes.
+
+---
+
+## 2. Type of Request
+
+* **Request type:** `GET`
+* Reason: No data is being sent; only checking and replacing if necessary.
+
+---
+
+## 3. Implementation Steps
+
+### a. Duplicating and Modifying the Existing Code
+
+* Start from the code of the **`is_valid`** request.
+* Change:
+
+  * Request name → `replace_chain`
+  * Method called → `replace_chain()` instead of `is_valid()`
+
+### b. Boolean Check
+
+* Use the method `replace_chain()` from the blockchain object.
+
+* This method:
+
+  * **Returns True** → if the chain was replaced (not the longest).
+  * **Returns False** → if the chain was already the longest.
+
+* Assign result to variable:
+
+  -------------------code----------------------
+  is_chain_replaced = blockchain.replace_chain()
+  -------------------code----------------------
+
+---
+
+## 4. Responses
+
+### Case 1: Chain Replaced (`True`)
+
+* Return message:
+
+  * "The nodes had different chains, so the chain was replaced by the longest one."
+* Include the new chain in the response:
+
+  -------------------code----------------------
+  "new_chain": blockchain.chain
+  -------------------code----------------------
+
+### Case 2: Chain Not Replaced (`False`)
+
+* Return message:
+
+  * "All good. The chain is the largest one."
+* Still return the current chain:
+
+  -------------------code----------------------
+  "actual_chain": blockchain.chain
+  -------------------code----------------------
+
+---
+
+## 5. Returning the Response
+
+* Use `jsonify()` to send back response as JSON.
+* Add HTTP status code `200` (OK).
+
+---
+
+## 6. Next Step: JSON File of Nodes
+
+* Create a JSON file to store **all nodes’ addresses** in the network.
+* Purpose:
+
+  * Keeps track of connected nodes.
+  * Helps when adding or updating nodes.
+* This file will be POSTed when sending the `connect_node` request.
+
+---
+
+## 7. Final Goal
+
+* With the **replace_chain** request and the **nodes JSON file**, the blockchain will be ready for a full **demo**.
+* Example: Sending AT coins between nodes.
+
+---
