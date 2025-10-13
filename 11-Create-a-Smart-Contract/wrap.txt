@@ -333,3 +333,97 @@ You don’t have to search anywhere—just **look at the box with the label** to
 
 ---
 
+*** 84. Step 4 ***
+---
+
+# Tutorial: Solidity Modifier – Checking If an Investor Can Buy AdCoins
+
+## Objective
+
+* Ensure that during the ICO, an investor can **only buy AdCoins if enough coins remain**.
+* Use a **modifier** in Solidity to enforce this rule.
+
+---
+
+## What is a Modifier?
+
+* A **modifier** is a Solidity tool that checks a condition before running a function.
+* If the condition is true, the function linked to the modifier executes.
+* Example use case: **Buy AdCoins function** can only run if coins are available.
+
+---
+
+## Steps to Create the Modifier
+
+### 1. Define the Modifier
+
+* Syntax:
+
+-------------------code----------------------
+modifier modifierName(parameters) {
+    // condition
+    _;
+}
+-------------------code----------------------
+
+* For this ICO:
+
+-------------------code----------------------
+modifier canBuyAdCoins(uint usdInvested) {
+    // condition goes here
+    _;
+}
+-------------------code----------------------
+
+* `usdInvested` → the amount of USD the investor wants to invest at a given time.
+
+---
+
+### 2. Condition to Check
+
+* The goal: ensure the investor can buy the requested amount of AdCoins.
+
+* Steps:
+
+  1. Convert **USD invested** into **AdCoins**:
+
+     -------------------code----------------------
+     usdInvested * usd_to_adcoins
+     -------------------code----------------------
+  2. Add the total AdCoins **already bought** (`totalAdCoinsBought`).
+  3. Ensure this sum is **less than or equal to the maximum available** (`maxAdCoins`).
+
+* Solidity syntax using `require`:
+
+-------------------code----------------------
+require(
+    (usdInvested * usd_to_adcoins + totalAdCoinsBought) <= maxAdCoins
+);
+-------------------code----------------------
+
+* `require` ensures that if the condition is false, the transaction **fails immediately**.
+
+---
+
+### 3. Complete Modifier Code
+
+-------------------code----------------------
+modifier canBuyAdCoins(uint usdInvested) {
+    require(
+        (usdInvested * usd_to_adcoins + totalAdCoinsBought) <= maxAdCoins
+    );
+    _;
+}
+-------------------code----------------------
+
+---
+
+## Key Points
+
+* `_` in the modifier: placeholder for the function code that uses this modifier.
+* The function linked to this modifier (e.g., `buyAdCoins`) will **only execute if the condition is true**.
+* This enforces **ICO limits** and prevents overselling coins.
+
+---
+
+This modifier is now ready to be linked to the **buy function** in the ICO contract.
