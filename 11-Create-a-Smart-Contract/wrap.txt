@@ -185,6 +185,32 @@
 
 ---
 
+## initial Solidity code block based on the lecture:
+
+-------------------code----------------------
+pragma solidity ^0.4.11;
+
+contract hadcoin_ico {
+
+    // Maximum number of hadcoins available for sale
+    uint public max_hadcoins = 1000000;
+
+    // Conversion rate: 1 USD = 1000 hadcoins
+    uint public usd_to_hadcoins = 1000;
+
+    // Total number of hadcoins bought by investors
+    uint public total_hadcoins_bought = 0;
+
+}
+-------------------code----------------------
+
+This is the **starting structure** of the contract:
+
+* Compiler version set (`pragma solidity ^0.4.11`).
+* Contract named `hadcoin_ico`.
+* Three public variables declared and initialized.
+
+
 ## Step 5: Next Steps
 
 * Introduce **mapping** from investor addresses to their equity.
@@ -193,6 +219,117 @@
   * Equity in hadcoins.
   * Equity in USD.
 * Mappings in Solidity function like key-value pairs (similar to dictionaries).
+
+---
+
+
+
+
+*** 83. Step 3 ***
+---
+
+# Lecture Notes: ICO Contract Mappings in Solidity
+
+## Recap from Previous Tutorial
+
+* Introduced public variables accessible by anyone (inside and outside the contract).
+* Next step: create mappings to track investor equity in **Atcoins** and **USD**.
+
+## Concept of Mapping
+
+* **Definition**: A mapping is like a function, but its data is stored in an array-like structure.
+* **Behavior**:
+
+  * Takes an input variable (e.g., investor address).
+  * Returns an associated value (e.g., equity).
+* Unlike a function that performs an operation, a mapping directly returns stored data.
+
+## Equity Representation
+
+* Example:
+
+  * $1,000 invested → $1,000 USD equity.
+  * Since **1 USD = 1,000 Atcoins**, investor also has **1,000,000 Atcoins** equity.
+* Need two mappings:
+
+  1. Address → Equity in Atcoins.
+  2. Address → Equity in USD.
+
+## Syntax in Solidity
+
+### General Structure
+
+-------------------code----------------------
+mapping(inputType => outputType) variableName;
+-------------------code----------------------
+
+### Step 1: Mapping for Atcoins
+
+* Input: **address** (investor address).
+* Output: **uint** (integer equity, no decimals).
+* Variable name: `equityAtcoins`.
+* Example:
+
+-------------------code----------------------
+mapping(address => uint) equityAtcoins;
+-------------------code----------------------
+
+### Step 2: Mapping for USD
+
+* Input: **address** (investor address).
+* Output: **uint**.
+* Variable name: `equityUSD`.
+* Example:
+
+-------------------code----------------------
+mapping(address => uint) equityUSD;
+-------------------code----------------------
+
+## Key Notes
+
+* Use `uint` since equity is always an integer (no fractions of cents).
+* Always end with a semicolon (`;`), unlike Python.
+* These mappings act as lookup tables linking investors’ addresses to their respective equity.
+
+## Next Step: Modifiers
+
+* **Definition**: A modifier checks conditions before executing functions.
+* Use case in ICO:
+
+  * Investors can **always sell** Atcoins.
+  * Investors can **only buy** if Atcoins remain available.
+* Modifier ensures that purchase attempts are valid.
+
+---
+
+Absolutely! Let’s simplify it:
+
+---
+
+### What is a mapping in Solidity?
+---
+
+### Mapping = “Label → Box”
+
+* Imagine **every investor has a box**.
+* The **label on the box** is their **address** (like their ID).
+* Inside the box is **how many coins or dollars they have**.
+
+So:
+
+* `mapping(address => uint) equityAtcoins;`
+
+  * Means: “for each address, store how many Atcoins they have.”
+* `mapping(address => uint) equityUSD;`
+
+  * Means: “for each address, store how much USD they have invested.”
+
+**Example in words:**
+
+* Address `0x123` → 1000 Atcoins, 1 USD
+* Address `0x456` → 500 Atcoins, 0.5 USD
+
+You don’t have to search anywhere—just **look at the box with the label** to see the value.
 
 ---
 
