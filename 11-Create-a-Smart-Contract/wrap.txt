@@ -639,7 +639,7 @@ address payable payAddr = payable(addr);
 
 ---
 
-*** 86. Step 6  ***
+*** 86. Step 6 ***
 
 ## Lecture Notes: Creating the `buyAdCoins` Function in Solidity
 
@@ -916,5 +916,121 @@ function buyCoins(address investor, uint usdInvested) public {
 | Reusability  | Limited                     | High — can be reused by many functions        |
 | Contains `_` | No                          | Yes (marks function execution point)          |
 | Example Use  | `buyCoins()`, `sellCoins()` | `onlyOwner`, `canBuyAdCoins`                  |
+
+---
+
+*** 87. Step 7 ***
+---
+
+## Lecture Notes: Creating the `sellAdCoins` Function in Solidity
+
+### 1. Introduction
+
+* This is the final implementation tutorial before the demo.
+* Focus: Implementing the **`sellAdCoins`** function.
+* Purpose: Enable investors to **sell their AdCoins** and get money back, completing the buyback option.
+* This function will serve as another action in MyEtherWallet.
+
+---
+
+### 2. Function Definition
+
+* The `sellAdCoins` function is similar to the `buyAdCoins` function but with key differences:
+
+  1. It **does not require USD invested** as input because the investor is selling coins, not buying.
+  2. The function **updates three variables**:
+
+     * Investor’s equity in AdCoins
+     * Investor’s equity in USD
+     * Total AdCoins bought
+
+---
+
+### 3. Function Arguments
+
+The function requires **two arguments**:
+
+| Argument      | Type      | Description                                           |
+| ------------- | --------- | ----------------------------------------------------- |
+| `investor`    | `address` | The Ethereum address of the investor selling AdCoins. |
+| `adCoinsSold` | `uint`    | The number of AdCoins the investor wants to sell.     |
+
+> Note: `adCoinsSold` is an unsigned integer (`uint`) because the number of coins cannot be negative.
+
+---
+
+### 4. Removing the Buy Modifier
+
+* Unlike `buyAdCoins`, the **`canBuyAdCoins` modifier is not needed**.
+* We do not need to check purchase limits when selling coins.
+* The function body begins immediately after the argument declaration.
+
+---
+
+### 5. Implementing the Function Logic
+
+The function updates the three key variables after the investor sells AdCoins.
+
+#### Step 1: Update Investor’s Equity in AdCoins
+
+* Reduce the investor’s AdCoins balance by the number of coins sold:
+
+-------------------code----------------------
+equityAtcoins[investor] -= adCoinsSold;
+-------------------code----------------------
+
+#### Step 2: Update Investor’s Equity in USD
+
+* Convert the updated AdCoin balance back to USD:
+
+-------------------code----------------------
+equityUSD[investor] = equityAtcoins[investor] / usd_to_hadcoins;
+-------------------code----------------------
+
+#### Step 3: Update Total AdCoins Bought
+
+* Decrement the total AdCoins bought by all investors by the number of coins sold:
+
+-------------------code----------------------
+total_hadcoins_bought -= adCoinsSold;
+-------------------code----------------------
+
+---
+
+### 6. Full Function Implementation
+
+Here is the complete `sellAdCoins` function with comments:
+
+-------------------code----------------------
+// Function to allow an investor to sell AdCoins
+// Updates equity in AdCoins, equity in USD, and total AdCoins bought
+function sellAdCoins(address investor, uint adCoinsSold) external {
+    // Update equity in AdCoins for the investor by subtracting sold coins
+    equityAtcoins[investor] -= adCoinsSold;
+
+    // Update equity in USD for the investor
+    equityUSD[investor] = equityAtcoins[investor] / usd_to_hadcoins;
+
+    // Update total AdCoins bought by all investors
+    total_hadcoins_bought -= adCoinsSold;
+}
+-------------------code----------------------
+
+---
+
+### 7. Key Points
+
+* Selling coins **does not involve USD investment**; only the number of coins sold matters.
+* Equity updates follow the same logic as buying coins, but **decrementing values instead of incrementing**.
+* This completes the buy/sell workflow for the ICO smart contract.
+* Additional functions can be added to implement other actions in MyEtherWallet, similar to features on crypto trading platforms.
+
+---
+
+### 8. Summary
+
+* The `sellAdCoins` function allows investors to sell coins and retrieve money.
+* Together with `buyAdCoins`, `equityInAltCoins`, and `equityInUSD`, the smart contract now supports full interaction with investors’ holdings.
+* The contract is now ready for testing and demonstration in MyEtherWallet.
 
 ---
