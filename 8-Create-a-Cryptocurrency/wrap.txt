@@ -70,3 +70,117 @@ node_identifier = str(uuid4()).replace('-', '')
 -------------------code----------------------
 
 ---
+
+*** 57. Step 2 ***
+
+# Module 2 — Create a Cryptocurrency
+
+## Step 1: Adding Transactions to the Blockchain
+
+### 1. Overview
+
+* In the previous tutorial, the required libraries were installed and imported.
+
+* Implementation will follow **three parts**:
+
+  1. Building the blockchain
+  2. Mining the blockchain
+  3. Decentralizing the blockchain
+
+* The defining feature of a cryptocurrency compared to a general blockchain is the **ability to handle transactions**.
+
+* **Two pillars** of this step:
+
+  * **Transactions**: the ability to exchange cryptocurrency securely.
+  * **Consensus**: ensuring all nodes share the same valid chain.
+
+This tutorial focuses on **transactions**.
+
+---
+
+### 2. Concept of Transactions
+
+* Transactions represent the transfer of cryptocurrency between parties.
+* Transactions must be:
+
+  * Recorded in a **temporary list** until a block is mined.
+  * Secured and added to a block once mined.
+  * Immutable once added to the blockchain.
+* After inclusion in a block, the temporary list of transactions is cleared for new transactions.
+
+---
+
+### 3. Implementation Steps
+
+#### a. Modify the `__init__` method
+
+* Add a new instance variable:
+
+  -------------------code----------------------
+  self.transactions = []
+  -------------------code----------------------
+* This list stores pending transactions **before** they are added to a block.
+* **Order is important**:
+
+  * `self.transactions` must be initialized **before** the `create_block` method is called to create the genesis block.
+  * Otherwise, `create_block` would not know where to retrieve transactions.
+
+---
+
+#### b. Update the `create_block` method
+
+* Add a new key to each block dictionary:
+
+  -------------------code----------------------
+  'transactions': self.transactions
+  -------------------code----------------------
+* After assigning transactions to the block, reset the list:
+
+  -------------------code----------------------
+  self.transactions = []
+  -------------------code----------------------
+* This ensures that transactions are only included once, and each new block starts with an empty transaction list.
+
+---
+
+#### c. Add a new method: `add_transaction`
+
+Purpose: define transaction format and add it to the pending list.
+
+-------------------code----------------------
+def add_transaction(self, sender, receiver, amount):
+    self.transactions.append({
+        'sender': sender,
+        'receiver': receiver,
+        'amount': amount
+    })
+    previous_block = self.get_previous_block()
+    return previous_block['index'] + 1
+-------------------code----------------------
+
+* **Arguments**:
+
+  * `sender`: address of sender
+  * `receiver`: address of receiver
+  * `amount`: number of coins transferred
+
+* **Process**:
+
+  * Append transaction as a dictionary with three keys: `sender`, `receiver`, `amount`.
+  * Find the index of the next block (current last block index + 1).
+  * Return this index so the caller knows which block will eventually contain the transaction.
+
+---
+
+### 4. Key Takeaways
+
+* **Transactions are created before blocks**: they accumulate in a list and are added once a block is mined.
+* The blockchain class now has:
+
+  * A transactions list (`self.transactions`).
+  * A block structure that includes transactions.
+  * A method (`add_transaction`) to define and add new transactions.
+* This completes the **first pillar** (transactions).
+* The **next tutorials** will implement the **consensus mechanism**.
+
+---
