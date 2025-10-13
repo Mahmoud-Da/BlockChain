@@ -90,3 +90,109 @@
   * Usage of MyEtherWallet for purchasing/selling Hadcoins.
 
 ---
+
+
+*** 82. Step 2 ***
+# Smart Contract Implementation: Initial Hadcoins Offering (IHCO)
+
+## Step 1: Solidity Compiler Setup
+
+* Start by specifying the Solidity compiler version.
+* Example: `pragma solidity ^0.4.11;`
+* Version used: **0.4.11** (other versions may also work).
+
+---
+
+## Step 2: Creating the Contract
+
+* Contracts in Solidity are declared using the `contract` keyword.
+* Example:
+
+  -------------------code----------------------
+
+  contract hadcoin_ico {
+      // contract definition
+  }
+  -------------------code----------------------
+
+* Brackets `{ }` define everything inside the contract.
+* This marks the beginning of the **first Solidity smart contract**.
+
+---
+
+## Step 3: Public vs Private Variables
+
+* **Public variables**: Accessible by anyone (inside and outside the contract).
+* **Private variables**: Accessible only within the contract.
+* ICOs require **transparency**, so key values are public.
+
+---
+
+## Step 4: Defining Public Variables
+
+### 1. Maximum Number of Hadcoins
+
+* Represents the total supply of hadcoins available for sale.
+* Public variable because an ICO is public like an IPO.
+* Data type: `uint` (unsigned integer, cannot be negative).
+* Default range: 0 → 2^32 – 1 (approx. 4.3 billion).
+* Example declaration:
+
+  -------------------code----------------------
+
+  uint public max_hadcoins = 1000000;
+  -------------------code----------------------
+
+* Value initialized to **1,000,000** (the total supply).
+
+---
+
+### 2. Conversion Rate (USD to Hadcoins)
+
+* Defines how many hadcoins equal 1 USD.
+* Example value: **1 USD = 1000 hadcoins**.
+* Public variable for transparency.
+* Example declaration:
+
+  -------------------code----------------------
+
+  uint public usd_to_hadcoins = 1000;
+  -------------------code----------------------
+
+
+---
+
+### 3. Total Hadcoins Bought
+
+* Tracks how many hadcoins have been purchased by investors during the ICO.
+* Starts at **0**, since no tokens are bought at the beginning.
+* Public variable for transparency.
+* Example declaration:
+
+  -------------------code----------------------
+
+  uint public total_hadcoins_bought = 0;
+  -------------------code----------------------
+
+
+---
+
+## Summary of Variables
+
+1. `max_hadcoins = 1000000` → total supply.
+2. `usd_to_hadcoins = 1000` → conversion rate.
+3. `total_hadcoins_bought = 0` → counter that updates during sales.
+
+---
+
+## Step 5: Next Steps
+
+* Introduce **mapping** from investor addresses to their equity.
+* Each investor’s address will map to:
+
+  * Equity in hadcoins.
+  * Equity in USD.
+* Mappings in Solidity function like key-value pairs (similar to dictionaries).
+
+---
+
