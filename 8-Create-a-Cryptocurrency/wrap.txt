@@ -333,3 +333,127 @@ def add_node(self, address):
 * Consensus (pillar 2) will be built through `replace_chain` in the next tutorial.
 
 ---
+
+
+*** 59. Step 4 ***
+
+Here’s a clear and organized set of notes for the lecture you provided, without any emojis:
+
+---
+
+# Lecture Notes – Implementing Consensus with `replace_chain`
+
+## 1. Introduction
+
+* In previous tutorials, we created a **set of nodes** and the **add_node** method.
+* Now, we will implement the **consensus mechanism** using a new method called **replace_chain**.
+* Purpose: Ensure that every node in the network has the **longest valid chain**.
+* This is an essential step before full decentralization (covered in Part 3).
+
+---
+
+## 2. Method: `replace_chain`
+
+### Purpose
+
+* Replace the chain of the current node if it is shorter than the longest valid chain in the network.
+* Helps maintain consistency across all nodes.
+
+### Arguments
+
+* Takes only `self` because it operates on the blockchain of the specific node where it is called.
+
+---
+
+## 3. Variables Setup
+
+1. **network** → `self.nodes`
+
+   * Represents all nodes in the decentralized network.
+
+2. **longest_chain** → `None`
+
+   * Will eventually store the longest valid chain found in the network.
+
+3. **max_length** → `len(self.chain)`
+
+   * Initially set to the length of the chain in the current node.
+   * Updated whenever a longer valid chain is found.
+
+---
+
+## 4. Looping Over Nodes
+
+* Use a **for loop** to iterate over each node in the network.
+* For each node:
+
+  1. Send a **GET request** (`get_chain`) using the `requests` library.
+  2. Verify the response is successful (`status_code == 200`).
+  3. Extract:
+
+     * **length** of the chain.
+     * **chain** itself.
+
+---
+
+## 5. Chain Validation and Replacement
+
+* For each node’s chain:
+
+  * Check if `length > max_length`.
+  * Check if the chain is valid (`self.is_chain_valid(chain)`).
+* If both conditions are true:
+
+  * Update `max_length` to the new length.
+  * Update `longest_chain` to this chain.
+
+---
+
+## 6. Updating the Node’s Chain
+
+* After the loop:
+
+  * If `longest_chain` is not `None`:
+
+    * Replace the current chain: `self.chain = longest_chain`.
+    * Return `True` (chain was replaced).
+  * Else:
+
+    * Return `False` (no replacement was needed, current chain is already the longest).
+
+---
+-------------------code----------------------
+def replace_chain(self):
+        network = self.nodes
+        longest_chain = None
+        max_length = len(self.chain)
+        for node in network:
+            response = requests.get(f'http://{node}/get_chain')
+            if response.status_code == 200:
+                length = response.json()['length']
+                chain = response.json()['chain']
+                if length > max_length and self.is_chain_valid(chain):
+                    max_length = length
+                    longest_chain = chain
+        if longest_chain:
+            self.chain = longest_chain
+            return True
+        return False
+-------------------code----------------------
+## 7. Key Points
+
+* `replace_chain` ensures **consistency** of the blockchain across the network.
+* Uses **requests** library to fetch chain data from other nodes.
+* Relies on **chain validity** check to avoid adopting corrupted or invalid chains.
+
+---
+
+## 8. Next Steps
+
+* This method will be used in Part 3 (decentralization).
+* Part 2 will cover **mining the blockchain**:
+
+  * Updating `mine_block` to include transactions.
+  * Adding more API endpoints to support blockchain operations.
+
+---
