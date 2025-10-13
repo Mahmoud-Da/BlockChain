@@ -81,3 +81,80 @@ This part of the course focuses on **development on Blockchain**. It covers both
 * Emphasis is on understanding concepts, application development, and the future potential of Blockchain.
 
 ---
+
+*** 69. What is Ethereum  ***
+# Blockchain Course – Part Three: Introduction to Ethereum
+
+## Overview
+
+This lecture introduces **Ethereum**, its origins, purpose, and the foundational concepts that differentiate it from Bitcoin. It sets the stage for later topics such as smart contracts, decentralized applications, ICOs, and Ethereum infrastructure.
+
+---
+
+## 1. Origins of Ethereum
+
+* **Creator:** Vitalik Buterin
+
+  * Conceptualized Ethereum in 2013 at age 19.
+  * By 2018, he was 24 years old.
+* **Motivation:**
+
+  * Wanted a scripting language for Bitcoin to create programs on top of it.
+  * The Bitcoin community did not support this, so he created Ethereum as an independent project.
+* Ethereum has grown into a major platform that supports many blockchain projects and ICOs.
+
+---
+
+## 2. Ethereum vs Bitcoin
+
+* **Bitcoin:**
+
+  * Designed primarily as a cryptocurrency.
+  * Goal: disrupt banks, enable borderless, permissionless money transfers.
+  * Not intended as a platform for applications.
+
+* **Ethereum:**
+
+  * Designed as a platform for developers to build programs and applications.
+  * Not primarily a cryptocurrency, but a **decentralized computing platform**.
+  * Enables creation of smart contracts and decentralized applications (dApps).
+
+---
+
+## 3. Core Idea Behind Ethereum
+
+* **Decentralized Computing:**
+
+  * Ethereum aims to create a **world supercomputer** using a distributed network of computers.
+  * Applications are executed on the computers of blockchain participants rather than on centralized servers.
+
+* **Decentralized Applications (dApps):**
+
+  * Example: Instead of hosting an application like Facebook on a single server, an alternative can run on multiple users’ computers simultaneously.
+  * Data, programs, and transactions are stored on the blockchain in an **immutable manner**.
+  * Every participant has a copy of the blockchain.
+
+* **Purpose:**
+
+  * Facilitate execution of programs in a decentralized way.
+  * Enable development of dApps without reliance on centralized infrastructure.
+
+---
+
+## 4. Development Potential
+
+* Ethereum provides the **infrastructure for decentralized applications**.
+* Developers can leverage Ethereum to build projects that are fully decentralized.
+* Understanding Ethereum requires prior knowledge of blockchain fundamentals (covered in parts one and two).
+
+---
+
+## 5. Additional Resources
+
+* Recommended article: **"What is Ethereum? The Ultimate Beginner's Guide"** by Alex Moskov, available on Coin Central.
+
+---
+
+This lecture sets the foundation for upcoming tutorials on **smart contracts, blockchain projects, ICOs, and the Ethereum ecosystem**.
+
+---
