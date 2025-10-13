@@ -522,3 +522,108 @@
 * **Market Watch:** Cardano is positioned to grow in influence with smart contracts, developer adoption, and institutional interest.
 
 ---
+
+*** 94. Stellar ***
+## Lecture Notes: Stellar (XLM / Lumens)
+
+### 1. Introduction
+
+* **Topic:** Overview of the **Stellar network** and its cryptocurrency **Lumens (XLM)**.
+* **Release Year:** 2014
+* **Nature:** Decentralized payment network and protocol.
+* **Alternative Name:** Lumens (XLM) — the native cryptocurrency of Stellar.
+* **Founding Organization:** Non-profit **Stellar.org**.
+* **Purpose:** Expand access to **low-cost financial services**, aiming to fight poverty and maximize individual potential.
+
+---
+
+### 2. Transparency and Open Source
+
+* **Open Source:** Stellar is fully open source and hosted on **GitHub** via **stellar-core**.
+* **Transparency Benefits:**
+
+  * Details of **Lumen distribution programs**.
+  * Aggregate participation in **direct signup program**.
+  * Progress of **Partnerships Program** and **Stellar Build Challenge**.
+  * Bitcoin program activities.
+  * Total Lumens held by the foundation.
+* **Usefulness:** Transparency aids developers, investors, and analysts in predicting trends and building financial models.
+
+---
+
+### 3. Network Overview
+
+* **Blockchain Architecture:**
+
+  * Distributed ledger maintained by a network of servers.
+  * Any entity can run a server to participate in the network.
+  * Decentralized and spread across multiple locations.
+* **Transaction Capabilities:**
+
+  * Fast transaction speeds, rivaling **Ripple (XRP)**.
+  * Supports **microtransactions** and **cross-currency exchanges**.
+  * Can send credits in one currency (e.g., USD) and deliver them in another (e.g., Euro).
+
+---
+
+### 4. Currency: Lumens (XLM)
+
+* **Genesis Supply:** 100 billion Lumens created at launch.
+* **Inflation Rate:** 1% per year.
+* **Governance:**
+
+  * Fixed protocol-level rules control creation.
+  * No arbitrary creation of Lumens; new proposals are unlikely to succeed without network consensus.
+* **Transaction Fees:** Very low, facilitating small and frequent transactions efficiently.
+
+---
+
+### 5. Relationship to Ripple
+
+* **Origin:** Stellar protocol was originally based on Ripple.
+* **Differences:**
+
+  * More decentralized and open source than Ripple.
+  * Focuses on financial inclusion and low-cost cross-currency transactions.
+* **Similarities:**
+
+  * Fast transaction speeds.
+  * Facilitates cross-platform transactions.
+
+---
+
+### 6. Use Cases
+
+* **Financial Services:**
+
+  * Facilitates **currency transfers**, issuing **credits**, and acting as a **virtual wallet**.
+  * Enables banks and financial institutions to **integrate Stellar for payment services**.
+* **Notable Adoption:**
+
+  * IBM partnered with Stellar to launch **blockchain banking across multiple countries**.
+* **Competitive Advantage:**
+
+  * Competes with Ripple for adoption by banks and financial institutions.
+  * Positioned as a key cryptocurrency for cross-border payments and institutional use.
+
+---
+
+### 7. Summary
+
+* **Stellar Overview:**
+
+  * Released in 2014, decentralized, open source, and nonprofit-led.
+  * Lumens (XLM) are the native cryptocurrency, designed for microtransactions and cross-currency exchanges.
+* **Strengths:**
+
+  * Transparent operations and publicly available data.
+  * Low transaction fees and fast processing.
+  * Decentralized and open network.
+  * Protocol prevents arbitrary creation of new Lumens.
+* **Market Position:**
+
+  * Targeted at **financial institutions**, similar to Ripple.
+  * Growing adoption in cross-border payments and blockchain banking.
+* **Recommendation:** Keep Stellar and Lumens on your radar for the near future as adoption expands and financial institutions integrate the network.
+
+---
