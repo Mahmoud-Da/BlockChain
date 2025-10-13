@@ -258,3 +258,156 @@
   * Observing adoption by companies and partnerships will be key to assessing its long-term growth.
 
 ---
+
+*** 92. Litecoin ***
+---
+
+## Lecture Notes: Litecoin
+
+### 1. Introduction
+
+* **Topic:** Overview of **Litecoin (LTC)** — an early and influential cryptocurrency.
+* **Purpose:** To explore Litecoin’s history, structure, technological aspects, and recent developments.
+* **Comparison:** Often referred to as the **“silver or copper to Bitcoin’s gold”** due to its similarities and complementary role.
+
+---
+
+### 2. Establishment and Background
+
+* **Release Year:** 2011
+* **Creator:** Charlie Lee, a former Google engineer.
+* **Nature:** **Open-source**, decentralized cryptocurrency — not controlled by any central authority.
+* **Initial Success:** Became the **second most popular cryptocurrency** shortly after launch.
+* **Challenges:**
+
+  * Faced a **setback in 2015** due to a **Chinese Litecoin Ponzi scheme**, which temporarily affected its reputation.
+* **Recovery and Growth:**
+
+  * In **May 2018**, Litecoin adopted **compatibility with the Blocknet protocol**, a major positive step for its interoperability and utility.
+
+---
+
+### 3. Technical Overview
+
+* **Origin:** Litecoin was created as a **fork of the Bitcoin client**.
+* **Core Differences from Bitcoin:**
+
+  1. **Faster block generation time:** 2.5 minutes (vs. Bitcoin’s 10 minutes).
+  2. **Higher maximum supply:** 84 million Litecoins (vs. Bitcoin’s 21 million).
+  3. **Different hash algorithm:** Uses **Scrypt** instead of SHA-256.
+  4. **Modified GUI:** Offers a more user-friendly interface.
+* **Impact of Technical Differences:**
+
+  * **Faster transaction confirmations** and **lower transaction fees**.
+  * Makes Litecoin more practical for everyday transactions.
+
+---
+
+### 4. Key Milestones
+
+* **2017:**
+
+  * First of the top five cryptocurrencies by market capitalization to **adopt Segregated Witness (SegWit)**.
+  * **First Lightning Network transaction** completed via Litecoin — transferred from **Zurich to San Francisco** in **under one second**.
+* **2018 (May):**
+
+  * **Compatibility with Blocknet** protocol implemented, allowing **atomic swaps** (direct cryptocurrency exchanges without intermediaries).
+
+---
+
+### 5. Economic Model
+
+* **Total Supply:** **84 million Litecoins** (fixed).
+
+  * Helps prevent **inflation**, unlike fiat currencies such as USD or EUR.
+  * As of the lecture’s timeframe, approximately **56 million Litecoins** had been released.
+* **Mining Details:**
+
+  * A new block is mined every **2.5 minutes**.
+  * Generates approximately **14,400 Litecoins daily**.
+* **Transaction Costs:**
+
+  * About **1/50th** of Bitcoin’s transaction cost.
+  * **Faster and cheaper** transfers make Litecoin appealing for practical use.
+
+---
+
+### 6. Market Perception and Stability
+
+* **Market Position:** Viewed as one of the more **stable cryptocurrencies**.
+* **Price Behavior:**
+
+  * Tends to act **more rationally** than many other coins, which helps investors predict trends more effectively.
+* **Inflation Resistance:**
+
+  * The fixed supply and transparent issuance schedule make Litecoin **more sustainable** long-term compared to inflation-prone fiat currencies.
+
+---
+
+### 7. Blocknet Compatibility (May 2018)
+
+* **Definition:** Blocknet is a protocol that enables **cross-chain communication** and **atomic swaps**.
+* **Function:** Allows investors and users to **exchange virtual currencies directly** without third-party exchanges.
+* **Benefits for Litecoin:**
+
+  * Enhanced **interoperability** with other cryptocurrencies.
+  * Increased **user trust and adoption**.
+  * Reduces dependence on centralized exchanges.
+* **Overall Impact:**
+
+  * Restored confidence after the 2015 Ponzi scheme issue.
+  * Strengthened Litecoin’s standing as a reliable and practical cryptocurrency.
+
+---
+
+### 8. Integration and Developer Features
+
+* **Ease of Integration:**
+
+  * Fully **compatible with Bitcoin’s API**.
+  * Developers and merchants already supporting Bitcoin can easily **add Litecoin support**.
+* **Resources:**
+
+  * Litecoin’s official website provides **integration guides** for developers, merchants, and businesses.
+  * Businesses can **register** to accept Litecoin payments directly.
+
+---
+
+### 9. Adoption and Future Outlook
+
+* **Mining and Circulation:**
+
+  * Steady and transparent mining process with predictable supply.
+* **Merchant Adoption:**
+
+  * Increasing number of **merchants and institutions** accepting Litecoin for payments and services.
+* **Market Growth:**
+
+  * Expected to continue expanding due to **Blocknet compatibility** and **low transaction costs**.
+  * The negative reputation from 2015 has been largely mitigated.
+* **Key Observation:**
+
+  * Litecoin remains a **fast, efficient, and stable** cryptocurrency with long-term viability in the market.
+
+---
+
+### 10. Summary
+
+* **Overview:**
+
+  * Released in 2011 as an open-source fork of Bitcoin.
+  * Often called the “silver to Bitcoin’s gold.”
+* **Technical Strengths:**
+
+  * Faster block times, low fees, and broad compatibility.
+  * Supports atomic swaps through Blocknet.
+* **Economic Strengths:**
+
+  * Fixed supply of 84 million coins — inflation-resistant.
+  * More predictable and stable than many cryptocurrencies.
+* **Future Outlook:**
+
+  * Continues to gain credibility and adoption.
+  * Expected to remain a key player in the cryptocurrency landscape.
+
+---
