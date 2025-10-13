@@ -1372,3 +1372,126 @@ Two possible uses:
 * Both resources are recommended for deeper understanding.
 
 ---
+
+*** 79. Blockchain Startups: White Papers ***
+# Lecture Notes: Blockchain Startups and Whitepapers
+
+## 1. Introduction
+
+* Focus: Understanding blockchain startups and their whitepapers.
+* Context: Many blockchain projects exist; some have merit, while many are weak or purely hype-driven.
+* Goal: Learn to identify valid projects, avoid hype-only ventures, and study how whitepapers outline the use of blockchain and tokens.
+* Disclaimer: This is not investment advice—educational only.
+
+---
+
+## 2. The Landscape of Blockchain Projects
+
+* Hundreds of tokens and coins listed on **coinmarketcap.com**.
+* Market cap (at the time of lecture): approx. **$322 billion**.
+* Many projects are launched just to ride the hype of ICOs without meaningful utility.
+* Key question: **How to identify good projects from bad ones?**
+* Answer: Analyze their **whitepapers**.
+
+---
+
+## 3. Whitepapers: Purpose and Importance
+
+* A whitepaper outlines:
+
+  * Why blockchain is needed for the project.
+  * Why a token or coin is necessary.
+  * The economic model and use cases for the token.
+  * Technical details of how the platform works.
+* Whitepapers help distinguish legitimate projects from hype.
+
+---
+
+## 4. Case Studies
+
+### A. **Sia (Decentralized Storage Platform)**
+
+* Idea: Use blockchain to power distributed storage (alternative to Dropbox/Google Drive).
+* Mechanism:
+
+  * Users rent out unused hard drive space.
+  * Data is anonymized, fragmented, stored across multiple hosts.
+  * Blockchain ensures data control, access security, and reconstruction.
+* Token/Coin:
+
+  * Uses **SiaCoin**.
+  * Coins used to pay for storage services.
+  * Supply of SiaCoins increases permanently (defined economic model).
+* Current stats (at time of lecture):
+
+  * Storage capacity: 4.7 petabytes.
+  * Hosts: 878.
+  * Used storage: 213 terabytes.
+  * Market cap: ~$500 million.
+* Lesson: Shows a well-thought-out use of blockchain and tokenization.
+
+---
+
+### B. **Power Ledger (Energy Trading Platform)**
+
+* Idea: Allow individuals to sell excess solar power to neighbors.
+* Context: Australian startup (Perth) with abundant solar energy adoption.
+* Mechanism:
+
+  * Decentralizes energy exchange, removing the middleman (utility companies).
+  * Creates a mini-economy for direct peer-to-peer electricity trade.
+* Token Model:
+
+  * **POWER Token** serves as the “fuel” of the ecosystem.
+  * **Sparks** act as the exchange token for energy trading.
+  * Dual-token system ensures smooth, trustless, transparent trading.
+* Lesson: Good example of blockchain decentralization with a valid token economy.
+
+---
+
+### C. **Provenance (Supply Chain Transparency)**
+
+* Idea: Use blockchain to track product origins (food, clothing, etc.).
+* Benefits:
+
+  * Transparency about sourcing and labor practices.
+  * Consumers can see where products come from (ethical sourcing, authenticity).
+* Token Use:
+
+  * No visible token or ICO.
+  * Blockchain is used for **traceability**, not for tokenized economies.
+* Lesson: Not all blockchain projects need tokens or ICOs. Some simply use blockchain for transparency.
+
+---
+
+### D. **KodakCoin (Hype Example)**
+
+* Kodak announced its own ICO.
+* Market reaction: Price surged 120% at launch, then dropped.
+* Investigation showed the project had little merit.
+* Lesson: Even big companies may launch ICOs just to ride hype—caution required.
+
+---
+
+### E. **Useless Ethereum Token (Satirical ICO)**
+
+* A parody ICO openly admitting it would do nothing useful.
+* Claimed: Money would just be wasted by the creator.
+* Despite this, it raised **$158,000**.
+* Lesson: Shows the irrational hype surrounding ICOs.
+
+---
+
+## 5. Key Takeaways
+
+1. **Whitepapers are essential** to evaluate the legitimacy of blockchain projects.
+2. A valid blockchain project should:
+
+   * Have a clear purpose for using blockchain.
+   * Provide a meaningful role for its token.
+   * Outline economic and technical details transparently.
+3. Not all blockchain projects need ICOs or tokens (example: Provenance).
+4. Beware of hype-driven projects and speculative bubbles.
+5. Study successful whitepapers (like Sia and Power Ledger) to learn best practices for blockchain startups.
+
+---
