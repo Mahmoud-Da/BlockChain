@@ -560,3 +560,98 @@ blockchain.add_transaction(
 Next step: Implement the **Add Transaction request** in detail.
 
 ---
+
+
+*** 61. Step 6 ***
+---
+
+# Lecture Notes – Part Two (Final Step): Mining the Blockchain
+
+## Recap of Previous Step
+
+* Created an address for the node on port **5000** (starting node before adding new ones).
+* Added the **transactions key** in the response of the mined block request.
+* Transactions were obtained using the `add_transaction` method from the Blockchain class.
+
+---
+
+## Final Task in Part Two
+
+* Implement a **POST request** to add a new transaction to the blockchain.
+
+---
+
+## GET vs POST Request
+
+* **GET request**: retrieves data without creating anything.
+
+  * Example: mining a block returns the newly mined block.
+* **POST request**: creates something and then returns a response.
+
+  * Example: posting a new transaction to the blockchain.
+
+---
+
+## Adding a Transaction (POST Request)
+
+1. **Purpose**:
+
+   * Add a transaction with three key details:
+
+     * `sender`
+     * `receiver`
+     * `amount`
+
+2. **Format**:
+
+   * A **JSON file** posted through Postman containing these keys and values.
+   * Example JSON:
+
+     -------------------code----------------------
+     {
+       "sender": "Adla",
+       "receiver": "Curiel",
+       "amount": 50000
+     }
+     -------------------code----------------------
+
+3. **Process**:
+
+   * Use the request library to get the JSON data (`request.get_json()`).
+   * Check that all required keys are present (`sender`, `receiver`, `amount`).
+
+     * If missing → return error message + **HTTP 400 (Bad Request)**.
+
+4. **If Valid Transaction**:
+
+   * Call the blockchain’s `add_transaction` method.
+   * This method returns the **index** of the block that will include the transaction.
+
+---
+
+## Returning the Response
+
+* Construct a response message, e.g.:
+
+  * `"This transaction will be added to Block {index}"`
+* Convert response into JSON (`jsonify(response)`).
+* Return with **HTTP 201 (Created)** to indicate successful POST creation.
+
+---
+
+## Summary of HTTP Status Codes Used
+
+* **400** → Bad request (missing keys).
+* **201** → Created (successful POST).
+
+---
+
+## Next Step (Preview of Part Three)
+
+* **Decentralization of the blockchain** by connecting multiple nodes.
+* New requests to implement:
+
+  1. **Connect Node Request** (POST) – to connect new nodes.
+  2. **Consensus Request** (GET) – to replace a node’s chain if it is not the most up-to-date.
+
+---
