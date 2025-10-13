@@ -895,3 +895,97 @@ In short: *Decentralizing our blockchain means letting multiple computers (nodes
 * Example: Sending AT coins between nodes.
 
 ---
+
+
+*** 64. Step 9 ***
+
+---
+
+# Lecture Notes – Preparing JSON Files and Servers for the Demo
+
+## 1. Purpose of This Step
+
+* Get everything ready for the **final demo** of the blockchain.
+* Prepare **two JSON files** to use in Postman:
+
+  1. **Nodes JSON file** → contains all node addresses.
+  2. **Transaction JSON file** → template for a transaction (sender, receiver, amount).
+* Prepare **three Python files** → each represents a server running on a different port, simulating three nodes in the decentralized blockchain.
+
+---
+
+## 2. JSON Files
+
+### a. Nodes JSON File (`node.json`)
+
+* Key: `"nodes"`
+* Value: list of addresses of the nodes in the network.
+* Example:
+
+-------------------code----------------------
+{
+  "nodes": [
+    "http://127.0.0.1:5001",
+    "http://127.0.0.1:5002",
+    "http://127.0.0.1:5003"
+  ]
+}
+-------------------code----------------------
+
+### b. Transaction JSON File (`transaction.json`)
+
+* Keys: `"sender"`, `"receiver"`, `"amount"`
+* Values: placeholders to be edited when sending in Postman.
+* Example:
+
+-------------------code----------------------
+{
+  "sender": "",
+  "receiver": "",
+  "amount": 10
+}
+-------------------code----------------------
+
+* Usage: copy and paste into Postman, then update with real values before sending the transaction request.
+
+---
+
+## 3. Preparing the Servers (Python Files)
+
+* Create **three Python files**, each running the blockchain app on a different port.
+* Each node has its own port and its own mining reward receiver.
+
+### Node 1 – Instructor (Port 5001)
+
+* File: `hadcoin_node_5001.py`
+* Port: `5001`
+* Mining reward receiver: Adelin
+
+### Node 2 – Kirill (Port 5002)
+
+* File: `hadcoin_node_5002.py`
+* Port: `5002`
+* Mining reward receiver: Kirill
+
+### Node 3 – You (Port 5003)
+
+* File: `hadcoin_node_5003.py`
+* Port: `5003`
+* Mining reward receiver: You
+
+---
+
+## 4. Final Check
+
+* **Nodes JSON file** → correctly lists all addresses.
+* **Transaction JSON file** → template ready for Postman.
+* **Three server files** → each with unique port and reward receiver.
+
+---
+
+## 5. Next Step
+
+* With these prepared, the blockchain is **100% ready for the demo**.
+* The demo will show transactions being made and blocks being mined between the three nodes.
+
+---
