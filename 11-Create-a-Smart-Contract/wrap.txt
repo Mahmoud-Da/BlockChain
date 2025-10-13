@@ -1,0 +1,92 @@
+*** 81. Step 1 ***
+---
+
+# Module 3: Create a Smart Contract
+
+## Objective
+
+* Build on module 2 (Hadcoins creation).
+* Launch an **ICO (Initial Coin Offering)** of 1,000,000 Hadcoins.
+* Provide a **buyback option** for investors to resell coins.
+* Secure the process with a **Solidity smart contract**.
+* Use user-friendly interfaces for interaction (similar to Postman in previous modules).
+
+---
+
+## Tools Required
+
+1. **Ganache**
+
+   * Local blockchain for Ethereum development.
+   * User-friendly interface.
+   * Features:
+
+     * Blocks and transactions overview.
+     * JavaScript Ethereum blockchain implementation.
+   * Installation:
+
+     * Download from Truffle’s official site (not the food “ganache”).
+     * Available for Mac, Windows, Linux.
+     * Provides TX count and mining simulation.
+
+2. **MyEtherWallet (MEW)**
+
+   * Ethereum-based wallet.
+   * Used for buying and selling Hadcoins in this module.
+   * Installation:
+
+     * Download latest release from GitHub.
+     * Use the ZIP file → contains `index.html` for local use.
+     * Place in course folder (Blockchain A–Z / Module 3).
+   * Key Points:
+
+     * Not a bank; fully decentralized.
+     * Users are solely responsible for private keys and passwords.
+     * Losing private keys = permanent loss of funds.
+     * Risk of phishing → entering private keys on fake websites will lead to theft.
+   * For this course: only simulated Hadcoins (no real monetary value).
+
+3. **Solidity (via Remix IDE)**
+
+   * Language used for smart contract development.
+   * No separate installation required.
+   * Access through browser at **Remix Solidity IDE**.
+   * Features:
+
+     * Write, compile, and deploy smart contracts.
+     * Create new file `hadcoinsico.sol`.
+     * Contract title: *Hadcoins ICO (Initial Hadcoin Offering)*.
+
+---
+
+## Additional Notes on Solidity
+
+* High-level programming language.
+* Influenced by **C++**, **Python**, and **JavaScript**.
+* Designed specifically for **Ethereum smart contracts**.
+* Documentation includes:
+
+  * Basics of blockchain and Ethereum Virtual Machine (EVM).
+  * Contract structures, types, functions, and mappings.
+  * Code examples with explanations.
+* Recommended resources:
+
+  * [Solidity documentation](https://soliditylang.org/)
+  * Solidity by Example (practical code snippets).
+
+---
+
+## Next Steps
+
+* Begin coding the Hadcoins ICO in Solidity using Remix.
+* Implement:
+
+  * ICO rules (1M Hadcoins issuance).
+  * Buyback mechanism.
+  * Secure transactions.
+* Demo will showcase:
+
+  * Interaction with Ganache.
+  * Usage of MyEtherWallet for purchasing/selling Hadcoins.
+
+---
