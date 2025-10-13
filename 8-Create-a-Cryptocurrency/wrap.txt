@@ -457,3 +457,106 @@ def replace_chain(self):
   * Adding more API endpoints to support blockchain operations.
 
 ---
+
+*** 60. Step 5 ***
+# Lecture Notes: Part Two – Mining Our Blockchain
+
+## Overview
+
+* Goal: Turn our blockchain into a **cryptocurrency**.
+* Focus:
+
+  1. Transactions
+  2. Nodes (introduction of node address)
+
+## Key Modifications in Part Two
+
+1. **Integrate Transactions** into the blockchain:
+
+   * When a block is mined, it must include all pending transactions.
+   * A new key (`Transactions`) will be added to each block to hold them.
+
+2. **Add a Request to Create Transactions**:
+
+   * Instead of a `GET` request, use a `POST` request.
+   * Transactions are sent in JSON format.
+   * The blockchain response will show which block the transaction was added to.
+
+---
+
+## Step 1: Node Address
+
+* Before mining transactions, we must create a **unique address for the node** (e.g., on port 5000).
+
+* **Why we need it**:
+
+  * **Mining reward**: When a miner mines a block, they receive cryptocurrency (like Bitcoin miners receiving BTC). This requires a transaction from the **node** to the **miner**.
+  * **Node identification**: Node addresses are used in the `add_node` method for networking and consensus.
+
+* **How to create it**:
+
+  * Use `UUID4` from Python’s `uuid` library.
+  * Convert it to a string.
+  * Remove dashes using `.replace("-", "")`.
+
+-------------------code----------------------
+node_address = str(uuid4()).replace('-', '')
+-------------------code----------------------
+
+---
+
+## Step 2: Modifying the `mine_block` Method
+
+Two key changes are required:
+
+### 1. Include Transactions in the Response
+
+* Add a new key in the block dictionary:
+
+  -------------------code----------------------
+  "transactions": block["transactions"]
+  -------------------code----------------------
+* Ensures mined blocks include all pending transactions.
+
+### 2. Add a Reward Transaction
+
+* When mining a block, the miner receives a reward.
+* Implement by calling the `add_transaction` method:
+
+-------------------code----------------------
+blockchain.add_transaction(
+    sender=node_address,
+    receiver="Miner_Name",  # e.g., Adella in the demo
+    amount=1  # reward in Ad Coins
+)
+-------------------code----------------------
+
+* **Explanation**:
+
+  * Sender: `node_address` (the system giving the reward).
+  * Receiver: The miner.
+  * Amount: A fixed reward (e.g., 1 Ad Coin).
+
+---
+
+## Step 3: Creating the “Add Transaction” Request
+
+* New endpoint: `add_transaction`.
+* Method: `POST`.
+* Input: JSON containing `sender`, `receiver`, and `amount`.
+* Purpose: Allow users to send transactions that will be included in future blocks.
+
+---
+
+## Summary of Part Two
+
+* Established **node address** for mining rewards.
+* Modified `mine_block` to:
+
+  * Include transactions.
+  * Reward miners.
+* Prepared for the **Add Transaction request** to allow posting transactions.
+
+Next step: Implement the **Add Transaction request** in detail.
+
+---
